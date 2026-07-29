@@ -14,7 +14,7 @@
             --pharaoh-blue: #0f2027;
             --pharaoh-blue-light: #203a43;
             --lapis-lazuli: #1034a6;
-            --dark-bg: #0b0c10;
+            --dark-bg: #07080a;
             --card-bg: #12141d;
             --text-light: #f4f4f4;
             --text-muted: #a0a5b5;
@@ -34,12 +34,17 @@
             color: var(--text-light);
             line-height: 1.7;
             overflow-x: hidden;
-            background-image: radial-gradient(circle at 50% 50%, rgba(32, 58, 67, 0.3) 0%, transparent 80%);
+            background-image: 
+                linear-gradient(rgba(7, 8, 10, 0.88), rgba(15, 32, 39, 0.92)),
+                url('https://images.unsplash.com/photo-1558591710-4b4a1ae0f04d?w=1920');
+            background-attachment: fixed;
+            background-size: cover;
+            background-position: center;
         }
 
         /* Pharaonic Border Accent */
         .pharaonic-border-top {
-            height: 5px;
+            height: 6px;
             background: linear-gradient(90deg, var(--gold-dark), var(--gold-light), var(--lapis-lazuli), var(--gold-light), var(--gold-dark));
         }
         
@@ -47,8 +52,8 @@
         .welcome-modal-overlay {
             position: fixed;
             top: 0; left: 0; right: 0; bottom: 0;
-            background: rgba(11, 12, 16, 0.92);
-            backdrop-filter: blur(10px);
+            background: rgba(7, 8, 10, 0.95);
+            backdrop-filter: blur(12px);
             z-index: 99999;
             display: flex;
             align-items: center;
@@ -64,7 +69,7 @@
             max-width: 550px;
             width: 100%;
             text-align: center;
-            box-shadow: 0 20px 60px rgba(0,0,0,0.8), var(--shadow-gold);
+            box-shadow: 0 20px 60px rgba(0,0,0,0.9), var(--shadow-gold);
             border: 2px solid var(--gold);
             position: relative;
             animation: slideUpWelcome 0.5s ease;
@@ -140,7 +145,7 @@
             position: fixed;
             top: 0;
             width: 100%;
-            background: rgba(11, 12, 16, 0.95);
+            background: rgba(7, 8, 10, 0.95);
             backdrop-filter: blur(12px);
             z-index: 1000;
             border-bottom: var(--border-gold);
@@ -218,7 +223,7 @@
             margin-top: 80px;
             height: 85vh;
             min-height: 600px;
-            background: linear-gradient(135deg, rgba(11,12,16,0.92) 0%, rgba(16,52,166,0.4) 100%), 
+            background: linear-gradient(135deg, rgba(7,8,10,0.85) 0%, rgba(16,52,166,0.3) 100%), 
                         url('https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=1920') center/cover;
             display: flex;
             align-items: center;
@@ -342,7 +347,7 @@
             margin: 0 auto;
             background: linear-gradient(145deg, #161922, #0d0f14);
             border-radius: 20px;
-            box-shadow: 0 15px 40px rgba(0,0,0,0.8), var(--shadow-gold);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.9), var(--shadow-gold);
             padding: 2rem;
             display: grid;
             grid-template-columns: repeat(4, 1fr) auto;
@@ -365,7 +370,7 @@
         
         .form-group select, .form-group input {
             padding: 12px 15px;
-            background: #0b0c10;
+            background: #07080a;
             border: 1px solid rgba(212, 175, 55, 0.3);
             border-radius: 12px;
             color: var(--text-light);
@@ -383,7 +388,7 @@
         /* Trade & Sell/Buy Section */
         .trade-section {
             padding: 5rem 5%;
-            background: linear-gradient(180deg, rgba(11,12,16,1) 0%, rgba(20, 24, 35, 1) 100%);
+            background: linear-gradient(180deg, rgba(7,8,10,0.9) 0%, rgba(18, 20, 29, 0.95) 100%);
             border-top: var(--border-gold);
             border-bottom: var(--border-gold);
         }
@@ -401,7 +406,7 @@
             border-radius: 24px;
             padding: 2.5rem;
             border: var(--border-gold);
-            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.6);
             transition: transform 0.3s ease;
             display: flex;
             flex-direction: column;
@@ -522,7 +527,7 @@
             border-radius: 20px;
             overflow: hidden;
             border: var(--border-gold);
-            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.6);
             transition: transform 0.4s, box-shadow 0.4s;
             cursor: pointer;
             position: relative;
@@ -635,7 +640,7 @@
 
         /* Electronic Devices Special Section Styling */
         .devices-section {
-            background: linear-gradient(180deg, rgba(16,52,166,0.15) 0%, rgba(11,12,16,0.9) 100%);
+            background: linear-gradient(180deg, rgba(16,52,166,0.15) 0%, rgba(7,8,10,0.95) 100%);
             border-top: var(--border-gold);
             border-bottom: var(--border-gold);
             padding: 5rem 0;
@@ -683,7 +688,7 @@
             display: flex;
             align-items: center;
             gap: 12px;
-            background: rgba(0,0,0,0.3);
+            background: rgba(0,0,0,0.4);
             padding: 12px 15px;
             border-radius: 12px;
             border: 1px solid rgba(212, 175, 55, 0.2);
@@ -778,7 +783,7 @@
         .contact-form input, .contact-form textarea, .contact-form select {
             width: 100%;
             padding: 14px 18px;
-            background: #0b0c10;
+            background: #07080a;
             border: 1px solid rgba(212, 175, 55, 0.3);
             border-radius: 12px;
             color: var(--text-light);
@@ -819,7 +824,7 @@
 
         /* Footer */
         .footer {
-            background: #07080a;
+            background: #040506;
             color: var(--text-light);
             padding: 4rem 5% 1.5rem;
             border-top: var(--border-gold);
@@ -1076,7 +1081,7 @@
             </div>
             <h3 class="welcome-title">أهلاً بك في الصرح الملكي للسادات 🏛️</h3>
             <p class="welcome-text">
-                حرصاً منا على تقديم تجربة فرعونية ملكية متكاملة، نعمل حالياً على <strong>تحديث وتطوير المنصة بشكل شامل</strong> لإضافة أرقى الفرص العقارية وسوق الأجهزة والموبايلات الحديثة بمدينة السادات.
+                حرصاً منا على تقديم تجربة فرعونية ملكية متكاملة للبيع والشراء، نرحب بكم في منصتكم الأولى بمدينة السادات لعقارات وأحدث الأجهزة والموبايلات.
             </p>
             <div class="welcome-greeting">
                 <i class="fa-solid fa-quote-right quote-icon" style="color:var(--gold); font-size:1.2rem;"></i>
@@ -1089,7 +1094,7 @@
     </div>
 
     <!-- Floating WhatsApp Button -->
-    <a href="https://wa.me/201009229464?text=%D0%B3%D0%B0%D0%BB%D0%B0%D0%BC%20%D8%B9%D9%84%D9%8A%D9%83%D9%85%20%D8%A3%D8%B3%D8%AA%D8%A7%D8%B0%20%D9%85%D8%AD%D9%85%D8%AF%20%D8%B5%D9%84%D8%A7%D8%AD%20%D8%A3%D8%A8%D9%88%20%D8%B7%D9%88%D8%A7%D9%84%D8%A9%D8%8C%20%D8%AD%D8%A7%D8%A8%D8%A8%20%D8%A3%D8%B3%D8%AA%D8%A1%D8%B3%D8%A7%D8%B1%20%D8%B9%D9%8BD" class="floating-wa" target="_blank" title="تواصل مع الملكية عبر الواتساب">
+    <a href="https://wa.me/201009229464?text=%D8%السلام%20عليكم%20أستاذ%20محمد%20صلاح%20أبو%20طوالة%D8%،%20ححابب%20أسئستفسر%20عن%20البيع%20والشراء" class="floating-wa" target="_blank" title="تواصل مع الملكية عبر الواتساب">
         <i class="fa-brands fa-whatsapp"></i>
     </a>
 
@@ -1099,7 +1104,7 @@
             <div class="logo">𓋹 السادات <span>الملكية</span></div>
             <ul class="nav-links" id="navLinks">
                 <li><a href="#home" class="active">الرئيسية</a></li>
-                <li><a href="#trade">بيع وشراء</a></li>
+                <li><a href="#trade">البيع والشراء</a></li>
                 <li><a href="#properties">العقارات الملكية</a></li>
                 <li><a href="#devices">الأجهزة والموبايلات</a></li>
                 <li><a href="#about">عن المنظومة</a></li>
@@ -1115,9 +1120,9 @@
         <div class="hero-content">
             <h1>عقارات وأجهزة بأعلى معايير الفخامة</h1>
             <div class="hero-subtitle">إدارة أ. محمد صلاح أبو طوالة</div>
-            <p>منصتك الشاملة بمدينة السادات: بيع، شراء، واستبدال (أراضي، شقق، فيلات، وأحدث الموبايلات والأجهزة) بأسعار موثوقة وضمان شامل</p>
+            <p>منصتك الشاملة بمدينة السادات: خدمات البيع والشراء الحصرية (أراضي، شقق، فيلات، وأحدث الموبايلات والأجهزة) بأسعار موثوقة وضمان شامل</p>
             <div class="hero-btns">
-                <a href="#trade" class="btn btn-gold"><i class="fa-solid fa-right-left"></i> ميزة البيع والشراء</a>
+                <a href="#trade" class="btn btn-gold"><i class="fa-solid fa-right-left"></i> خدمات البيع والشراء</a>
                 <a href="#properties" class="btn btn-outline-gold"><i class="fa-solid fa-building"></i> استكشف العقارات</a>
                 <a href="#devices" class="btn btn-outline-gold"><i class="fa-solid fa-mobile-screen-button"></i> سوق الأجهزة</a>
             </div>
@@ -1143,7 +1148,7 @@
                 <select id="searchPurpose">
                     <option value="all">الكل</option>
                     <option value="sale">بيع</option>
-                    <option value="rent">إيجار / استبدال</option>
+                    <option value="buy">شراء</option>
                 </select>
             </div>
             <div class="form-group">
@@ -1166,7 +1171,7 @@
     <section class="trade-section" id="trade">
         <div class="section-header">
             <h2>خدمة البيع والشراء المباشر</h2>
-            <p>سواء كنت ترغب في بيع ممتلكاتك أو البحث عن أفضل العروض للشرائ بأمان</p>
+            <p>سواء كنت ترغب في بيع ممتلكاتك أو البحث عن أفضل العروض للشراء بأمان وثقة</p>
         </div>
         <div class="trade-container">
             <!-- Sell Card -->
@@ -1187,10 +1192,10 @@
                     <div class="trade-card-icon">
                         <i class="fa-solid fa-cart-shopping"></i>
                     </div>
-                    <h3>طلب شراء أو استبدال خاص</h3>
-                    <p>تبحث عن مواصفات عقار محدد أو جهاز معني بمدينة السادات؟ قدم طلبك المباشر وسنقوم بتوفيره لك بأعلى جودة وأنسب سعر وضمان معتمد.</p>
+                    <h3>طلب شراء مباشر</h3>
+                    <p>تبحث عن مواصفات عقار محدد أو جهاز معني بمدينة السادات؟ قدم طلبك المباشر للشراء وسنقوم بتوفيره لك بأعلى جودة وأنسب سعر وضمان معتمد.</p>
                 </div>
-                <button class="btn btn-outline-gold" onclick="openTradeModal('buy')"><i class="fa-solid fa-bullhorn"></i> تقديم طلب شراء / استبدال</button>
+                <button class="btn btn-outline-gold" onclick="openTradeModal('buy')"><i class="fa-solid fa-bullhorn"></i> تقديم طلب شراء</button>
             </div>
         </div>
     </section>
@@ -1228,7 +1233,7 @@
     <!-- Properties Section -->
     <section class="grid-container" id="properties">
         <div class="section-header">
-            <h2>العروض العقارية الفاخرة</h2>
+            <h2>العروض العقارية الفاخرة للبيع والشراء</h2>
             <p>اختر من بين أرقى العقارات والفرص الاستثمارية بمدينة السادات</p>
         </div>
         
@@ -1249,7 +1254,7 @@
         <div class="grid-container">
             <div class="section-header">
                 <h2>مركز الأجهزة والموبايلات</h2>
-                <p>بيع، شراء، واستبدال أحدث الهواتف الذكية والأجهزة الكهربائية بمدينة السادات</p>
+                <p>خدمات البيع والشراء لأحدث الهواتف الذكية والأجهزة الكهربائية بمدينة السادات</p>
             </div>
 
             <div class="filter-tabs">
@@ -1270,19 +1275,19 @@
         <div class="about-container">
             <div class="about-content">
                 <h2>الريادة والعراقة في مدينة السادات</h2>
-                <p>تحت إدارة <strong>الأستاذ محمد صلاح أبو طوالة</strong>، نقدم تجربة استثمارية متكاملة بمدينة السادات تجمع بين التميز العقاري وتوفير أحدث التقنيات والأجهزة الإلكترونية بضمان كامل ومصداقية مطلقين.</p>
+                <p>تحت إدارة <strong>الأستاذ محمد صلاح أبو طوالة</strong>، نقدم خدمات متكاملة لعمليات البيع والشراء بمدينة السادات تجمع بين التميز العقاري وتجارة الأجهزة الإلكترونية بضمان كامل ومصداقية مطلقين.</p>
                 <div class="about-features">
                     <div class="about-feature-item">
                         <i class="fa-solid fa-certificate"></i>
-                        <span>عقود قانونية موثوقة</span>
+                        <span>عقود بيع وشراء موثوقة</span>
                     </div>
                     <div class="about-feature-item">
                         <i class="fa-solid fa-shield-halved"></i>
-                        <span>فحص ودراسة الفنيات</span>
+                        <span>فحص فني شامل</span>
                     </div>
                     <div class="about-feature-item">
                         <i class="fa-solid fa-handshake"></i>
-                        <span>خيارات تقسيط واستبدال</span>
+                        <span>أفضل أسعار السوق</span>
                     </div>
                     <div class="about-feature-item">
                         <i class="fa-solid fa-headset"></i>
@@ -1300,12 +1305,12 @@
     <section class="contact-section" id="contact">
         <div class="section-header">
             <h2>تواصل مع إدارة المؤسسة</h2>
-            <p>يسعدنا استقبال استفساراتكم وعروض البيع والشراء عبر كافة الوسائل</p>
+            <p>يسعدنا استقبال استفساراتكم وعروض البيع وطلبات الشراء عبر كافة الوسائل</p>
         </div>
         <div class="contact-grid">
             <div class="contact-info">
                 <h3>المكتب الرئيسي</h3>
-                <p>تواصل مباشر مع الأستاذ محمد صلاح أبو طوالة لمعاينات العقارات أو تقديم الأجهزة والموبايلات للبيع والاستبدال.</p>
+                <p>تواصل مباشر مع الأستاذ محمد صلاح أبو طوالة لمعاينات العقارات أو إتمام عمليات البيع والشراء للأجهزة والموبايلات.</p>
                 <div class="contact-details">
                     <div class="contact-item">
                         <div class="contact-icon"><i class="fa-solid fa-user-tie"></i></div>
@@ -1331,7 +1336,7 @@
                 </div>
             </div>
             <div class="contact-form">
-                <h3>إرسال طلب / استفسار سريع</h3>
+                <h3>إرسال طلب بيع أو شراء سريع</h3>
                 <form onsubmit="handleSubmit(event)">
                     <div class="form-row">
                         <div class="form-group">
@@ -1346,11 +1351,11 @@
                             <option value="عرض عقار للبيع">عرض عقار للبيع</option>
                             <option value="طلب شراء عقار">طلب شراء عقار</option>
                             <option value="عرض جهاز / موبايل للبيع">عرض جهاز / موبايل للبيع</option>
-                            <option value="شراء / استبدال موبايل">شراء / استبدال موبايل</option>
+                            <option value="طلب شراء موبايل / جهاز">طلب شراء موبايل / جهاز</option>
                         </select>
                     </div>
                     <div class="form-group">
-                        <textarea id="contactMsg" placeholder="اكتب التفاصيل هنا (المواصفات، السعر المطلوب، الموقع)..." required></textarea>
+                        <textarea id="contactMsg" placeholder="اكتب التفاصيل هنا (المواصفات، السعر المطلوب أو المعروض، الموقع)..." required></textarea>
                     </div>
                     <button type="submit" class="btn btn-gold" style="width: 100%;"><i class="fa-brands fa-whatsapp"></i> إرسال عبر الواتساب فوراً</button>
                 </form>
@@ -1363,7 +1368,7 @@
         <div class="footer-grid">
             <div class="footer-brand">
                 <div class="logo">𓋹 السادات <span>الملكية</span></div>
-                <p>مؤسسة الأستاذ <strong>محمد صلاح أبو طوالة</strong> للتسويق العقاري وتجارة الأجهزة الذكية والكهربائية بمدينة السادات.</p>
+                <p>مؤسسة الأستاذ <strong>محمد صلاح أبو طوالة</strong> لخدمات البيع والشراء العقاري وتجارة الأجهزة الذكية والكهربائية بمدينة السادات.</p>
             </div>
             <div class="footer-links">
                 <h4>روابط سريعة</h4>
@@ -1378,7 +1383,7 @@
             <div class="footer-links">
                 <h4>خدماتنا</h4>
                 <ul>
-                    <li><a href="#trade">عرض عقارات / أجهزة للبيع</a></li>
+                    <li><a href="#trade">بيع وشراء العقارات</a></li>
                     <li><a href="#properties">أراضي وشقق وفيلات</a></li>
                     <li><a href="#devices">بيع وشراء الموبايلات</a></li>
                     <li><a href="#devices">أجهزة منزلية ولابتوبات</a></li>
@@ -1422,7 +1427,7 @@
                         <p id="modalFullDesc" style="color:var(--text-muted); line-height: 1.8;"></p>
                     </div>
                     <div class="contact-form" style="padding: 1.5rem;">
-                        <h3 style="font-size: 1.2rem;">تأكيد الطلب / المعاينة</h3>
+                        <h3 style="font-size: 1.2rem;">تأكيد طلب البيع / الشراء</h3>
                         <form onsubmit="handleInquiry(event)">
                             <div class="form-group">
                                 <input type="text" id="inquiryName" placeholder="الاسم" required>
@@ -1447,11 +1452,11 @@
                 <form onsubmit="handleTradeSubmit(event)">
                     <div class="form-group" style="margin-bottom:1rem;">
                         <label style="color:var(--gold); font-weight: bold; margin-bottom: 5px; display:block;">نوع الخدمة</label>
-                        <select id="tradeCategory" onchange="updateTradeFields()">
+                        <select id="tradeCategory">
                             <option value="عرض بيع - عقار">عرض عقار للبيع 🏢</option>
                             <option value="طلب شراء - عقار">طلب شراء عقار 🔑</option>
                             <option value="عرض بيع - جهاز/موبايل">عرض جهاز / موبايل للبيع 📱</option>
-                            <option value="طلب شراء/استبدال - جهاز">طلب شراء أو استبدال جهاز/موبايل 🔄</option>
+                            <option value="طلب شراء - جهاز/موبايل">طلب شراء جهاز / موبايل 🛒</option>
                         </select>
                     </div>
                     <div class="form-row">
@@ -1466,10 +1471,10 @@
                         <input type="text" id="tradeItemTitle" placeholder="عنوان العقار / اسم الجهاز" required>
                     </div>
                     <div class="form-group" style="margin-bottom:1rem;">
-                        <input type="text" id="tradePrice" placeholder="السعر المتوقع / الميزانية (ج.م)">
+                        <input type="text" id="tradePrice" placeholder="السعر المطلوب / الميزانية (ج.م)">
                     </div>
                     <div class="form-group" style="margin-bottom:1.5rem;">
-                        <textarea id="tradeDetails" placeholder="تفاصيل إضافية (الموقع، الحالة، المواصفات، فترة السداد)..." required></textarea>
+                        <textarea id="tradeDetails" placeholder="تفاصيل إضافية (الموقع، الحالة، المواصفات)..." required></textarea>
                     </div>
                     <button type="submit" class="btn btn-gold" style="width: 100%;"><i class="fa-brands fa-whatsapp"></i> إرسال الطلب لإدارة المؤسسة</button>
                 </form>
@@ -1544,9 +1549,9 @@
                 condition: "كسر زيرو (جديد)",
                 location: "مكتب السادات - استلام فوري",
                 image: "https://images.unsplash.com/photo-1695048133142-1a20484d2569?w=800",
-                badge: "متوفر للبيع / الاستبدال",
+                badge: "للبيع",
                 desc: "حالة البطارية 99%، مع كافة المشتملات والعلبة الأصلية.",
-                fullDesc: "هاتف iPhone 15 Pro Max لون طبيعي titanium، استخدام خفيف جداً بدون أي خدوش، ضمان ساري، متاح البيع أو الاستبدال بأجهزة أقل مع دفع الفرق."
+                fullDesc: "هاتف iPhone 15 Pro Max لون طبيعي titanium، استخدام خفيف جداً بدون أي خدوش، ضمان ساري، متاح للبيع الفوري."
             },
             {
                 id: 102,
@@ -1558,7 +1563,7 @@
                 image: "https://images.unsplash.com/photo-1610945265064-0e34e5519bbf?w=800",
                 badge: "جديد بالضمان",
                 desc: "نسخة 512 جيجا مع رام 12 جيجا، ضمان محلي سنتين.",
-                fullDesc: "هاتف Samsung Galaxy S24 Ultra جديد تماماً بالعلبة الأصلية، ضمان المحلي، مع قلم S-Pen وكافة الملحقات."
+                fullDesc: "هاتف Samsung Galaxy S24 Ultra جديد تماماً بالعلبة الأصلية، ضمان المحل، مع قلم S-Pen وكافة الملحقات."
             },
             {
                 id: 103,
@@ -1721,7 +1726,7 @@
                 title.textContent = "تقديم عرض بيع عقار أو جهاز";
                 catSelect.value = "عرض بيع - عقار";
             } else if (mode === 'buy') {
-                title.textContent = "تقديم طلب شراء أو استبدال";
+                title.textContent = "تقديم طلب شراء";
                 catSelect.value = "طلب شراء - عقار";
             } else {
                 title.textContent = "خدمة البيع والشراء المباشر";
@@ -1745,7 +1750,7 @@
             const price = document.getElementById('tradePrice').value;
             const details = document.getElementById('tradeDetails').value;
 
-            const text = `السلام عليكم أستاذ محمد صلاح أبو طوالة 👋%0Aطلب جديد للبيع والشرائ من المنصة:%0A%0A📌 *النوع:* ${category}%0A👤 *الاسم:* ${name}%0A📞 *الهاتف:* ${phone}%0A🏷️ *العنصر/العقار:* ${title}%0A💰 *السعر/الميزانية:* ${price ? price + ' ج.م' : 'غير محدد'}%0A📝 *التفاصيل:* ${details}`;
+            const text = `السلام عليكم أستاذ محمد صلاح أبو طوالة 👋%0Aطلب جديد للبيع والشراء من المنصة:%0A%0A📌 *النوع:* ${category}%0A👤 *الاسم:* ${name}%0A📞 *الهاتف:* ${phone}%0A🏷️ *العنصر/العقار:* ${title}%0A💰 *السعر/الميزانية:* ${price ? price + ' ج.م' : 'غير محدد'}%0A📝 *التفاصيل:* ${details}`;
             
             window.open(`https://wa.me/201009229464?text=${text}`, '_blank');
             e.target.reset();
@@ -1770,7 +1775,7 @@
             const name = document.getElementById('inquiryName').value;
             const phone = document.getElementById('inquiryPhone').value;
 
-            const text = `السلام عليكم أستاذ محمد صلاح أبو طوالة 👋%0Aأود الاستفسار والتواصل بخصوص:%0A👑 *العنصر:* ${selectedItemTitle}%0A👤 *الاسم:* ${name}%0A📞 *الهاتف:* ${phone}`;
+            const text = `السلام عليكم أستاذ محمد صلاح أبو طوالة 👋%0Aأود الاستفسار والتواصل بخصوص عملية البيع والشراء لـ:%0A👑 *العنصر:* ${selectedItemTitle}%0A👤 *الاسم:* ${name}%0A📞 *الهاتف:* ${phone}`;
             window.open(`https://wa.me/201009229464?text=${text}`, '_blank');
             e.target.reset();
             closeModal();
