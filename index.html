@@ -15,11 +15,11 @@
             --pharaoh-blue-light: #203a43;
             --lapis-lazuli: #1034a6;
             --dark-bg: #07080a;
-            --card-bg: #12141d;
+            --card-bg: rgba(18, 20, 29, 0.92);
             --text-light: #f4f4f4;
-            --text-muted: #a0a5b5;
-            --shadow-gold: 0 5px 25px rgba(212, 175, 55, 0.25);
-            --border-gold: 1px solid rgba(212, 175, 55, 0.4);
+            --text-muted: #d0d4e5;
+            --shadow-gold: 0 5px 25px rgba(212, 175, 55, 0.35);
+            --border-gold: 1px solid rgba(212, 175, 55, 0.5);
         }
         
         * {
@@ -30,12 +30,13 @@
         
         body {
             font-family: 'Cairo', sans-serif;
-            background-color: var(--dark-bg);
             color: var(--text-light);
             line-height: 1.7;
             overflow-x: hidden;
+            /* خلفية فرعونية فخمة بالكامل للموقع ككل */
+            background-color: #07080a;
             background-image: 
-                linear-gradient(rgba(7, 8, 10, 0.88), rgba(15, 32, 39, 0.92)),
+                linear-gradient(rgba(7, 8, 10, 0.85), rgba(15, 32, 39, 0.88)),
                 url('https://images.unsplash.com/photo-1558591710-4b4a1ae0f04d?w=1920');
             background-attachment: fixed;
             background-size: cover;
@@ -145,7 +146,7 @@
             position: fixed;
             top: 0;
             width: 100%;
-            background: rgba(7, 8, 10, 0.95);
+            background: rgba(7, 8, 10, 0.92);
             backdrop-filter: blur(12px);
             z-index: 1000;
             border-bottom: var(--border-gold);
@@ -223,7 +224,7 @@
             margin-top: 80px;
             height: 85vh;
             min-height: 600px;
-            background: linear-gradient(135deg, rgba(7,8,10,0.85) 0%, rgba(16,52,166,0.3) 100%), 
+            background: linear-gradient(135deg, rgba(7,8,10,0.8) 0%, rgba(16,52,166,0.25) 100%), 
                         url('https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=1920') center/cover;
             display: flex;
             align-items: center;
@@ -345,7 +346,7 @@
         .search-box {
             max-width: 1200px;
             margin: 0 auto;
-            background: linear-gradient(145deg, #161922, #0d0f14);
+            background: linear-gradient(145deg, rgba(22, 25, 34, 0.95), rgba(13, 15, 20, 0.95));
             border-radius: 20px;
             box-shadow: 0 15px 40px rgba(0,0,0,0.9), var(--shadow-gold);
             padding: 2rem;
@@ -354,6 +355,7 @@
             gap: 1.2rem;
             align-items: end;
             border: var(--border-gold);
+            backdrop-filter: blur(10px);
         }
         
         .form-group {
@@ -370,7 +372,7 @@
         
         .form-group select, .form-group input {
             padding: 12px 15px;
-            background: #07080a;
+            background: rgba(7, 8, 10, 0.8);
             border: 1px solid rgba(212, 175, 55, 0.3);
             border-radius: 12px;
             color: var(--text-light);
@@ -388,9 +390,10 @@
         /* Trade & Sell/Buy Section */
         .trade-section {
             padding: 5rem 5%;
-            background: linear-gradient(180deg, rgba(7,8,10,0.9) 0%, rgba(18, 20, 29, 0.95) 100%);
+            background: rgba(7, 8, 10, 0.75);
             border-top: var(--border-gold);
             border-bottom: var(--border-gold);
+            backdrop-filter: blur(5px);
         }
 
         .trade-container {
@@ -411,6 +414,7 @@
             display: flex;
             flex-direction: column;
             justify-content: space-between;
+            backdrop-filter: blur(10px);
         }
 
         .trade-card:hover {
@@ -463,6 +467,7 @@
             padding: 2rem 1rem;
             border-radius: 20px;
             transition: transform 0.3s;
+            backdrop-filter: blur(10px);
         }
 
         .stat-card:hover {
@@ -500,6 +505,7 @@
             font-weight: 700;
             font-family: 'Cairo', sans-serif;
             transition: all 0.3s;
+            backdrop-filter: blur(10px);
         }
         
         .filter-tab.active, .filter-tab:hover {
@@ -533,6 +539,7 @@
             position: relative;
             display: flex;
             flex-direction: column;
+            backdrop-filter: blur(10px);
         }
         
         .card-item:hover {
@@ -640,18 +647,20 @@
 
         /* Electronic Devices Special Section Styling */
         .devices-section {
-            background: linear-gradient(180deg, rgba(16,52,166,0.15) 0%, rgba(7,8,10,0.95) 100%);
+            background: rgba(15, 32, 39, 0.7);
             border-top: var(--border-gold);
             border-bottom: var(--border-gold);
             padding: 5rem 0;
+            backdrop-filter: blur(5px);
         }
 
         /* About Section */
         .about-section {
             padding: 6rem 5%;
-            background: linear-gradient(135deg, var(--pharaoh-blue-light) 0%, var(--pharaoh-blue) 100%);
+            background: rgba(32, 58, 67, 0.85);
             border-top: var(--border-gold);
             border-bottom: var(--border-gold);
+            backdrop-filter: blur(8px);
         }
         
         .about-container {
@@ -688,7 +697,7 @@
             display: flex;
             align-items: center;
             gap: 12px;
-            background: rgba(0,0,0,0.4);
+            background: rgba(0,0,0,0.5);
             padding: 12px 15px;
             border-radius: 12px;
             border: 1px solid rgba(212, 175, 55, 0.2);
@@ -762,6 +771,7 @@
             border-radius: 24px;
             border: var(--border-gold);
             box-shadow: 0 15px 40px rgba(0,0,0,0.6);
+            backdrop-filter: blur(10px);
         }
         
         .contact-form h3 {
@@ -783,7 +793,7 @@
         .contact-form input, .contact-form textarea, .contact-form select {
             width: 100%;
             padding: 14px 18px;
-            background: #07080a;
+            background: rgba(7, 8, 10, 0.8);
             border: 1px solid rgba(212, 175, 55, 0.3);
             border-radius: 12px;
             color: var(--text-light);
@@ -824,10 +834,11 @@
 
         /* Footer */
         .footer {
-            background: #040506;
+            background: rgba(4, 5, 6, 0.95);
             color: var(--text-light);
             padding: 4rem 5% 1.5rem;
             border-top: var(--border-gold);
+            backdrop-filter: blur(10px);
         }
         
         .footer-grid {
@@ -908,6 +919,7 @@
             position: relative;
             border: var(--border-gold);
             box-shadow: var(--shadow-gold);
+            backdrop-filter: blur(15px);
         }
         
         .modal-close {
@@ -1040,7 +1052,7 @@
                 top: 80px;
                 right: 0;
                 width: 100%;
-                background: var(--dark-bg);
+                background: rgba(7, 8, 10, 0.98);
                 flex-direction: column;
                 padding: 2rem;
                 border-bottom: var(--border-gold);
