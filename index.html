@@ -26,7 +26,7 @@
 
         * {
             box-sizing: border-box;
-            transition: all 0.25s ease-in-out;
+            transition: all 0.2s ease-in-out;
         }
 
         body {
@@ -36,11 +36,11 @@
             overflow-x: hidden;
         }
 
-        /* Top Bar & Navbar */
+        /* Top Bar & Navbar Mobile Fixes */
         .top-navbar {
             background: #ffffff;
             border-bottom: 2px solid var(--pharaonic-gold);
-            padding: 12px 0;
+            padding: 10px 0;
             box-shadow: 0 4px 15px rgba(0,0,0,0.04);
             position: sticky;
             top: 0;
@@ -49,7 +49,7 @@
 
         .brand-logo-loqta {
             font-weight: 900;
-            font-size: 2.2rem;
+            font-size: 1.8rem;
             color: var(--pharaonic-blue);
             text-decoration: none;
             display: inline-flex;
@@ -57,9 +57,11 @@
             gap: 6px;
         }
 
-        .brand-logo-loqta span {
-            color: var(--pharaonic-gold);
+        @media (min-width: 768px) {
+            .brand-logo-loqta { font-size: 2.2rem; }
         }
+
+        .brand-logo-loqta span { color: var(--pharaonic-gold); }
 
         .nav-link-custom {
             color: var(--text-dark);
@@ -79,44 +81,53 @@
             color: #ffffff !important;
             font-weight: 700;
             border-radius: 10px;
-            padding: 9px 20px;
-            font-size: 0.88rem;
+            padding: 7px 14px;
+            font-size: 0.8rem;
             text-decoration: none;
             box-shadow: 0 4px 14px rgba(37, 99, 235, 0.3);
+            white-space: nowrap;
         }
 
-        .btn-add-free-ad:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 6px 18px rgba(37, 99, 235, 0.45);
+        @media (min-width: 576px) {
+            .btn-add-free-ad {
+                padding: 9px 20px;
+                font-size: 0.88rem;
+            }
         }
 
-        /* Hero Box */
+        /* Hero Box Responsive */
         .hero-card-box {
             background: #ffffff;
             border-radius: 20px;
-            padding: 32px;
+            padding: 20px;
             border: 1px solid var(--card-border);
             box-shadow: 0 6px 25px rgba(0,0,0,0.03);
             position: relative;
             overflow: hidden;
         }
 
+        @media (min-width: 768px) {
+            .hero-card-box { padding: 32px; }
+        }
+
         .hero-headline {
             font-weight: 900;
-            font-size: 2.5rem;
+            font-size: 1.8rem;
             color: var(--pharaonic-blue);
             line-height: 1.3;
         }
 
-        .hero-headline span {
-            color: var(--primary-accent);
+        @media (min-width: 768px) {
+            .hero-headline { font-size: 2.5rem; }
         }
+
+        .hero-headline span { color: var(--primary-accent); }
 
         /* Feature Card (لماذا لقطة؟) */
         .why-us-card {
             background: #ffffff;
             border-radius: 20px;
-            padding: 24px;
+            padding: 20px;
             border: 1px solid var(--card-border);
             height: 100%;
             border-top: 4px solid var(--pharaonic-gold);
@@ -127,56 +138,64 @@
             display: flex;
             align-items: center;
             justify-content: space-between;
-            margin-bottom: 18px;
+            margin-bottom: 14px;
         }
 
         .why-us-item:last-child { margin-bottom: 0; }
 
         .why-icon-box {
-            width: 40px;
-            height: 40px;
-            border-radius: 12px;
+            width: 36px;
+            height: 36px;
+            border-radius: 10px;
             background: rgba(212, 175, 55, 0.12);
             color: var(--pharaonic-gold);
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 1.15rem;
+            font-size: 1rem;
+            flex-shrink: 0;
         }
 
-        /* Search Bar */
+        /* Search Bar Responsive */
         .abt-search-wrapper {
             background: #ffffff;
             border: 1px solid var(--card-border);
             border-radius: 14px;
             padding: 10px;
             box-shadow: 0 8px 24px rgba(0,0,0,0.05);
-            margin-top: 25px;
+            margin-top: 18px;
         }
 
         .search-field-abt {
-            border-left: 1px solid #e2e8f0;
-            padding: 4px 12px;
+            padding: 6px 8px;
+            border-bottom: 1px solid #e2e8f0;
         }
 
-        .search-field-abt:last-child { border-left: none; }
+        @media (min-width: 768px) {
+            .search-field-abt {
+                border-bottom: none;
+                border-left: 1px solid #e2e8f0;
+                padding: 4px 12px;
+            }
+            .search-field-abt:last-child { border-left: none; }
+        }
 
         .search-field-abt input, .search-field-abt select {
             border: none;
             outline: none;
             width: 100%;
-            font-size: 0.9rem;
+            font-size: 0.88rem;
             font-weight: 700;
             background: transparent;
             color: var(--text-dark);
         }
 
-        /* Categories Row */
+        /* Categories Mobile Grid Fix */
         .category-item-abt {
             background: #ffffff;
             border: 1px solid var(--card-border);
             border-radius: 16px;
-            padding: 18px 10px;
+            padding: 12px 6px;
             text-align: center;
             text-decoration: none;
             color: var(--text-dark);
@@ -187,49 +206,58 @@
 
         .category-item-abt:hover {
             border-color: var(--pharaonic-gold);
-            transform: translateY(-5px);
-            box-shadow: 0 10px 22px rgba(212, 175, 55, 0.2);
+            transform: translateY(-3px);
             color: var(--pharaonic-blue);
         }
 
         .category-icon-circle {
-            width: 48px;
-            height: 48px;
+            width: 42px;
+            height: 42px;
             border-radius: 50%;
             background: #f8fafc;
             color: var(--primary-accent);
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            font-size: 1.25rem;
-            margin-bottom: 8px;
+            font-size: 1.1rem;
+            margin-bottom: 6px;
             border: 1px solid #e2e8f0;
         }
 
-        /* Filter Chips */
+        /* Filter Chips Horizontal Scroll on Mobile */
+        .filter-chips-wrapper {
+            display: flex;
+            gap: 8px;
+            overflow-x: auto;
+            padding-bottom: 6px;
+            -webkit-overflow-scrolling: touch;
+        }
+
+        .filter-chips-wrapper::-webkit-scrollbar { display: none; }
+
         .filter-chip-btn {
             border: 1px solid var(--card-border);
             background: #fff;
             color: var(--text-dark);
             font-weight: 700;
-            font-size: 0.85rem;
-            padding: 7px 18px;
+            font-size: 0.8rem;
+            padding: 6px 14px;
             border-radius: 30px;
             cursor: pointer;
+            white-space: nowrap;
         }
 
         .filter-chip-btn.active, .filter-chip-btn:hover {
             background: var(--pharaonic-blue);
             color: #fff;
             border-color: var(--pharaonic-blue);
-            box-shadow: 0 4px 12px rgba(15, 43, 72, 0.2);
         }
 
-        /* Product Cards */
+        /* Product Cards Responsive */
         .abt-product-card {
             background: #ffffff;
             border: 1px solid var(--card-border);
-            border-radius: 18px;
+            border-radius: 16px;
             overflow: hidden;
             height: 100%;
             display: flex;
@@ -237,36 +265,29 @@
             position: relative;
         }
 
-        .abt-product-card:hover {
-            box-shadow: 0 14px 30px rgba(0,0,0,0.1);
-            border-color: var(--pharaonic-gold);
-            transform: translateY(-4px);
-        }
-
         .abt-card-img {
             position: relative;
-            height: 180px;
+            height: 140px;
             background: #f1f5f9;
             overflow: hidden;
+        }
+
+        @media (min-width: 576px) {
+            .abt-card-img { height: 170px; }
         }
 
         .abt-card-img img {
             width: 100%;
             height: 100%;
             object-fit: cover;
-            transition: transform 0.4s ease;
-        }
-
-        .abt-product-card:hover .abt-card-img img {
-            transform: scale(1.06);
         }
 
         .fav-heart-btn {
             position: absolute;
-            top: 10px;
-            right: 10px;
-            width: 34px;
-            height: 34px;
+            top: 8px;
+            right: 8px;
+            width: 28px;
+            height: 28px;
             border-radius: 50%;
             background: rgba(255, 255, 255, 0.92);
             border: none;
@@ -274,19 +295,18 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 0.92rem;
+            font-size: 0.8rem;
             cursor: pointer;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.12);
             z-index: 2;
         }
 
         .badge-status {
             position: absolute;
-            top: 10px;
-            left: 10px;
-            font-size: 10px;
+            top: 8px;
+            left: 8px;
+            font-size: 9px;
             font-weight: 800;
-            padding: 4px 10px;
+            padding: 3px 8px;
             border-radius: 6px;
             color: #fff;
             z-index: 2;
@@ -294,19 +314,10 @@
 
         .badge-status.featured { background: #10b981; }
         .badge-status.new { background: var(--primary-accent); }
-        .badge-status.flash {
-            background: linear-gradient(135deg, #f59e0b, #d97706);
-            animation: pulse-badge 1.5s infinite;
-        }
-
-        @keyframes pulse-badge {
-            0% { transform: scale(1); }
-            50% { transform: scale(1.05); }
-            100% { transform: scale(1); }
-        }
+        .badge-status.flash { background: linear-gradient(135deg, #f59e0b, #d97706); }
 
         .abt-card-body {
-            padding: 16px;
+            padding: 12px;
             flex-grow: 1;
             display: flex;
             flex-direction: column;
@@ -314,28 +325,28 @@
         }
 
         .abt-card-title {
-            font-size: 0.95rem;
+            font-size: 0.88rem;
             font-weight: 800;
             color: var(--text-dark);
-            margin-bottom: 6px;
+            margin-bottom: 4px;
         }
 
         .abt-card-price {
             color: #10b981;
             font-weight: 900;
-            font-size: 1.05rem;
+            font-size: 0.95rem;
         }
 
         .action-btns-group {
             display: flex;
-            gap: 6px;
+            gap: 4px;
         }
 
         .btn-call-quick, .btn-whatsapp-quick {
             border: none;
-            border-radius: 8px;
-            padding: 5px 10px;
-            font-size: 0.8rem;
+            border-radius: 6px;
+            padding: 4px 8px;
+            font-size: 0.75rem;
             font-weight: 700;
             color: #fff;
             display: inline-flex;
@@ -346,35 +357,35 @@
         .btn-whatsapp-quick { background: #25d366; }
         .btn-call-quick { background: var(--pharaonic-blue); }
 
-        /* Bottom Banner */
+        /* Bottom Banner Responsive */
         .bottom-banner-abt {
             background: linear-gradient(135deg, var(--pharaonic-dark) 0%, var(--pharaonic-blue) 100%);
             border-top: 3px solid var(--pharaonic-gold);
             color: #ffffff;
-            border-radius: 20px;
-            padding: 32px;
-            margin-top: 50px;
-            margin-bottom: 35px;
-            box-shadow: 0 10px 30px rgba(7, 19, 32, 0.15);
+            border-radius: 18px;
+            padding: 24px;
+            margin-top: 35px;
+            margin-bottom: 25px;
         }
 
         /* Footer */
         footer {
             background: var(--pharaonic-dark);
             color: #ffffff;
-            padding: 28px 0;
+            padding: 24px 0;
             border-top: 1px solid rgba(212, 175, 55, 0.3);
-            font-size: 0.88rem;
+            font-size: 0.82rem;
         }
 
         .pharaonic-owner-tag {
             background: rgba(212, 175, 55, 0.15);
             border: 1px solid var(--pharaonic-gold);
             color: var(--pharaonic-gold-light);
-            padding: 6px 22px;
+            padding: 5px 18px;
             border-radius: 30px;
             display: inline-block;
             font-weight: 700;
+            font-size: 0.85rem;
         }
     </style>
 </head>
@@ -385,7 +396,7 @@
         <div class="container d-flex justify-content-between align-items-center">
             
             <a href="#" class="brand-logo-loqta">
-                <i class="fa-solid fa-ankh text-warning fs-3"></i>
+                <i class="fa-solid fa-ankh text-warning"></i>
                 لقطة<span>.</span>
             </a>
 
@@ -398,17 +409,17 @@
                 <a href="#" class="nav-link-custom">اتصل بنا</a>
             </div>
 
-            <div class="d-flex align-items-center gap-3">
+            <div class="d-flex align-items-center gap-2 gap-sm-3">
                 <a href="#" class="text-dark text-decoration-none fw-bold small d-none d-sm-inline"><i class="fa-regular fa-heart me-1 text-danger"></i> المفضلة</a>
-                <a href="#" class="text-dark text-decoration-none fw-bold small"><i class="fa-regular fa-user me-1"></i> دخول / حسابي</a>
-                <a href="#" class="btn-add-free-ad"><i class="fa-solid fa-plus me-1"></i> أضف إعلانك مجاناً</a>
+                <a href="#" class="text-dark text-decoration-none fw-bold small"><i class="fa-regular fa-user me-1"></i> دخول</a>
+                <a href="#" class="btn-add-free-ad"><i class="fa-solid fa-plus me-1"></i> أضف إعلانك</a>
             </div>
 
         </div>
     </header>
 
     <!-- Main Container -->
-    <div class="container my-4">
+    <div class="container my-3 my-md-4">
 
         <!-- Upper Banner Row (Hero + Why Us) -->
         <div class="row g-3 align-items-stretch">
@@ -418,25 +429,25 @@
                 <div class="hero-card-box h-100 d-flex flex-column justify-content-between">
                     <div class="row align-items-center">
                         <div class="col-md-7">
-                            <span class="badge mb-2 px-3 py-1.5" style="background: rgba(212, 175, 55, 0.15); color: var(--pharaonic-gold); font-size:11px; border:1px solid var(--pharaonic-gold);">⚡المنصه قيد التطوير</span>
+                            <span class="badge mb-2 px-3 py-1.5" style="background: rgba(212, 175, 55, 0.15); color: var(--pharaonic-gold); font-size:10px; border:1px solid var(--pharaonic-gold);">⚡ المنصه قيد التطوير</span>
                             <h1 class="hero-headline mb-2">كل اللي محتاجه... <br><span>في مكان واحد</span></h1>
                             <p class="text-muted small mb-3">تصفح بمرونة وسهولة آلاف الصفقات والعروض المتميزة في جميع الأقسام والمدن.</p>
                         </div>
                         <div class="col-md-5 text-center d-none d-md-block">
-                            <img src="https://cdni.iconscout.com/illustration/premium/thumb/online-shopping-app-illustration-download-in-svg-png-gif-file-formats--mobile-store-e-commerce-pack-network-communication-illustrations-4712030.png" alt="لقطة" style="max-width: 100%; max-height:180px;">
+                            <img src="https://cdni.iconscout.com/illustration/premium/thumb/online-shopping-app-illustration-download-in-svg-png-gif-file-formats--mobile-store-e-commerce-pack-network-communication-illustrations-4712030.png" alt="لقطة" style="max-width: 100%; max-height:170px;">
                         </div>
                     </div>
 
                     <!-- Search Bar Integrated in Hero -->
                     <div class="abt-search-wrapper">
                         <form onsubmit="event.preventDefault();">
-                            <div class="row g-1 align-items-center">
-                                <div class="col-md-5">
+                            <div class="row g-2 align-items-center">
+                                <div class="col-12 col-md-5">
                                     <div class="search-field-abt">
                                         <input type="text" placeholder="🔍 بتدور على إيه النهاردة؟">
                                     </div>
                                 </div>
-                                <div class="col-md-3">
+                                <div class="col-6 col-md-3">
                                     <div class="search-field-abt">
                                         <select>
                                             <option value="">جميع الأقسام</option>
@@ -447,7 +458,7 @@
                                         </select>
                                     </div>
                                 </div>
-                                <div class="col-md-3">
+                                <div class="col-6 col-md-3">
                                     <div class="search-field-abt">
                                         <select>
                                             <option value="">كل المناطق</option>
@@ -458,7 +469,7 @@
                                         </select>
                                     </div>
                                 </div>
-                                <div class="col-md-1">
+                                <div class="col-12 col-md-1">
                                     <button class="btn btn-primary w-100 py-2 fw-bold" style="background: var(--primary-accent); border:none; border-radius:8px;"><i class="fa-solid fa-magnifying-glass"></i></button>
                                 </div>
                             </div>
@@ -471,14 +482,14 @@
             <!-- Why Us Right Box (لماذا لقطة؟) -->
             <div class="col-lg-4">
                 <div class="why-us-card">
-                    <h5 class="fw-bold mb-3" style="color:var(--pharaonic-blue);"><i class="fa-solid fa-crown text-warning me-1"></i> لماذا منصة لقطة؟</h5>
+                    <h5 class="fw-bold mb-3" style="color:var(--pharaonic-blue); font-size:1.1rem;"><i class="fa-solid fa-crown text-warning me-1"></i> لماذا منصة لقطة؟</h5>
                     
                     <div class="why-us-item">
                         <div class="d-flex align-items-center gap-2">
                             <div class="why-icon-box"><i class="fa-solid fa-chart-line"></i></div>
                             <div>
-                                <strong class="d-block small" style="font-size:12px;">آلاف الإعلانات يومياً</strong>
-                                <span class="text-muted" style="font-size:10px;">عروض جديدة متجددة لحظياً</span>
+                                <strong class="d-block small" style="font-size:11px;">آلاف الإعلانات يومياً</strong>
+                                <span class="text-muted" style="font-size:9px;">عروض جديدة متجددة لحظياً</span>
                             </div>
                         </div>
                     </div>
@@ -487,8 +498,8 @@
                         <div class="d-flex align-items-center gap-2">
                             <div class="why-icon-box"><i class="fa-solid fa-bolt"></i></div>
                             <div>
-                                <strong class="d-block small" style="font-size:12px;">سهولة وسرعة البحث</strong>
-                                <span class="text-muted" style="font-size:10px;">وصول مباشر للصفقة بدون تعقيد</span>
+                                <strong class="d-block small" style="font-size:11px;">سهولة وسرعة البحث</strong>
+                                <span class="text-muted" style="font-size:9px;">وصول مباشر للصفقة بدون تعقيد</span>
                             </div>
                         </div>
                     </div>
@@ -497,8 +508,8 @@
                         <div class="d-flex align-items-center gap-2">
                             <div class="why-icon-box"><i class="fa-solid fa-comments"></i></div>
                             <div>
-                                <strong class="d-block small" style="font-size:12px;">تواصل مباشر مع البائع</strong>
-                                <span class="text-muted" style="font-size:10px;">اتصال أو واتساب بدون أي وسيط</span>
+                                <strong class="d-block small" style="font-size:11px;">تواصل مباشر مع البائع</strong>
+                                <span class="text-muted" style="font-size:9px;">اتصال أو واتساب بدون أي وسيط</span>
                             </div>
                         </div>
                     </div>
@@ -507,8 +518,8 @@
                         <div class="d-flex align-items-center gap-2">
                             <div class="why-icon-box"><i class="fa-solid fa-shield-halved"></i></div>
                             <div>
-                                <strong class="d-block small" style="font-size:12px;">إعلانات موثوقة وآمنة</strong>
-                                <span class="text-muted" style="font-size:10px;">مراجعة جودة لكافة العروض</span>
+                                <strong class="d-block small" style="font-size:11px;">إعلانات موثوقة وآمنة</strong>
+                                <span class="text-muted" style="font-size:9px;">مراجعة جودة لكافة العروض</span>
                             </div>
                         </div>
                     </div>
@@ -518,72 +529,72 @@
 
         </div>
 
-        <!-- Categories Icons Row -->
-        <div class="row g-2 my-4">
-            <div class="col-4 col-sm-3 col-md-2 col-lg-1-5">
+        <!-- Categories Icons Row Responsive Grid -->
+        <div class="row g-2 my-3 my-md-4">
+            <div class="col-3 col-sm-3 col-md-2 col-lg-1-5">
                 <a href="#" class="category-item-abt">
                     <div class="category-icon-circle"><i class="fa-solid fa-car"></i></div>
-                    <strong class="d-block small" style="font-size:11px;">سيارات</strong>
-                    <span class="text-muted" style="font-size:9px;">15,689 إعلان</span>
+                    <strong class="d-block text-truncate" style="font-size:10px;">سيارات</strong>
+                    <span class="text-muted d-none d-sm-block" style="font-size:8px;">15,689 إعلان</span>
                 </a>
             </div>
-            <div class="col-4 col-sm-3 col-md-2 col-lg-1-5">
+            <div class="col-3 col-sm-3 col-md-2 col-lg-1-5">
                 <a href="#" class="category-item-abt">
                     <div class="category-icon-circle"><i class="fa-solid fa-building"></i></div>
-                    <strong class="d-block small" style="font-size:11px;">عقارات</strong>
-                    <span class="text-muted" style="font-size:9px;">28,456 إعلان</span>
+                    <strong class="d-block text-truncate" style="font-size:10px;">عقارات</strong>
+                    <span class="text-muted d-none d-sm-block" style="font-size:8px;">28,456 إعلان</span>
                 </a>
             </div>
-            <div class="col-4 col-sm-3 col-md-2 col-lg-1-5">
+            <div class="col-3 col-sm-3 col-md-2 col-lg-1-5">
                 <a href="#" class="category-item-abt">
                     <div class="category-icon-circle"><i class="fa-solid fa-tree"></i></div>
-                    <strong class="d-block small" style="font-size:11px;">أراضي</strong>
-                    <span class="text-muted" style="font-size:9px;">8,745 إعلان</span>
+                    <strong class="d-block text-truncate" style="font-size:10px;">أراضي</strong>
+                    <span class="text-muted d-none d-sm-block" style="font-size:8px;">8,745 إعلان</span>
                 </a>
             </div>
-            <div class="col-4 col-sm-3 col-md-2 col-lg-1-5">
+            <div class="col-3 col-sm-3 col-md-2 col-lg-1-5">
                 <a href="#" class="category-item-abt">
                     <div class="category-icon-circle"><i class="fa-solid fa-mobile-screen-button"></i></div>
-                    <strong class="d-block small" style="font-size:11px;">موبايلات</strong>
-                    <span class="text-muted" style="font-size:9px;">22,113 إعلان</span>
+                    <strong class="d-block text-truncate" style="font-size:10px;">موبايلات</strong>
+                    <span class="text-muted d-none d-sm-block" style="font-size:8px;">22,113 إعلان</span>
                 </a>
             </div>
-            <div class="col-4 col-sm-3 col-md-2 col-lg-1-5">
+            <div class="col-3 col-sm-3 col-md-2 col-lg-1-5">
                 <a href="#" class="category-item-abt">
                     <div class="category-icon-circle"><i class="fa-solid fa-laptop"></i></div>
-                    <strong class="d-block small" style="font-size:11px;">إلكترونيات</strong>
-                    <span class="text-muted" style="font-size:9px;">12,856 إعلان</span>
+                    <strong class="d-block text-truncate" style="font-size:10px;">إلكترونيات</strong>
+                    <span class="text-muted d-none d-sm-block" style="font-size:8px;">12,856 إعلان</span>
                 </a>
             </div>
-            <div class="col-4 col-sm-3 col-md-2 col-lg-1-5">
+            <div class="col-3 col-sm-3 col-md-2 col-lg-1-5">
                 <a href="#" class="category-item-abt">
                     <div class="category-icon-circle"><i class="fa-solid fa-briefcase"></i></div>
-                    <strong class="d-block small" style="font-size:11px;">وظائف</strong>
-                    <span class="text-muted" style="font-size:9px;">6,542 إعلان</span>
+                    <strong class="d-block text-truncate" style="font-size:10px;">وظائف</strong>
+                    <span class="text-muted d-none d-sm-block" style="font-size:8px;">6,542 إعلان</span>
                 </a>
             </div>
-            <div class="col-4 col-sm-3 col-md-2 col-lg-1-5">
+            <div class="col-3 col-sm-3 col-md-2 col-lg-1-5">
                 <a href="#" class="category-item-abt">
                     <div class="category-icon-circle"><i class="fa-solid fa-screwdriver-wrench"></i></div>
-                    <strong class="d-block small" style="font-size:11px;">خدمات</strong>
-                    <span class="text-muted" style="font-size:9px;">9,876 إعلان</span>
+                    <strong class="d-block text-truncate" style="font-size:10px;">خدمات</strong>
+                    <span class="text-muted d-none d-sm-block" style="font-size:8px;">9,876 إعلان</span>
                 </a>
             </div>
-            <div class="col-4 col-sm-3 col-md-2 col-lg-1-5">
+            <div class="col-3 col-sm-3 col-md-2 col-lg-1-5">
                 <a href="#" class="category-item-abt">
                     <div class="category-icon-circle"><i class="fa-solid fa-ellipsis"></i></div>
-                    <strong class="d-block small" style="font-size:11px;">المزيد</strong>
-                    <span class="text-muted" style="font-size:9px;">عرض الكل</span>
+                    <strong class="d-block text-truncate" style="font-size:10px;">المزيد</strong>
+                    <span class="text-muted d-none d-sm-block" style="font-size:8px;">عرض الكل</span>
                 </a>
             </div>
         </div>
 
-        <!-- Featured Ads Row Header + Filter Tabs -->
+        <!-- Featured Ads Row Header + Filter Chips Scrollable -->
         <div class="d-flex flex-wrap justify-content-between align-items-center mb-3 gap-2">
             <div>
-                <h5 class="fw-bold m-0" style="color:var(--pharaonic-blue);"><i class="fa-solid fa-fire text-danger me-1"></i> أحدث صفقات «لقطة»</h5>
+                <h5 class="fw-bold m-0" style="color:var(--pharaonic-blue); font-size:1.1rem;"><i class="fa-solid fa-fire text-danger me-1"></i> أحدث صفقات «لقطة»</h5>
             </div>
-            <div class="d-flex gap-2">
+            <div class="filter-chips-wrapper">
                 <button class="filter-chip-btn active">الكل</button>
                 <button class="filter-chip-btn">عقارات</button>
                 <button class="filter-chip-btn">سيارات</button>
@@ -591,8 +602,8 @@
             </div>
         </div>
 
-        <!-- Product Cards Grid -->
-        <div class="row g-3">
+        <!-- Product Cards Grid Responsive (2 Columns on Mobile, 6 on Desktop) -->
+        <div class="row g-2 g-sm-3">
             
             <!-- Card 1 -->
             <div class="col-6 col-md-4 col-lg-2">
@@ -605,8 +616,8 @@
                     <div class="abt-card-body">
                         <div>
                             <h6 class="abt-card-title text-truncate">صيانة أجهزة منزلية</h6>
-                            <span class="text-muted d-block" style="font-size:10px;"><i class="fa-solid fa-tag me-1"></i> خدمات</span>
-                            <span class="text-muted d-block mb-2" style="font-size:10px;"><i class="fa-solid fa-location-dot me-1 text-danger"></i> القاهرة</span>
+                            <span class="text-muted d-block" style="font-size:9px;"><i class="fa-solid fa-tag me-1"></i> خدمات</span>
+                            <span class="text-muted d-block mb-2" style="font-size:9px;"><i class="fa-solid fa-location-dot me-1 text-danger"></i> القاهرة</span>
                         </div>
                         <div class="d-flex justify-content-between align-items-center">
                             <div class="abt-card-price">150 ج.م</div>
@@ -629,11 +640,11 @@
                     <div class="abt-card-body">
                         <div>
                             <h6 class="abt-card-title text-truncate">مطلوب موظفين مبيعات</h6>
-                            <span class="text-muted d-block" style="font-size:10px;"><i class="fa-solid fa-tag me-1"></i> وظائف</span>
-                            <span class="text-muted d-block mb-2" style="font-size:10px;"><i class="fa-solid fa-location-dot me-1 text-danger"></i> القاهرة</span>
+                            <span class="text-muted d-block" style="font-size:9px;"><i class="fa-solid fa-tag me-1"></i> وظائف</span>
+                            <span class="text-muted d-block mb-2" style="font-size:9px;"><i class="fa-solid fa-location-dot me-1 text-danger"></i> القاهرة</span>
                         </div>
                         <div class="d-flex justify-content-between align-items-center">
-                            <div class="abt-card-price" style="font-size:10px; color:#2563eb;">حسب المقابلة</div>
+                            <div class="abt-card-price" style="font-size:9px; color:#2563eb;">حسب المقابلة</div>
                             <div class="action-btns-group">
                                 <button class="btn-call-quick"><i class="fa-solid fa-phone"></i></button>
                                 <button class="btn-whatsapp-quick"><i class="fa-brands fa-whatsapp"></i></button>
@@ -654,8 +665,8 @@
                     <div class="abt-card-body">
                         <div>
                             <h6 class="abt-card-title text-truncate">iPhone 14 Pro Max</h6>
-                            <span class="text-muted d-block" style="font-size:10px;"><i class="fa-solid fa-tag me-1"></i> موبايلات</span>
-                            <span class="text-muted d-block mb-2" style="font-size:10px;"><i class="fa-solid fa-location-dot me-1 text-danger"></i> الإسكندرية</span>
+                            <span class="text-muted d-block" style="font-size:9px;"><i class="fa-solid fa-tag me-1"></i> موبايلات</span>
+                            <span class="text-muted d-block mb-2" style="font-size:9px;"><i class="fa-solid fa-location-dot me-1 text-danger"></i> الإسكندرية</span>
                         </div>
                         <div class="d-flex justify-content-between align-items-center">
                             <div class="abt-card-price">45,000 ج.م</div>
@@ -679,8 +690,8 @@
                     <div class="abt-card-body">
                         <div>
                             <h6 class="abt-card-title text-truncate">قطعة أرض 600 م</h6>
-                            <span class="text-muted d-block" style="font-size:10px;"><i class="fa-solid fa-tag me-1"></i> أراضي</span>
-                            <span class="text-muted d-block mb-2" style="font-size:10px;"><i class="fa-solid fa-location-dot me-1 text-danger"></i> 6 أكتوبر</span>
+                            <span class="text-muted d-block" style="font-size:9px;"><i class="fa-solid fa-tag me-1"></i> أراضي</span>
+                            <span class="text-muted d-block mb-2" style="font-size:9px;"><i class="fa-solid fa-location-dot me-1 text-danger"></i> 6 أكتوبر</span>
                         </div>
                         <div class="d-flex justify-content-between align-items-center">
                             <div class="abt-card-price">1.8M ج.م</div>
@@ -704,8 +715,8 @@
                     <div class="abt-card-body">
                         <div>
                             <h6 class="abt-card-title text-truncate">شقة 180 م بالمعادي</h6>
-                            <span class="text-muted d-block" style="font-size:10px;"><i class="fa-solid fa-tag me-1"></i> عقارات</span>
-                            <span class="text-muted d-block mb-2" style="font-size:10px;"><i class="fa-solid fa-location-dot me-1 text-danger"></i> المعادي</span>
+                            <span class="text-muted d-block" style="font-size:9px;"><i class="fa-solid fa-tag me-1"></i> عقارات</span>
+                            <span class="text-muted d-block mb-2" style="font-size:9px;"><i class="fa-solid fa-location-dot me-1 text-danger"></i> المعادي</span>
                         </div>
                         <div class="d-flex justify-content-between align-items-center">
                             <div class="abt-card-price">3.2M ج.م</div>
@@ -728,8 +739,8 @@
                     <div class="abt-card-body">
                         <div>
                             <h6 class="abt-card-title text-truncate">BMW X5 2020</h6>
-                            <span class="text-muted d-block" style="font-size:10px;"><i class="fa-solid fa-tag me-1"></i> سيارات</span>
-                            <span class="text-muted d-block mb-2" style="font-size:10px;"><i class="fa-solid fa-location-dot me-1 text-danger"></i> القاهرة</span>
+                            <span class="text-muted d-block" style="font-size:9px;"><i class="fa-solid fa-tag me-1"></i> سيارات</span>
+                            <span class="text-muted d-block mb-2" style="font-size:9px;"><i class="fa-solid fa-location-dot me-1 text-danger"></i> القاهرة</span>
                         </div>
                         <div class="d-flex justify-content-between align-items-center">
                             <div class="abt-card-price">2.35M ج.م</div>
@@ -748,11 +759,11 @@
         <div class="bottom-banner-abt">
             <div class="row align-items-center text-center text-md-start">
                 <div class="col-md-8">
-                    <h4 class="fw-bold mb-1">جاهز تبيع أو تشتري؟ ⚡</h4>
+                    <h4 class="fw-bold mb-1" style="font-size:1.2rem;">جاهز تبيع أو تشتري؟ ⚡</h4>
                     <p class="text-white-50 small m-0">أضف إعلانك الآن على منصة «لقطة» ووصل لآلاف المشترين المهتمين فوراً وبدون أي عمولات.</p>
                 </div>
                 <div class="col-md-4 text-center text-md-end mt-3 mt-md-0">
-                    <a href="#" class="btn btn-primary fw-bold py-2.5 px-4" style="background:var(--primary-accent); border-radius:10px; border:none;"><i class="fa-solid fa-plus me-1"></i> أضف إعلانك مجاناً</a>
+                    <a href="#" class="btn btn-primary fw-bold py-2 px-4" style="background:var(--primary-accent); border-radius:10px; border:none; font-size:0.9rem;"><i class="fa-solid fa-plus me-1"></i> أضف إعلانك مجاناً</a>
                 </div>
             </div>
         </div>
@@ -772,5 +783,8 @@
 
     <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Vercel Analytics Script for Static HTML -->
+    <script defer src="/_vercel/insights/script.js"></script>
 </body>
 </html>
