@@ -11,10 +11,6 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&family=Tajawal:wght@500;700;800;900&display=swap" rel="stylesheet">
 
-    <!-- Firebase SDKs -->
-    <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-database-compat.js"></script>
-
     <style>
         :root {
             --pharaonic-gold: #d4af37;
@@ -276,7 +272,7 @@
         }
 
         @media (min-width: 576px) {
-            .abt-card-img { height: 220px; }
+            .abt-card-img { height: 230px; }
         }
 
         .abt-card-img img {
@@ -324,7 +320,7 @@
         .badge-status.new { background: var(--primary-accent); }
 
         .abt-card-body {
-            padding: 14px;
+            padding: 16px;
             flex-grow: 1;
             display: flex;
             flex-direction: column;
@@ -332,7 +328,7 @@
         }
 
         .abt-card-title {
-            font-size: 1.05rem;
+            font-size: 1.1rem;
             font-weight: 800;
             color: var(--text-dark);
             margin-bottom: 6px;
@@ -341,7 +337,7 @@
         .abt-card-price {
             color: #10b981;
             font-weight: 900;
-            font-size: 0.95rem;
+            font-size: 1rem;
         }
 
         .action-btns-group {
@@ -352,8 +348,8 @@
         .btn-call-quick, .btn-whatsapp-quick {
             border: none;
             border-radius: 8px;
-            padding: 6px 12px;
-            font-size: 0.82rem;
+            padding: 6px 14px;
+            font-size: 0.85rem;
             font-weight: 700;
             color: #fff;
             display: inline-flex;
@@ -376,8 +372,8 @@
         }
 
         .thumb-btn-img {
-            width: 44px;
-            height: 44px;
+            width: 48px;
+            height: 48px;
             border-radius: 6px;
             object-fit: cover;
             border: 2px solid transparent;
@@ -401,39 +397,40 @@
         footer {
             background: var(--pharaonic-dark);
             color: #ffffff;
-            padding: 30px 0 20px;
+            padding: 26px 0 18px;
             border-top: 2px solid rgba(212, 175, 55, 0.4);
-            font-size: 0.85rem;
+            font-size: 0.82rem;
         }
 
         .pharaonic-owner-tag {
             background: rgba(212, 175, 55, 0.12);
             border: 1px solid var(--pharaonic-gold);
             color: var(--pharaonic-gold-light);
-            padding: 6px 20px;
+            padding: 5px 18px;
             border-radius: 30px;
             display: inline-block;
             font-weight: 700;
-            font-size: 0.88rem;
+            font-size: 0.84rem;
         }
 
+        /* تعديل خط تطوير وإشراف ليكون أصغر وأكثر تناسقاً */
         .dev-credit-badge {
-            font-family: 'Tajawal', sans-serif;
-            background: linear-gradient(135deg, rgba(37, 99, 235, 0.15), rgba(15, 43, 72, 0.3));
-            border: 1px solid rgba(37, 99, 235, 0.4);
-            padding: 8px 22px;
-            border-radius: 25px;
+            font-family: 'Cairo', sans-serif;
+            background: rgba(37, 99, 235, 0.1);
+            border: 1px solid rgba(37, 99, 235, 0.3);
+            padding: 4px 14px;
+            border-radius: 20px;
             display: inline-flex;
             align-items: center;
-            gap: 8px;
-            color: #e2e8f0;
-            font-size: 0.92rem;
-            letter-spacing: 0.3px;
+            gap: 6px;
+            color: #cbd5e1;
+            font-size: 0.76rem;
+            font-weight: 600;
         }
 
         .dev-credit-badge strong {
-            color: #60a5fa;
-            font-weight: 800;
+            color: #93c5fd;
+            font-weight: 700;
         }
 
         .toast-container {
@@ -489,7 +486,7 @@
                 <div class="hero-card-box h-100 d-flex flex-column justify-content-between">
                     <div class="row align-items-center">
                         <div class="col-md-7">
-                            <span class="badge mb-2 px-3 py-1.5" style="background: rgba(212, 175, 55, 0.15); color: var(--pharaonic-gold); font-size:10px; border:1px solid var(--pharaonic-gold);">⚡ نشر سحابي ومباشر للجميع</span>
+                            <span class="badge mb-2 px-3 py-1.5" style="background: rgba(212, 175, 55, 0.15); color: var(--pharaonic-gold); font-size:10px; border:1px solid var(--pharaonic-gold);">⚡ نشر سريع ومباشر</span>
                             <h1 class="hero-headline mb-2">كل اللي محتاجه... <br><span>في مكان واحد</span></h1>
                             <p class="text-muted small mb-3">تصفح بمرونة وسهولة آلاف الصفقات والعروض المتميزة في جميع الأقسام والمدن.</p>
                         </div>
@@ -548,17 +545,17 @@
                     
                     <div class="why-us-item">
                         <div class="d-flex align-items-center gap-2">
-                            <div class="why-icon-box"><i class="fa-solid fa-cloud-bolt"></i></div>
+                            <div class="why-icon-box"><i class="fa-solid fa-bolt"></i></div>
                             <div>
-                                <strong class="d-block small" style="font-size:11px;">مزامنة سحابية لحظية</strong>
-                                <span class="text-muted" style="font-size:9px;">يظهر إعلانك لكل الناس فور نشره</span>
+                                <strong class="d-block small" style="font-size:11px;">إضافة ونشر فوري</strong>
+                                <span class="text-muted" style="font-size:9px;">إعلانك ينزل في صدارة العروض مباشرة</span>
                             </div>
                         </div>
                     </div>
 
                     <div class="why-us-item">
                         <div class="d-flex align-items-center gap-2">
-                            <div class="why-icon-box"><i class="fa-solid fa-bolt"></i></div>
+                            <div class="why-icon-box"><i class="fa-solid fa-magnifying-glass"></i></div>
                             <div>
                                 <strong class="d-block small" style="font-size:11px;">سهولة وسرعة البحث</strong>
                                 <span class="text-muted" style="font-size:9px;">وصول مباشر للصفقة بدون تعقيد</span>
@@ -665,13 +662,8 @@
             </div>
         </div>
 
-        <!-- Live Ads Cloud Container -->
-        <div class="row g-3" id="adsContainer">
-            <div class="col-12 text-center py-4">
-                <div class="spinner-border text-primary" role="status"></div>
-                <div class="text-muted small mt-2">جاري جلب أحدث الإعلانات السحابية...</div>
-            </div>
-        </div>
+        <!-- Ads Container -->
+        <div class="row g-3" id="adsContainer"></div>
 
         <!-- Empty State -->
         <div class="col-12 text-center py-5 d-none" id="emptyState">
@@ -686,7 +678,7 @@
             <div class="row align-items-center text-center text-md-start">
                 <div class="col-md-8">
                     <h4 class="fw-bold mb-1" style="font-size:1.2rem;">جاهز تبيع أو تشتري؟ ⚡</h4>
-                    <p class="text-white-50 small m-0">أضف إعلانك الآن على منصة «لقطة» وانشره فوراً لكل الناس بدون أي عمولات.</p>
+                    <p class="text-white-50 small m-0">أضف إعلانك الآن على منصة «لقطة» وانشره فوراً وبدون أي عمولات.</p>
                 </div>
                 <div class="col-md-4 text-center text-md-end mt-3 mt-md-0">
                     <button class="btn btn-primary fw-bold py-2 px-4" style="background:var(--primary-accent); border-radius:10px; border:none; font-size:0.9rem;" data-bs-toggle="modal" data-bs-target="#addAdModal">
@@ -701,26 +693,26 @@
     <!-- Footer -->
     <footer class="text-center">
         <div class="container">
-            <div class="pharaonic-owner-tag mb-3">
+            <div class="pharaonic-owner-tag mb-2">
                 <i class="fa-solid fa-crown me-1"></i> مالك المنصة: <strong>محمد صلاح أبو طوالة</strong>
             </div>
-            <div class="mb-3">
+            <div class="mb-2">
                 <div class="dev-credit-badge">
-                    <i class="fa-solid fa-code text-primary"></i>
+                    <i class="fa-solid fa-code text-primary" style="font-size:0.7rem;"></i>
                     <span>تطوير وإشراف برمجي / <strong>المهندس عمرو جمال عوض</strong></span>
-                    <i class="fa-solid fa-laptop-code text-primary"></i>
+                    <i class="fa-solid fa-laptop-code text-primary" style="font-size:0.7rem;"></i>
                 </div>
             </div>
-            <p class="mb-0 text-white-50" style="font-size:11px;">جميع الحقوق محفوظة © 2026 | منصة لقطة للإعلانات المبوبة</p>
+            <p class="mb-0 text-white-50" style="font-size:10.5px;">جميع الحقوق محفوظة © 2026 | منصة لقطة للإعلانات المبوبة</p>
         </div>
     </footer>
 
-    <!-- MODAL 1: Add Ad Modal (Cloud Sync) -->
+    <!-- MODAL 1: Add Ad Modal -->
     <div class="modal fade" id="addAdModal" tabindex="-1" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content border-0 shadow">
                 <div class="modal-header bg-light">
-                    <h5 class="modal-title fw-bold" style="color:var(--pharaonic-blue)"><i class="fa-solid fa-plus-circle text-primary me-2"></i> إضافة إعلان يظهر للجميع فوراً</h5>
+                    <h5 class="modal-title fw-bold" style="color:var(--pharaonic-blue)"><i class="fa-solid fa-plus-circle text-primary me-2"></i> إضافة إعلان مباشر</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body p-4">
@@ -770,7 +762,7 @@
                             <textarea id="adDescInput" class="form-control form-control-sm" rows="3" placeholder="اكتب وصف كامل لحالة المعروض ومواصفاته..." required></textarea>
                         </div>
                         <button type="submit" id="submitAdBtn" class="btn btn-primary w-100 fw-bold py-2" style="background:var(--pharaonic-blue); border:none;">
-                            <i class="fa-solid fa-bolt me-1"></i> انشر الإعلان الآن لكل الناس
+                            <i class="fa-solid fa-bolt me-1"></i> انشر الإعلان الآن
                         </button>
                     </form>
                 </div>
@@ -875,7 +867,7 @@
         <div id="liveToast" class="toast align-items-center text-bg-dark border-0" role="alert" aria-live="assertive" aria-atomic="true">
             <div class="d-flex">
                 <div class="toast-body" id="toastMessage">
-                    تم نشر إعلانك فوراً!
+                    تمت العملية بنجاح!
                 </div>
                 <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
             </div>
@@ -885,19 +877,9 @@
     <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 
-    <!-- Cloud Realtime Engine Script -->
+    <!-- Interactive Script -->
     <script>
-        // Realtime Cloud Database Configuration
-        const firebaseConfig = {
-            databaseURL: "https://alshohada-app-default-rtdb.firebaseio.com"
-        };
-        if (!firebase.apps.length) {
-            firebase.initializeApp(firebaseConfig);
-        }
-        const db = firebase.database();
-        const adsRef = db.ref('loqta_public_ads');
-
-        // Static Default Ad (Kia Morning 2007)
+        // Core Static Ad (Kia Morning 2007)
         const staticKiaAd = {
             id: "ad_kia_2007",
             title: "كيا مورنينج (بيكانتو) 2007",
@@ -919,33 +901,22 @@
             ]
         };
 
-        let loadedCloudAds = [];
+        function getStoredAds() {
+            const data = localStorage.getItem("loqta_ads_list");
+            return data ? JSON.parse(data) : [];
+        }
+
+        function getAllAds() {
+            return [staticKiaAd, ...getStoredAds()];
+        }
+
         let favorites = JSON.parse(localStorage.getItem('loqta_favs') || '[]');
 
         document.addEventListener('DOMContentLoaded', () => {
-            listenToCloudAds();
+            renderCurrentAds();
             updateFavoritesUI();
             checkAuthUser();
         });
-
-        // Realtime Listener for All Users
-        function listenToCloudAds() {
-            adsRef.on('value', (snapshot) => {
-                const data = snapshot.val();
-                let cloudList = [];
-                if (data) {
-                    cloudList = Object.keys(data).map(key => ({
-                        id: key,
-                        ...data[key]
-                    })).reverse();
-                }
-                loadedCloudAds = [staticKiaAd, ...cloudList];
-                renderCurrentAds();
-            }, (error) => {
-                loadedCloudAds = [staticKiaAd];
-                renderCurrentAds();
-            });
-        }
 
         function showNotification(msg) {
             const toastEl = document.getElementById('liveToast');
@@ -954,7 +925,6 @@
             toast.show();
         }
 
-        // Render Ads Grid
         let currentFilterCat = 'all';
         let currentFilterLoc = 'all';
         let currentSearchQuery = '';
@@ -964,9 +934,10 @@
             const emptyState = document.getElementById('emptyState');
             container.innerHTML = '';
 
+            const allAds = getAllAds();
             let count = 0;
 
-            loadedCloudAds.forEach(ad => {
+            allAds.forEach(ad => {
                 const matchCat = (currentFilterCat === 'all' || ad.category === currentFilterCat);
                 const matchLoc = (currentFilterLoc === 'all' || (ad.locationText && ad.locationText.includes(currentFilterLoc)));
                 const textSearch = `${ad.title || ''} ${ad.desc || ''} ${ad.seller || ''} ${ad.locationText || ''}`.toLowerCase();
@@ -975,7 +946,7 @@
                 if (matchCat && matchLoc && matchText) {
                     count++;
                     const isFav = favorites.includes(ad.id);
-                    const colClass = loadedCloudAds.length === 1 ? 'col-12 col-sm-10 col-md-8 col-lg-6 mx-auto' : 'col-12 col-sm-6 col-lg-4';
+                    const colClass = allAds.length === 1 ? 'col-12 col-sm-10 col-md-8 col-lg-6 mx-auto' : 'col-12 col-sm-6 col-lg-4';
                     
                     const thumbsHtml = ad.gallery && ad.gallery.length > 1 ? `
                         <div class="gallery-thumbs-row">
@@ -1040,13 +1011,9 @@
             }
         }
 
-        // Realtime Ad Submission to Cloud Database
         function handleAdSubmission(e) {
             e.preventDefault();
-            const submitBtn = document.getElementById('submitAdBtn');
-            submitBtn.disabled = true;
-            submitBtn.innerHTML = '<span class="spinner-border spinner-border-sm me-1"></span> جاري النشر للجميع...';
-
+            
             const title = document.getElementById('adTitleInput').value.trim();
             const category = document.getElementById('adCategoryInput').value;
             const locationText = document.getElementById('adLocationInput').value.trim();
@@ -1056,8 +1023,9 @@
             const desc = document.getElementById('adDescInput').value.trim();
             const fileInput = document.getElementById('adImageInput');
 
-            const uploadAndPublish = (imgData) => {
+            const saveAndRender = (imgData) => {
                 const newAdObject = {
+                    id: "ad_" + Date.now(),
                     title: title,
                     category: category,
                     locationText: locationText,
@@ -1068,25 +1036,20 @@
                     badge: "إعلان مباشر ⚡",
                     isFlash: false,
                     mainImage: imgData || 'https://images.unsplash.com/photo-1552519507-da3b142c6e3d?auto=format&fit=crop&w=800&q=80',
-                    timestamp: Date.now()
+                    gallery: []
                 };
 
-                // Push to Firebase Realtime Cloud
-                adsRef.push(newAdObject).then(() => {
-                    submitBtn.disabled = false;
-                    submitBtn.innerHTML = '<i class="fa-solid fa-bolt me-1"></i> انشر الإعلان الآن لكل الناس';
-                    bootstrap.Modal.getInstance(document.getElementById('addAdModal')).hide();
-                    e.target.reset();
-                    showNotification('⚡ تم نشر إعلانك سحابياً ويظهر الآن لكل مستخدمي المنصة!');
-                    document.getElementById('ads').scrollIntoView({ behavior: 'smooth' });
-                }).catch((err) => {
-                    submitBtn.disabled = false;
-                    submitBtn.innerHTML = '<i class="fa-solid fa-bolt me-1"></i> انشر الإعلان الآن لكل الناس';
-                    showNotification('تم النشر بنجاح!');
-                });
+                const currentList = getStoredAds();
+                currentList.unshift(newAdObject);
+                localStorage.setItem("loqta_ads_list", JSON.stringify(currentList));
+
+                bootstrap.Modal.getInstance(document.getElementById('addAdModal')).hide();
+                e.target.reset();
+                renderCurrentAds();
+                showNotification('⚡ تم نشر إعلانك على المنصة بنجاح!');
+                document.getElementById('ads').scrollIntoView({ behavior: 'smooth' });
             };
 
-            // Image Compression
             if (fileInput.files && fileInput.files[0]) {
                 const reader = new FileReader();
                 reader.onload = function(evt) {
@@ -1104,13 +1067,13 @@
                         canvas.width = w;
                         canvas.height = h;
                         ctx.drawImage(img, 0, 0, w, h);
-                        uploadAndPublish(canvas.toDataURL('image/jpeg', 0.7));
+                        saveAndRender(canvas.toDataURL('image/jpeg', 0.7));
                     };
                     img.src = evt.target.result;
                 };
                 reader.readAsDataURL(fileInput.files[0]);
             } else {
-                uploadAndPublish('');
+                saveAndRender('');
             }
         }
 
@@ -1149,14 +1112,11 @@
                 showNotification('قائمة المفضلة فارغة حالياً');
                 return;
             }
-            const favAds = loadedCloudAds.filter(ad => favorites.includes(ad.id));
-            if (favAds.length > 0) {
-                currentFilterCat = 'all';
-                currentFilterLoc = 'all';
-                currentSearchQuery = '';
-                renderCurrentAds();
-                showNotification('يتم عرض إعلاناتك المفضلة');
-            }
+            currentFilterCat = 'all';
+            currentFilterLoc = 'all';
+            currentSearchQuery = '';
+            renderCurrentAds();
+            showNotification('يتم عرض إعلاناتك');
         }
 
         function executeSearch(e) {
