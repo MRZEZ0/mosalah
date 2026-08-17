@@ -9,7 +9,7 @@
     <!-- Bootstrap 5 RTL & FontAwesome & Google Fonts -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.rtl.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&family=Tajawal:wght@500;700;800;900&display=swap" rel="stylesheet">
 
     <style>
         :root {
@@ -36,7 +36,7 @@
             overflow-x: hidden;
         }
 
-        /* Top Bar & Navbar Mobile Fixes */
+        /* Top Bar & Navbar */
         .top-navbar {
             background: #ffffff;
             border-bottom: 2px solid var(--pharaonic-gold);
@@ -95,7 +95,7 @@
             }
         }
 
-        /* Hero Box Responsive */
+        /* Hero Box */
         .hero-card-box {
             background: #ffffff;
             border-radius: 20px;
@@ -156,7 +156,7 @@
             flex-shrink: 0;
         }
 
-        /* Search Bar Responsive */
+        /* Search Bar */
         .abt-search-wrapper {
             background: #ffffff;
             border: 1px solid var(--card-border);
@@ -190,7 +190,7 @@
             color: var(--text-dark);
         }
 
-        /* Categories Mobile Grid Fix */
+        /* Categories */
         .category-item-abt {
             background: #ffffff;
             border: 1px solid var(--card-border);
@@ -224,7 +224,7 @@
             border: 1px solid #e2e8f0;
         }
 
-        /* Filter Chips Horizontal Scroll on Mobile */
+        /* Filter Chips */
         .filter-chips-wrapper {
             display: flex;
             gap: 8px;
@@ -253,7 +253,7 @@
             border-color: var(--pharaonic-blue);
         }
 
-        /* Product Cards Responsive */
+        /* Product Cards */
         .abt-product-card {
             background: #ffffff;
             border: 1px solid var(--card-border);
@@ -267,13 +267,13 @@
 
         .abt-card-img {
             position: relative;
-            height: 140px;
+            height: 160px;
             background: #f1f5f9;
             overflow: hidden;
         }
 
         @media (min-width: 576px) {
-            .abt-card-img { height: 170px; }
+            .abt-card-img { height: 190px; }
         }
 
         .abt-card-img img {
@@ -312,12 +312,10 @@
             z-index: 2;
         }
 
-        .badge-status.featured { background: #10b981; }
-        .badge-status.new { background: var(--primary-accent); }
         .badge-status.flash { background: linear-gradient(135deg, #f59e0b, #d97706); }
 
         .abt-card-body {
-            padding: 12px;
+            padding: 14px;
             flex-grow: 1;
             display: flex;
             flex-direction: column;
@@ -325,10 +323,10 @@
         }
 
         .abt-card-title {
-            font-size: 0.88rem;
+            font-size: 1rem;
             font-weight: 800;
             color: var(--text-dark);
-            margin-bottom: 4px;
+            margin-bottom: 6px;
         }
 
         .abt-card-price {
@@ -339,14 +337,14 @@
 
         .action-btns-group {
             display: flex;
-            gap: 4px;
+            gap: 6px;
         }
 
         .btn-call-quick, .btn-whatsapp-quick {
             border: none;
-            border-radius: 6px;
-            padding: 4px 8px;
-            font-size: 0.75rem;
+            border-radius: 8px;
+            padding: 6px 12px;
+            font-size: 0.85rem;
             font-weight: 700;
             color: #fff;
             display: inline-flex;
@@ -359,7 +357,7 @@
         .btn-call-quick { background: var(--pharaonic-blue); }
         .btn-whatsapp-quick:hover, .btn-call-quick:hover { color: #fff; opacity: 0.9; }
 
-        /* Bottom Banner Responsive */
+        /* Bottom Banner */
         .bottom-banner-abt {
             background: linear-gradient(135deg, var(--pharaonic-dark) 0%, var(--pharaonic-blue) 100%);
             border-top: 3px solid var(--pharaonic-gold);
@@ -374,20 +372,39 @@
         footer {
             background: var(--pharaonic-dark);
             color: #ffffff;
-            padding: 24px 0;
-            border-top: 1px solid rgba(212, 175, 55, 0.3);
-            font-size: 0.82rem;
+            padding: 30px 0 20px;
+            border-top: 2px solid rgba(212, 175, 55, 0.4);
+            font-size: 0.85rem;
         }
 
         .pharaonic-owner-tag {
-            background: rgba(212, 175, 55, 0.15);
+            background: rgba(212, 175, 55, 0.12);
             border: 1px solid var(--pharaonic-gold);
             color: var(--pharaonic-gold-light);
-            padding: 5px 18px;
+            padding: 6px 20px;
             border-radius: 30px;
             display: inline-block;
             font-weight: 700;
-            font-size: 0.85rem;
+            font-size: 0.88rem;
+        }
+
+        .dev-credit-badge {
+            font-family: 'Tajawal', sans-serif;
+            background: linear-gradient(135deg, rgba(37, 99, 235, 0.15), rgba(15, 43, 72, 0.3));
+            border: 1px solid rgba(37, 99, 235, 0.4);
+            padding: 8px 22px;
+            border-radius: 25px;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: #e2e8f0;
+            font-size: 0.92rem;
+            letter-spacing: 0.3px;
+        }
+
+        .dev-credit-badge strong {
+            color: #60a5fa;
+            font-weight: 800;
         }
     </style>
 </head>
@@ -591,7 +608,7 @@
             </div>
         </div>
 
-        <!-- Featured Ads Row Header + Filter Chips Scrollable -->
+        <!-- Section Header -->
         <div class="d-flex flex-wrap justify-content-between align-items-center mb-3 gap-2">
             <div>
                 <h5 class="fw-bold m-0" style="color:var(--pharaonic-blue); font-size:1.1rem;"><i class="fa-solid fa-fire text-danger me-1"></i> أحدث صفقات «لقطة»</h5>
@@ -604,179 +621,43 @@
             </div>
         </div>
 
-        <!-- Product Cards Grid Responsive (2 Columns on Mobile, 6 on Desktop) -->
+        <!-- Product Cards Grid (Kia Morning Featured Only) -->
         <div class="row g-2 g-sm-3">
             
-            <!-- New Card: Kia Morning 2007 (Auto Aman - Emad Salit) -->
-            <div class="col-6 col-md-4 col-lg-2">
-                <div class="abt-product-card" style="border: 1.5px solid var(--pharaonic-gold);">
+            <div class="col-12 col-sm-8 col-md-6 col-lg-4 mx-auto">
+                <div class="abt-product-card shadow-sm" style="border: 2px solid var(--pharaonic-gold);">
                     <div class="abt-card-img">
                         <span class="badge-status flash">لقطة مميزة ⚡</span>
                         <button class="fav-heart-btn"><i class="fa-regular fa-heart"></i></button>
-                        <!-- ضع مسار الصورة الأولى للسيارة هنا -->
-                        <img src="images/kia-morning-1.jpg" alt="كيا مورنينج 2007" onerror="this.src='https://images.unsplash.com/photo-1552519507-da3b142c6e3d?auto=format&fit=crop&w=400&q=80'">
+                        <img src="images/kia-front.jpg" alt="كيا مورنينج 2007" onerror="this.src='https://images.unsplash.com/photo-1552519507-da3b142c6e3d?auto=format&fit=crop&w=600&q=80'">
                     </div>
                     <div class="abt-card-body">
                         <div>
-                            <h6 class="abt-card-title text-truncate" title="كيا مورنينج 2007 أعلى فئة">كيا مورنينج 2007</h6>
-                            <span class="text-muted d-block" style="font-size:8.5px;"><i class="fa-solid fa-car me-1 text-primary"></i> فبريكا بالكامل | 155 ألف كم</span>
-                            <span class="text-muted d-block" style="font-size:8.5px;"><i class="fa-solid fa-id-card me-1 text-success"></i> رخصة سنتين | أعلى فئة</span>
-                            <span class="text-muted d-block mb-1" style="font-size:8.5px;"><i class="fa-solid fa-location-dot me-1 text-danger"></i> المنوفية - منشأة سلطان</span>
-                            <span class="badge bg-light text-dark border d-block text-truncate mb-2" style="font-size:8px;">أوتو أمان / أ. عماد سليط</span>
-                        </div>
-                        <div class="d-flex justify-content-between align-items-center mt-auto">
-                            <div class="abt-card-price" style="font-size: 0.85rem;">تواصل للسعر</div>
-                            <div class="action-btns-group">
-                                <a href="tel:01006950904" class="btn-call-quick" title="اتصال هاتفي"><i class="fa-solid fa-phone"></i></a>
-                                <a href="https://wa.me/201006950904" target="_blank" class="btn-whatsapp-quick" title="واتساب"><i class="fa-brands fa-whatsapp"></i></a>
+                            <div class="d-flex justify-content-between align-items-center mb-1">
+                                <h5 class="abt-card-title m-0">كيا مورنينج (بيكانتو) 2007</h5>
+                                <span class="badge bg-danger">أعلى فئة</span>
+                            </div>
+                            <p class="text-muted small mb-2" style="font-size:11px; line-height: 1.6;">
+                                <i class="fa-solid fa-check-circle text-success me-1"></i> فبريكا بالكامل <br>
+                                <i class="fa-solid fa-gauge-high text-primary me-1"></i> عداد 155,000 كم <br>
+                                <i class="fa-solid fa-id-card text-warning me-1"></i> رخصة سنتين <br>
+                                <i class="fa-solid fa-location-dot text-danger me-1"></i> المنوفية - نازلة منشأة سلطان
+                            </p>
+                            <div class="p-2 mb-3 rounded-3" style="background: rgba(15, 43, 72, 0.05); border: 1px dashed var(--pharaonic-blue);">
+                                <small class="fw-bold d-block text-center" style="color: var(--pharaonic-blue); font-size:11px;">
+                                    <i class="fa-solid fa-car-side me-1"></i> معرض أوتو أمان | إدارة: أ. عماد سليط
+                                </small>
                             </div>
                         </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Card 1 -->
-            <div class="col-6 col-md-4 col-lg-2">
-                <div class="abt-product-card">
-                    <div class="abt-card-img">
-                        <span class="badge-status flash">لقطة ⚡</span>
-                        <button class="fav-heart-btn"><i class="fa-regular fa-heart"></i></button>
-                        <img src="https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?auto=format&fit=crop&w=400&q=80" alt="صيانة">
-                    </div>
-                    <div class="abt-card-body">
-                        <div>
-                            <h6 class="abt-card-title text-truncate">صيانة أجهزة منزلية</h6>
-                            <span class="text-muted d-block" style="font-size:9px;"><i class="fa-solid fa-tag me-1"></i> خدمات</span>
-                            <span class="text-muted d-block mb-2" style="font-size:9px;"><i class="fa-solid fa-location-dot me-1 text-danger"></i> القاهرة</span>
-                        </div>
-                        <div class="d-flex justify-content-between align-items-center">
-                            <div class="abt-card-price">150 ج.م</div>
+                        <div class="d-flex justify-content-between align-items-center pt-2 border-top">
+                            <div class="abt-card-price" style="font-size: 0.95rem;">تواصل للسعر</div>
                             <div class="action-btns-group">
-                                <a href="tel:#" class="btn-call-quick"><i class="fa-solid fa-phone"></i></a>
-                                <a href="https://wa.me/" class="btn-whatsapp-quick"><i class="fa-brands fa-whatsapp"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Card 2 -->
-            <div class="col-6 col-md-4 col-lg-2">
-                <div class="abt-product-card">
-                    <div class="abt-card-img">
-                        <button class="fav-heart-btn"><i class="fa-regular fa-heart"></i></button>
-                        <img src="https://images.unsplash.com/photo-1560179707-f14e90ef3623?auto=format&fit=crop&w=400&q=80" alt="وظائف">
-                    </div>
-                    <div class="abt-card-body">
-                        <div>
-                            <h6 class="abt-card-title text-truncate">مطلوب موظفين مبيعات</h6>
-                            <span class="text-muted d-block" style="font-size:9px;"><i class="fa-solid fa-tag me-1"></i> وظائف</span>
-                            <span class="text-muted d-block mb-2" style="font-size:9px;"><i class="fa-solid fa-location-dot me-1 text-danger"></i> القاهرة</span>
-                        </div>
-                        <div class="d-flex justify-content-between align-items-center">
-                            <div class="abt-card-price" style="font-size:9px; color:#2563eb;">حسب المقابلة</div>
-                            <div class="action-btns-group">
-                                <a href="tel:#" class="btn-call-quick"><i class="fa-solid fa-phone"></i></a>
-                                <a href="https://wa.me/" class="btn-whatsapp-quick"><i class="fa-brands fa-whatsapp"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Card 3 -->
-            <div class="col-6 col-md-4 col-lg-2">
-                <div class="abt-product-card">
-                    <div class="abt-card-img">
-                        <span class="badge-status featured">مميز</span>
-                        <button class="fav-heart-btn"><i class="fa-regular fa-heart"></i></button>
-                        <img src="https://images.unsplash.com/photo-1592750475338-74b7b21085ab?auto=format&fit=crop&w=400&q=80" alt="آيفون">
-                    </div>
-                    <div class="abt-card-body">
-                        <div>
-                            <h6 class="abt-card-title text-truncate">iPhone 14 Pro Max</h6>
-                            <span class="text-muted d-block" style="font-size:9px;"><i class="fa-solid fa-tag me-1"></i> موبايلات</span>
-                            <span class="text-muted d-block mb-2" style="font-size:9px;"><i class="fa-solid fa-location-dot me-1 text-danger"></i> الإسكندرية</span>
-                        </div>
-                        <div class="d-flex justify-content-between align-items-center">
-                            <div class="abt-card-price">45,000 ج.م</div>
-                            <div class="action-btns-group">
-                                <a href="tel:#" class="btn-call-quick"><i class="fa-solid fa-phone"></i></a>
-                                <a href="https://wa.me/" class="btn-whatsapp-quick"><i class="fa-brands fa-whatsapp"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Card 4 -->
-            <div class="col-6 col-md-4 col-lg-2">
-                <div class="abt-product-card">
-                    <div class="abt-card-img">
-                        <span class="badge-status new">جديد</span>
-                        <button class="fav-heart-btn"><i class="fa-regular fa-heart"></i></button>
-                        <img src="https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&w=400&q=80" alt="أرض">
-                    </div>
-                    <div class="abt-card-body">
-                        <div>
-                            <h6 class="abt-card-title text-truncate">قطعة أرض 600 م</h6>
-                            <span class="text-muted d-block" style="font-size:9px;"><i class="fa-solid fa-tag me-1"></i> أراضي</span>
-                            <span class="text-muted d-block mb-2" style="font-size:9px;"><i class="fa-solid fa-location-dot me-1 text-danger"></i> 6 أكتوبر</span>
-                        </div>
-                        <div class="d-flex justify-content-between align-items-center">
-                            <div class="abt-card-price">1.8M ج.م</div>
-                            <div class="action-btns-group">
-                                <a href="tel:#" class="btn-call-quick"><i class="fa-solid fa-phone"></i></a>
-                                <a href="https://wa.me/" class="btn-whatsapp-quick"><i class="fa-brands fa-whatsapp"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Card 5 -->
-            <div class="col-6 col-md-4 col-lg-2">
-                <div class="abt-product-card">
-                    <div class="abt-card-img">
-                        <span class="badge-status flash">فرصة ⚡</span>
-                        <button class="fav-heart-btn"><i class="fa-regular fa-heart"></i></button>
-                        <img src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=400&q=80" alt="شقة">
-                    </div>
-                    <div class="abt-card-body">
-                        <div>
-                            <h6 class="abt-card-title text-truncate">شقة 180 م بالمعادي</h6>
-                            <span class="text-muted d-block" style="font-size:9px;"><i class="fa-solid fa-tag me-1"></i> عقارات</span>
-                            <span class="text-muted d-block mb-2" style="font-size:9px;"><i class="fa-solid fa-location-dot me-1 text-danger"></i> المعادي</span>
-                        </div>
-                        <div class="d-flex justify-content-between align-items-center">
-                            <div class="abt-card-price">3.2M ج.م</div>
-                            <div class="action-btns-group">
-                                <a href="tel:#" class="btn-call-quick"><i class="fa-solid fa-phone"></i></a>
-                                <a href="https://wa.me/" class="btn-whatsapp-quick"><i class="fa-brands fa-whatsapp"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Card 6 -->
-            <div class="col-6 col-md-4 col-lg-2">
-                <div class="abt-product-card">
-                    <div class="abt-card-img">
-                        <button class="fav-heart-btn"><i class="fa-regular fa-heart"></i></button>
-                        <img src="https://images.unsplash.com/photo-1555215695-3004980ad54e?auto=format&fit=crop&w=400&q=80" alt="سيارة">
-                    </div>
-                    <div class="abt-card-body">
-                        <div>
-                            <h6 class="abt-card-title text-truncate">BMW X5 2020</h6>
-                            <span class="text-muted d-block" style="font-size:9px;"><i class="fa-solid fa-tag me-1"></i> سيارات</span>
-                            <span class="text-muted d-block mb-2" style="font-size:9px;"><i class="fa-solid fa-location-dot me-1 text-danger"></i> القاهرة</span>
-                        </div>
-                        <div class="d-flex justify-content-between align-items-center">
-                            <div class="abt-card-price">2.35M ج.م</div>
-                            <div class="action-btns-group">
-                                <a href="tel:#" class="btn-call-quick"><i class="fa-solid fa-phone"></i></a>
-                                <a href="https://wa.me/" class="btn-whatsapp-quick"><i class="fa-brands fa-whatsapp"></i></a>
+                                <a href="tel:01006950904" class="btn-call-quick px-3 py-2" title="اتصال هاتفي">
+                                    <i class="fa-solid fa-phone me-1"></i> اتصال
+                                </a>
+                                <a href="https://wa.me/201006950904" target="_blank" class="btn-whatsapp-quick px-3 py-2" title="واتساب">
+                                    <i class="fa-brands fa-whatsapp me-1"></i> واتساب
+                                </a>
                             </div>
                         </div>
                     </div>
@@ -800,21 +681,27 @@
 
     </div>
 
-    <!-- Pharaonic Owner Footer -->
+    <!-- Footer -->
     <footer class="text-center">
         <div class="container">
-            <div class="pharaonic-owner-tag mb-2">
+            <div class="pharaonic-owner-tag mb-3">
                 <i class="fa-solid fa-crown me-1"></i> مالك المنصة: <strong>محمد صلاح أبو طوالة</strong>
             </div>
+            <div class="mb-3">
+                <div class="dev-credit-badge">
+                    <i class="fa-solid fa-code text-primary"></i>
+                    <span>تطوير وإشراف برمجي / <strong>المهندس عمرو جمال عوض</strong></span>
+                    <i class="fa-solid fa-laptop-code text-primary"></i>
+                </div>
+            </div>
             <p class="mb-0 text-white-50" style="font-size:11px;">جميع الحقوق محفوظة © 2026 | منصة لقطة للإعلانات المبوبة</p>
-            <p class="mb-0 text-muted" style="font-size:10px;">تطوير وإشراف برمجي / المهندس عمرو جمال عوض 💻</p>
         </div>
     </footer>
 
     <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 
-    <!-- Vercel Web Analytics - Latest CDN Implementation -->
+    <!-- Vercel Web Analytics -->
     <script defer src="https://cdn.vercel-insights.com/v1/script.js"></script>
 </body>
 </html>
