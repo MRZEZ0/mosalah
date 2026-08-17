@@ -352,10 +352,12 @@
             display: inline-flex;
             align-items: center;
             justify-content: center;
+            text-decoration: none;
         }
 
         .btn-whatsapp-quick { background: #25d366; }
         .btn-call-quick { background: var(--pharaonic-blue); }
+        .btn-whatsapp-quick:hover, .btn-call-quick:hover { color: #fff; opacity: 0.9; }
 
         /* Bottom Banner Responsive */
         .bottom-banner-abt {
@@ -596,8 +598,8 @@
             </div>
             <div class="filter-chips-wrapper">
                 <button class="filter-chip-btn active">الكل</button>
-                <button class="filter-chip-btn">عقارات</button>
                 <button class="filter-chip-btn">سيارات</button>
+                <button class="filter-chip-btn">عقارات</button>
                 <button class="filter-chip-btn">إلكترونيات</button>
             </div>
         </div>
@@ -605,6 +607,34 @@
         <!-- Product Cards Grid Responsive (2 Columns on Mobile, 6 on Desktop) -->
         <div class="row g-2 g-sm-3">
             
+            <!-- New Card: Kia Morning 2007 (Auto Aman - Emad Salit) -->
+            <div class="col-6 col-md-4 col-lg-2">
+                <div class="abt-product-card" style="border: 1.5px solid var(--pharaonic-gold);">
+                    <div class="abt-card-img">
+                        <span class="badge-status flash">لقطة مميزة ⚡</span>
+                        <button class="fav-heart-btn"><i class="fa-regular fa-heart"></i></button>
+                        <!-- ضع مسار الصورة الأولى للسيارة هنا -->
+                        <img src="images/kia-morning-1.jpg" alt="كيا مورنينج 2007" onerror="this.src='https://images.unsplash.com/photo-1552519507-da3b142c6e3d?auto=format&fit=crop&w=400&q=80'">
+                    </div>
+                    <div class="abt-card-body">
+                        <div>
+                            <h6 class="abt-card-title text-truncate" title="كيا مورنينج 2007 أعلى فئة">كيا مورنينج 2007</h6>
+                            <span class="text-muted d-block" style="font-size:8.5px;"><i class="fa-solid fa-car me-1 text-primary"></i> فبريكا بالكامل | 155 ألف كم</span>
+                            <span class="text-muted d-block" style="font-size:8.5px;"><i class="fa-solid fa-id-card me-1 text-success"></i> رخصة سنتين | أعلى فئة</span>
+                            <span class="text-muted d-block mb-1" style="font-size:8.5px;"><i class="fa-solid fa-location-dot me-1 text-danger"></i> المنوفية - منشأة سلطان</span>
+                            <span class="badge bg-light text-dark border d-block text-truncate mb-2" style="font-size:8px;">أوتو أمان / أ. عماد سليط</span>
+                        </div>
+                        <div class="d-flex justify-content-between align-items-center mt-auto">
+                            <div class="abt-card-price" style="font-size: 0.85rem;">تواصل للسعر</div>
+                            <div class="action-btns-group">
+                                <a href="tel:01006950904" class="btn-call-quick" title="اتصال هاتفي"><i class="fa-solid fa-phone"></i></a>
+                                <a href="https://wa.me/201006950904" target="_blank" class="btn-whatsapp-quick" title="واتساب"><i class="fa-brands fa-whatsapp"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
             <!-- Card 1 -->
             <div class="col-6 col-md-4 col-lg-2">
                 <div class="abt-product-card">
@@ -622,8 +652,8 @@
                         <div class="d-flex justify-content-between align-items-center">
                             <div class="abt-card-price">150 ج.م</div>
                             <div class="action-btns-group">
-                                <button class="btn-call-quick"><i class="fa-solid fa-phone"></i></button>
-                                <button class="btn-whatsapp-quick"><i class="fa-brands fa-whatsapp"></i></button>
+                                <a href="tel:#" class="btn-call-quick"><i class="fa-solid fa-phone"></i></a>
+                                <a href="https://wa.me/" class="btn-whatsapp-quick"><i class="fa-brands fa-whatsapp"></i></a>
                             </div>
                         </div>
                     </div>
@@ -646,8 +676,8 @@
                         <div class="d-flex justify-content-between align-items-center">
                             <div class="abt-card-price" style="font-size:9px; color:#2563eb;">حسب المقابلة</div>
                             <div class="action-btns-group">
-                                <button class="btn-call-quick"><i class="fa-solid fa-phone"></i></button>
-                                <button class="btn-whatsapp-quick"><i class="fa-brands fa-whatsapp"></i></button>
+                                <a href="tel:#" class="btn-call-quick"><i class="fa-solid fa-phone"></i></a>
+                                <a href="https://wa.me/" class="btn-whatsapp-quick"><i class="fa-brands fa-whatsapp"></i></a>
                             </div>
                         </div>
                     </div>
@@ -671,8 +701,8 @@
                         <div class="d-flex justify-content-between align-items-center">
                             <div class="abt-card-price">45,000 ج.م</div>
                             <div class="action-btns-group">
-                                <button class="btn-call-quick"><i class="fa-solid fa-phone"></i></button>
-                                <button class="btn-whatsapp-quick"><i class="fa-brands fa-whatsapp"></i></button>
+                                <a href="tel:#" class="btn-call-quick"><i class="fa-solid fa-phone"></i></a>
+                                <a href="https://wa.me/" class="btn-whatsapp-quick"><i class="fa-brands fa-whatsapp"></i></a>
                             </div>
                         </div>
                     </div>
@@ -696,8 +726,8 @@
                         <div class="d-flex justify-content-between align-items-center">
                             <div class="abt-card-price">1.8M ج.م</div>
                             <div class="action-btns-group">
-                                <button class="btn-call-quick"><i class="fa-solid fa-phone"></i></button>
-                                <button class="btn-whatsapp-quick"><i class="fa-brands fa-whatsapp"></i></button>
+                                <a href="tel:#" class="btn-call-quick"><i class="fa-solid fa-phone"></i></a>
+                                <a href="https://wa.me/" class="btn-whatsapp-quick"><i class="fa-brands fa-whatsapp"></i></a>
                             </div>
                         </div>
                     </div>
@@ -721,8 +751,8 @@
                         <div class="d-flex justify-content-between align-items-center">
                             <div class="abt-card-price">3.2M ج.م</div>
                             <div class="action-btns-group">
-                                <button class="btn-call-quick"><i class="fa-solid fa-phone"></i></button>
-                                <button class="btn-whatsapp-quick"><i class="fa-brands fa-whatsapp"></i></button>
+                                <a href="tel:#" class="btn-call-quick"><i class="fa-solid fa-phone"></i></a>
+                                <a href="https://wa.me/" class="btn-whatsapp-quick"><i class="fa-brands fa-whatsapp"></i></a>
                             </div>
                         </div>
                     </div>
@@ -745,8 +775,8 @@
                         <div class="d-flex justify-content-between align-items-center">
                             <div class="abt-card-price">2.35M ج.م</div>
                             <div class="action-btns-group">
-                                <button class="btn-call-quick"><i class="fa-solid fa-phone"></i></button>
-                                <button class="btn-whatsapp-quick"><i class="fa-brands fa-whatsapp"></i></button>
+                                <a href="tel:#" class="btn-call-quick"><i class="fa-solid fa-phone"></i></a>
+                                <a href="https://wa.me/" class="btn-whatsapp-quick"><i class="fa-brands fa-whatsapp"></i></a>
                             </div>
                         </div>
                     </div>
