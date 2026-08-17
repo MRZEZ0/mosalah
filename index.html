@@ -9,7 +9,7 @@
     <!-- Bootstrap 5 RTL & FontAwesome & Google Fonts -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.rtl.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&family=Tajawal:wght@500;700;800;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&display=swap" rel="stylesheet">
 
     <style>
         :root {
@@ -265,14 +265,14 @@
 
         .abt-card-img {
             position: relative;
-            height: 200px;
+            height: 220px;
             background: #f1f5f9;
             overflow: hidden;
             cursor: pointer;
         }
 
         @media (min-width: 576px) {
-            .abt-card-img { height: 230px; }
+            .abt-card-img { height: 250px; }
         }
 
         .abt-card-img img {
@@ -369,6 +369,15 @@
             overflow-x: auto;
             background: #f8fafc;
             border-bottom: 1px solid #e2e8f0;
+            -webkit-overflow-scrolling: touch;
+        }
+
+        .gallery-thumbs-row::-webkit-scrollbar {
+            height: 4px;
+        }
+        .gallery-thumbs-row::-webkit-scrollbar-thumb {
+            background: #cbd5e1;
+            border-radius: 4px;
         }
 
         .thumb-btn-img {
@@ -378,6 +387,7 @@
             object-fit: cover;
             border: 2px solid transparent;
             cursor: pointer;
+            flex-shrink: 0;
         }
 
         .thumb-btn-img.active {
@@ -413,7 +423,6 @@
             font-size: 0.84rem;
         }
 
-        /* تعديل خط تطوير وإشراف ليكون أصغر وأكثر تناسقاً */
         .dev-credit-badge {
             font-family: 'Cairo', sans-serif;
             background: rgba(37, 99, 235, 0.1);
@@ -879,7 +888,7 @@
 
     <!-- Interactive Script -->
     <script>
-        // Core Static Ad (Kia Morning 2007)
+        // Core Static Ad with all 10 images
         const staticKiaAd = {
             id: "ad_kia_2007",
             title: "كيا مورنينج (بيكانتو) 2007",
@@ -895,8 +904,13 @@
             gallery: [
                 "images/kia-front.jpg",
                 "images/kia-back.jpg",
-                "images/kia-side.jpg",
-                "images/kia-interior.jpg",
+                "images/kia-side-1.jpg",
+                "images/kia-side-2.jpg",
+                "images/kia-interior-front.jpg",
+                "images/kia-gear.jpg",
+                "images/kia-door.jpg",
+                "images/kia-angle-back.jpg",
+                "images/kia-full-back.jpg",
                 "images/kia-banner.jpg"
             ]
         };
