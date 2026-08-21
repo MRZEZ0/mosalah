@@ -3,10 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>منصة لقطة | سوق الصفقات والعروض المباشرة الأول</title>
+    <title>منصة لقطة | سوق الصفقات والاستشارات المباشرة الأول</title>
     <meta name="description" content="منصة لقطة - أسرع وأسهل سوق رقمي للبيع والشراء المباشر والخدمات والاستشارات بدون وسيط أو عمولات.">
     
-    <!-- Bootstrap 5 RTL & FontAwesome & Google Fonts -->
+    <!-- Bootstrap 5 RTL & FontAwesome & Cairo Font -->
     <link rel="stylesheet" id="bootstrapRtl" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.rtl.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&display=swap" rel="stylesheet">
@@ -40,6 +40,7 @@
             overflow-x: hidden;
         }
 
+        /* Top Navbar */
         .top-navbar {
             background: #ffffff;
             border-bottom: 2px solid var(--pharaonic-gold);
@@ -52,7 +53,7 @@
 
         .brand-logo-loqta {
             font-weight: 900;
-            font-size: 1.8rem;
+            font-size: 1.6rem;
             color: var(--pharaonic-blue);
             text-decoration: none;
             display: inline-flex;
@@ -69,7 +70,7 @@
         .nav-link-custom {
             color: var(--text-dark);
             font-weight: 700;
-            font-size: 0.92rem;
+            font-size: 0.9rem;
             text-decoration: none;
             padding: 6px 12px;
             border-radius: 8px;
@@ -86,8 +87,8 @@
             color: #ffffff !important;
             font-weight: 700;
             border-radius: 10px;
-            padding: 7px 14px;
-            font-size: 0.8rem;
+            padding: 7px 12px;
+            font-size: 0.78rem;
             text-decoration: none;
             box-shadow: 0 4px 14px rgba(37, 99, 235, 0.3);
             white-space: nowrap;
@@ -106,21 +107,17 @@
             border: 1px solid var(--card-border);
             color: var(--text-dark);
             font-weight: 700;
-            font-size: 0.8rem;
+            font-size: 0.78rem;
             border-radius: 8px;
-            padding: 6px 12px;
+            padding: 6px 10px;
             cursor: pointer;
         }
 
-        .btn-lang-switch:hover {
-            background: var(--pharaonic-blue);
-            color: #fff;
-        }
-
+        /* Hero Responsive */
         .hero-card-box {
             background: #ffffff;
             border-radius: 20px;
-            padding: 20px;
+            padding: 18px;
             border: 1px solid var(--card-border);
             box-shadow: 0 6px 25px rgba(0,0,0,0.03);
             position: relative;
@@ -128,18 +125,18 @@
         }
 
         @media (min-width: 768px) {
-            .hero-card-box { padding: 32px; }
+            .hero-card-box { padding: 30px; }
         }
 
         .hero-headline {
             font-weight: 900;
-            font-size: 1.8rem;
+            font-size: 1.6rem;
             color: var(--pharaonic-blue);
             line-height: 1.3;
         }
 
         @media (min-width: 768px) {
-            .hero-headline { font-size: 2.5rem; }
+            .hero-headline { font-size: 2.3rem; }
         }
 
         .hero-headline span { color: var(--primary-accent); }
@@ -147,7 +144,7 @@
         .why-us-card {
             background: #ffffff;
             border-radius: 20px;
-            padding: 20px;
+            padding: 18px;
             border: 1px solid var(--card-border);
             height: 100%;
             border-top: 4px solid var(--pharaonic-gold);
@@ -158,31 +155,32 @@
             display: flex;
             align-items: center;
             justify-content: space-between;
-            margin-bottom: 14px;
+            margin-bottom: 12px;
         }
 
         .why-us-item:last-child { margin-bottom: 0; }
 
         .why-icon-box {
-            width: 36px;
-            height: 36px;
+            width: 34px;
+            height: 34px;
             border-radius: 10px;
             background: rgba(212, 175, 55, 0.12);
             color: var(--pharaonic-gold);
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 1rem;
+            font-size: 0.95rem;
             flex-shrink: 0;
         }
 
+        /* Search Bar */
         .abt-search-wrapper {
             background: #ffffff;
             border: 1px solid var(--card-border);
             border-radius: 14px;
-            padding: 10px;
+            padding: 8px;
             box-shadow: 0 8px 24px rgba(0,0,0,0.05);
-            margin-top: 18px;
+            margin-top: 14px;
         }
 
         .search-field-abt {
@@ -194,7 +192,7 @@
             .search-field-abt {
                 border-bottom: none;
                 border-left: 1px solid #e2e8f0;
-                padding: 4px 12px;
+                padding: 4px 10px;
             }
             body[dir="ltr"] .search-field-abt {
                 border-left: none;
@@ -210,12 +208,13 @@
             border: none;
             outline: none;
             width: 100%;
-            font-size: 0.88rem;
+            font-size: 0.85rem;
             font-weight: 700;
             background: transparent;
             color: var(--text-dark);
         }
 
+        /* 16 Categories Grid */
         .category-item-abt {
             background: #ffffff;
             border: 1px solid var(--card-border);
@@ -238,24 +237,25 @@
         }
 
         .category-icon-circle {
-            width: 38px;
-            height: 38px;
+            width: 36px;
+            height: 36px;
             border-radius: 50%;
             background: #f8fafc;
             color: var(--primary-accent);
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            font-size: 1rem;
+            font-size: 0.95rem;
             margin-bottom: 4px;
             border: 1px solid #e2e8f0;
         }
 
+        /* Filter Chips */
         .filter-chips-wrapper {
             display: flex;
-            gap: 8px;
+            gap: 6px;
             overflow-x: auto;
-            padding-bottom: 6px;
+            padding-bottom: 4px;
             -webkit-overflow-scrolling: touch;
         }
 
@@ -266,8 +266,8 @@
             background: #fff;
             color: var(--text-dark);
             font-weight: 700;
-            font-size: 0.8rem;
-            padding: 6px 14px;
+            font-size: 0.78rem;
+            padding: 5px 12px;
             border-radius: 30px;
             cursor: pointer;
             white-space: nowrap;
@@ -279,6 +279,7 @@
             border-color: var(--pharaonic-blue);
         }
 
+        /* Product Cards */
         .abt-product-card {
             background: #ffffff;
             border: 1px solid var(--card-border);
@@ -292,7 +293,7 @@
 
         .abt-card-img {
             position: relative;
-            height: 200px;
+            height: 190px;
             background: #f1f5f9;
             overflow: hidden;
             cursor: pointer;
@@ -310,10 +311,10 @@
 
         .fav-heart-btn {
             position: absolute;
-            top: 10px;
-            right: 10px;
-            width: 34px;
-            height: 34px;
+            top: 8px;
+            right: 8px;
+            width: 32px;
+            height: 32px;
             border-radius: 50%;
             background: rgba(255, 255, 255, 0.95);
             border: none;
@@ -321,7 +322,7 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 0.95rem;
+            font-size: 0.9rem;
             cursor: pointer;
             z-index: 2;
             box-shadow: 0 2px 8px rgba(0,0,0,0.1);
@@ -329,7 +330,7 @@
 
         body[dir="ltr"] .fav-heart-btn {
             right: auto;
-            left: 10px;
+            left: 8px;
         }
 
         .fav-heart-btn.is-favorite {
@@ -338,11 +339,11 @@
 
         .badge-status {
             position: absolute;
-            top: 10px;
-            left: 10px;
-            font-size: 10px;
+            top: 8px;
+            left: 8px;
+            font-size: 9.5px;
             font-weight: 800;
-            padding: 4px 10px;
+            padding: 3px 8px;
             border-radius: 6px;
             color: #fff;
             z-index: 2;
@@ -350,14 +351,14 @@
 
         body[dir="ltr"] .badge-status {
             left: auto;
-            right: 10px;
+            right: 8px;
         }
 
         .badge-status.flash { background: linear-gradient(135deg, #f59e0b, #d97706); }
         .badge-status.new { background: var(--primary-accent); }
 
         .abt-card-body {
-            padding: 16px;
+            padding: 14px;
             flex-grow: 1;
             display: flex;
             flex-direction: column;
@@ -365,28 +366,28 @@
         }
 
         .abt-card-title {
-            font-size: 1.05rem;
+            font-size: 1rem;
             font-weight: 800;
             color: var(--text-dark);
-            margin-bottom: 6px;
+            margin-bottom: 4px;
         }
 
         .abt-card-price {
             color: #10b981;
             font-weight: 900;
-            font-size: 0.95rem;
+            font-size: 0.92rem;
         }
 
         .action-btns-group {
             display: flex;
-            gap: 6px;
+            gap: 4px;
         }
 
         .btn-call-quick, .btn-whatsapp-quick {
             border: none;
             border-radius: 8px;
-            padding: 6px 12px;
-            font-size: 0.82rem;
+            padding: 5px 10px;
+            font-size: 0.8rem;
             font-weight: 700;
             color: #fff;
             display: inline-flex;
@@ -402,22 +403,22 @@
         .gallery-thumbs-row {
             display: flex;
             gap: 6px;
-            padding: 8px;
+            padding: 6px;
             overflow-x: auto;
             background: #f8fafc;
             border-bottom: 1px solid #e2e8f0;
             -webkit-overflow-scrolling: touch;
         }
 
-        .gallery-thumbs-row::-webkit-scrollbar { height: 4px; }
+        .gallery-thumbs-row::-webkit-scrollbar { height: 3px; }
         .gallery-thumbs-row::-webkit-scrollbar-thumb {
             background: #cbd5e1;
             border-radius: 4px;
         }
 
         .thumb-btn-img {
-            width: 44px;
-            height: 44px;
+            width: 40px;
+            height: 40px;
             border-radius: 6px;
             object-fit: cover;
             border: 2px solid transparent;
@@ -434,15 +435,15 @@
             border-top: 3px solid var(--pharaonic-gold);
             color: #ffffff;
             border-radius: 18px;
-            padding: 24px;
-            margin-top: 35px;
-            margin-bottom: 25px;
+            padding: 20px;
+            margin-top: 30px;
+            margin-bottom: 20px;
         }
 
         footer {
             background: var(--pharaonic-dark);
             color: #ffffff;
-            padding: 26px 0 18px;
+            padding: 24px 0 16px;
             border-top: 2px solid rgba(212, 175, 55, 0.4);
             font-size: 0.82rem;
         }
@@ -455,20 +456,20 @@
             border-radius: 30px;
             display: inline-block;
             font-weight: 700;
-            font-size: 0.84rem;
+            font-size: 0.82rem;
         }
 
         .dev-credit-badge {
             font-family: 'Cairo', sans-serif;
             background: rgba(37, 99, 235, 0.1);
             border: 1px solid rgba(37, 99, 235, 0.3);
-            padding: 4px 14px;
+            padding: 4px 12px;
             border-radius: 20px;
             display: inline-flex;
             align-items: center;
             gap: 6px;
             color: #cbd5e1;
-            font-size: 0.76rem;
+            font-size: 0.74rem;
             font-weight: 600;
         }
 
@@ -479,8 +480,8 @@
 
         .toast-container {
             position: fixed;
-            bottom: 20px;
-            left: 20px;
+            bottom: 15px;
+            left: 15px;
             z-index: 1080;
         }
     </style>
@@ -525,7 +526,7 @@
     </header>
 
     <!-- Main Container -->
-    <div class="container my-3 my-md-4" id="home">
+    <div class="container my-2 my-md-4" id="home">
 
         <!-- Upper Banner Row -->
         <div class="row g-3 align-items-stretch">
@@ -534,12 +535,12 @@
                 <div class="hero-card-box h-100 d-flex flex-column justify-content-between">
                     <div class="row align-items-center">
                         <div class="col-md-7">
-                            <span class="badge mb-2 px-3 py-1.5" style="background: rgba(212, 175, 55, 0.15); color: var(--pharaonic-gold); font-size:10px; border:1px solid var(--pharaonic-gold);" data-i18n="heroBadge">⚡ منصة الصفقات والخدمات المباشرة</span>
+                            <span class="badge mb-2 px-3 py-1.5" style="background: rgba(212, 175, 55, 0.15); color: var(--pharaonic-gold); font-size:9.5px; border:1px solid var(--pharaonic-gold);" data-i18n="heroBadge">⚡ منصة الصفقات والخدمات المباشرة</span>
                             <h1 class="hero-headline mb-2" data-i18n="heroTitle">كل اللي محتاجه... <br><span>في مكان واحد</span></h1>
                             <p class="text-muted small mb-3" data-i18n="heroDesc">تصفح بمرونة وسهولة آلاف الصفقات والاستشارات والعروض المتميزة في جميع الأقسام والمدن.</p>
                         </div>
                         <div class="col-md-5 text-center d-none d-md-block">
-                            <img src="https://cdni.iconscout.com/illustration/premium/thumb/online-shopping-app-illustration-download-in-svg-png-gif-file-formats--mobile-store-e-commerce-pack-network-communication-illustrations-4712030.png" alt="لقطة" style="max-width: 100%; max-height:170px;">
+                            <img src="https://cdni.iconscout.com/illustration/premium/thumb/online-shopping-app-illustration-download-in-svg-png-gif-file-formats--mobile-store-e-commerce-pack-network-communication-illustrations-4712030.png" alt="لقطة" style="max-width: 100%; max-height:160px;">
                         </div>
                     </div>
 
@@ -600,14 +601,14 @@
 
             <div class="col-lg-4">
                 <div class="why-us-card">
-                    <h5 class="fw-bold mb-3" style="color:var(--pharaonic-blue); font-size:1.1rem;"><i class="fa-solid fa-crown text-warning me-1"></i> <span data-i18n="whyTitle">لماذا منصة لقطة؟</span></h5>
+                    <h5 class="fw-bold mb-3" style="color:var(--pharaonic-blue); font-size:1.05rem;"><i class="fa-solid fa-crown text-warning me-1"></i> <span data-i18n="whyTitle">لماذا منصة لقطة؟</span></h5>
                     
                     <div class="why-us-item">
                         <div class="d-flex align-items-center gap-2">
-                            <div class="why-icon-box"><i class="fa-solid fa-bolt"></i></div>
+                            <div class="why-icon-box"><i class="fa-solid fa-shield-halved"></i></div>
                             <div>
-                                <strong class="d-block small" style="font-size:11px;" data-i18n="why1Title">إضافة ونشر فوري وسحابي</strong>
-                                <span class="text-muted" style="font-size:9px;" data-i18n="why1Desc">إعلانك يظهر لجميع المستخدمين فوراً</span>
+                                <strong class="d-block small" style="font-size:10.5px;" data-i18n="why1Title">إعلانات مفحوصة ومراجعة</strong>
+                                <span class="text-muted" style="font-size:8.5px;" data-i18n="why1Desc">مراجعة كاملة قبل النشر لضمان الجودة</span>
                             </div>
                         </div>
                     </div>
@@ -616,8 +617,8 @@
                         <div class="d-flex align-items-center gap-2">
                             <div class="why-icon-box"><i class="fa-solid fa-user-doctor"></i></div>
                             <div>
-                                <strong class="d-block small" style="font-size:11px;" data-i18n="why2Title">استشارات مهنية متخصصة</strong>
-                                <span class="text-muted" style="font-size:9px;" data-i18n="why2Desc">طبية | هندسية | قانونية مباشرة</span>
+                                <strong class="d-block small" style="font-size:10.5px;" data-i18n="why2Title">استشارات مهنية متخصصة</strong>
+                                <span class="text-muted" style="font-size:8.5px;" data-i18n="why2Desc">طبية | هندسية | قانونية مباشرة</span>
                             </div>
                         </div>
                     </div>
@@ -626,18 +627,18 @@
                         <div class="d-flex align-items-center gap-2">
                             <div class="why-icon-box"><i class="fa-solid fa-comments"></i></div>
                             <div>
-                                <strong class="d-block small" style="font-size:11px;" data-i18n="why3Title">تواصل مباشر مع المعلن</strong>
-                                <span class="text-muted" style="font-size:9px;" data-i18n="why3Desc">اتصال أو واتساب بدون أي وسيط</span>
+                                <strong class="d-block small" style="font-size:10.5px;" data-i18n="why3Title">تواصل مباشر مع المعلن</strong>
+                                <span class="text-muted" style="font-size:8.5px;" data-i18n="why3Desc">اتصال أو واتساب بدون أي وسيط</span>
                             </div>
                         </div>
                     </div>
 
                     <div class="why-us-item">
                         <div class="d-flex align-items-center gap-2">
-                            <div class="why-icon-box"><i class="fa-solid fa-shield-halved"></i></div>
+                            <div class="why-icon-box"><i class="fa-solid fa-bolt"></i></div>
                             <div>
-                                <strong class="d-block small" style="font-size:11px;" data-i18n="why4Title">إعلانات موثوقة ومجانية</strong>
-                                <span class="text-muted" style="font-size:9px;" data-i18n="why4Desc">صفقات مباشرة وبدون أي عمولات</span>
+                                <strong class="d-block small" style="font-size:10.5px;" data-i18n="why4Title">صفقات مجانية 100%</strong>
+                                <span class="text-muted" style="font-size:8.5px;" data-i18n="why4Desc">بيع وشراء بدون أي عمولات</span>
                             </div>
                         </div>
                     </div>
@@ -648,101 +649,101 @@
         </div>
 
         <!-- Categories Icons Grid (Full 16 Categories) -->
-        <div class="row g-2 my-3 my-md-4">
+        <div class="row g-2 my-2 my-md-3">
             <div class="col-4 col-sm-3 col-md-2 col-lg-1-5">
                 <div class="category-item-abt active" onclick="filterByCategory('cars', this)">
                     <div class="category-icon-circle"><i class="fa-solid fa-car"></i></div>
-                    <strong class="d-block text-truncate" style="font-size:9.5px;" data-i18n="cat_cars">عربيات وقطع غيار</strong>
+                    <strong class="d-block text-truncate" style="font-size:9px;" data-i18n="cat_cars">عربيات وقطع غيار</strong>
                 </div>
             </div>
             <div class="col-4 col-sm-3 col-md-2 col-lg-1-5">
                 <div class="category-item-abt" onclick="filterByCategory('realestate', this)">
                     <div class="category-icon-circle"><i class="fa-solid fa-building"></i></div>
-                    <strong class="d-block text-truncate" style="font-size:9.5px;" data-i18n="cat_realestate">عقارات</strong>
+                    <strong class="d-block text-truncate" style="font-size:9px;" data-i18n="cat_realestate">عقارات</strong>
                 </div>
             </div>
             <div class="col-4 col-sm-3 col-md-2 col-lg-1-5">
                 <div class="category-item-abt" onclick="filterByCategory('mobiles', this)">
                     <div class="category-icon-circle"><i class="fa-solid fa-mobile-screen-button"></i></div>
-                    <strong class="d-block text-truncate" style="font-size:9.5px;" data-i18n="cat_mobiles">موبايلات و تابلت</strong>
+                    <strong class="d-block text-truncate" style="font-size:9px;" data-i18n="cat_mobiles">موبايلات و تابلت</strong>
                 </div>
             </div>
             <div class="col-4 col-sm-3 col-md-2 col-lg-1-5">
                 <div class="category-item-abt" onclick="filterByCategory('electronics', this)">
                     <div class="category-icon-circle"><i class="fa-solid fa-laptop"></i></div>
-                    <strong class="d-block text-truncate" style="font-size:9.5px;" data-i18n="cat_electronics">أجهزة إلكترونية</strong>
+                    <strong class="d-block text-truncate" style="font-size:9px;" data-i18n="cat_electronics">أجهزة إلكترونية</strong>
                 </div>
             </div>
             <div class="col-4 col-sm-3 col-md-2 col-lg-1-5">
                 <div class="category-item-abt" onclick="filterByCategory('fashion', this)">
                     <div class="category-icon-circle"><i class="fa-solid fa-shirt"></i></div>
-                    <strong class="d-block text-truncate" style="font-size:9.5px;" data-i18n="cat_fashion">الموضة والجمال</strong>
+                    <strong class="d-block text-truncate" style="font-size:9px;" data-i18n="cat_fashion">الموضة والجمال</strong>
                 </div>
             </div>
             <div class="col-4 col-sm-3 col-md-2 col-lg-1-5">
                 <div class="category-item-abt" onclick="filterByCategory('pets', this)">
                     <div class="category-icon-circle"><i class="fa-solid fa-paw"></i></div>
-                    <strong class="d-block text-truncate" style="font-size:9.5px;" data-i18n="cat_pets">حيوانات وطيور وأسماك</strong>
+                    <strong class="d-block text-truncate" style="font-size:9px;" data-i18n="cat_pets">حيوانات وطيور وأسماك</strong>
                 </div>
             </div>
             <div class="col-4 col-sm-3 col-md-2 col-lg-1-5">
                 <div class="category-item-abt" onclick="filterByCategory('furniture', this)">
                     <div class="category-icon-circle"><i class="fa-solid fa-couch"></i></div>
-                    <strong class="d-block text-truncate" style="font-size:9.5px;" data-i18n="cat_furniture">أثاث وديكور</strong>
+                    <strong class="d-block text-truncate" style="font-size:9px;" data-i18n="cat_furniture">أثاث وديكور</strong>
                 </div>
             </div>
             <div class="col-4 col-sm-3 col-md-2 col-lg-1-5">
                 <div class="category-item-abt" onclick="filterByCategory('kids', this)">
                     <div class="category-icon-circle"><i class="fa-solid fa-baby"></i></div>
-                    <strong class="d-block text-truncate" style="font-size:9.5px;" data-i18n="cat_kids">مستلزمات أطفال</strong>
+                    <strong class="d-block text-truncate" style="font-size:9px;" data-i18n="cat_kids">مستلزمات أطفال</strong>
                 </div>
             </div>
             <div class="col-4 col-sm-3 col-md-2 col-lg-1-5">
                 <div class="category-item-abt" onclick="filterByCategory('industry', this)">
                     <div class="category-icon-circle"><i class="fa-solid fa-industry"></i></div>
-                    <strong class="d-block text-truncate" style="font-size:9.5px;" data-i18n="cat_industry">تجارة و صناعة</strong>
+                    <strong class="d-block text-truncate" style="font-size:9px;" data-i18n="cat_industry">تجارة و صناعة</strong>
                 </div>
             </div>
             <div class="col-4 col-sm-3 col-md-2 col-lg-1-5">
                 <div class="category-item-abt" onclick="filterByCategory('services', this)">
                     <div class="category-icon-circle"><i class="fa-solid fa-screwdriver-wrench"></i></div>
-                    <strong class="d-block text-truncate" style="font-size:9.5px;" data-i18n="cat_services">خدمات عامة</strong>
+                    <strong class="d-block text-truncate" style="font-size:9px;" data-i18n="cat_services">خدمات عامة</strong>
                 </div>
             </div>
             <div class="col-4 col-sm-3 col-md-2 col-lg-1-5">
                 <div class="category-item-abt" onclick="filterByCategory('consult_medical', this)">
                     <div class="category-icon-circle text-danger"><i class="fa-solid fa-user-doctor"></i></div>
-                    <strong class="d-block text-truncate" style="font-size:9.5px;" data-i18n="cat_consult_medical">استشارات طبيه</strong>
+                    <strong class="d-block text-truncate" style="font-size:9px;" data-i18n="cat_consult_medical">استشارات طبيه</strong>
                 </div>
             </div>
             <div class="col-4 col-sm-3 col-md-2 col-lg-1-5">
                 <div class="category-item-abt" onclick="filterByCategory('consult_engineering', this)">
                     <div class="category-icon-circle text-warning"><i class="fa-solid fa-compass-drafting"></i></div>
-                    <strong class="d-block text-truncate" style="font-size:9.5px;" data-i18n="cat_consult_engineering">استشارات هندسية</strong>
+                    <strong class="d-block text-truncate" style="font-size:9px;" data-i18n="cat_consult_engineering">استشارات هندسية</strong>
                 </div>
             </div>
             <div class="col-4 col-sm-3 col-md-2 col-lg-1-5">
                 <div class="category-item-abt" onclick="filterByCategory('consult_legal', this)">
                     <div class="category-icon-circle text-primary"><i class="fa-solid fa-scale-balanced"></i></div>
-                    <strong class="d-block text-truncate" style="font-size:9.5px;" data-i18n="cat_consult_legal">استشارات قانونية</strong>
+                    <strong class="d-block text-truncate" style="font-size:9px;" data-i18n="cat_consult_legal">استشارات قانونية</strong>
                 </div>
             </div>
             <div class="col-4 col-sm-3 col-md-2 col-lg-1-5">
                 <div class="category-item-abt" onclick="filterByCategory('hobbies', this)">
                     <div class="category-icon-circle"><i class="fa-solid fa-palette"></i></div>
-                    <strong class="d-block text-truncate" style="font-size:9.5px;" data-i18n="cat_hobbies">هوايات</strong>
+                    <strong class="d-block text-truncate" style="font-size:9px;" data-i18n="cat_hobbies">هوايات</strong>
                 </div>
             </div>
             <div class="col-4 col-sm-3 col-md-2 col-lg-1-5">
                 <div class="category-item-abt" onclick="filterByCategory('jobs', this)">
                     <div class="category-icon-circle"><i class="fa-solid fa-briefcase"></i></div>
-                    <strong class="d-block text-truncate" style="font-size:9.5px;" data-i18n="cat_jobs">وظائف</strong>
+                    <strong class="d-block text-truncate" style="font-size:9px;" data-i18n="cat_jobs">وظائف</strong>
                 </div>
             </div>
             <div class="col-4 col-sm-3 col-md-2 col-lg-1-5">
                 <div class="category-item-abt" onclick="filterByCategory('news', this)">
                     <div class="category-icon-circle text-info"><i class="fa-solid fa-newspaper"></i></div>
-                    <strong class="d-block text-truncate" style="font-size:9.5px;" data-i18n="cat_news">اخبار</strong>
+                    <strong class="d-block text-truncate" style="font-size:9px;" data-i18n="cat_news">اخبار</strong>
                 </div>
             </div>
         </div>
@@ -763,10 +764,10 @@
             </div>
         </div>
 
-        <!-- Ads Container -->
-        <div class="row g-3" id="adsContainer">
+        <!-- Ads Grid Container -->
+        <div class="row g-2 g-md-3" id="adsContainer">
             
-            <!-- إعلان سيارة الكيا مورنينج مثبت ومباشر في الـ HTML -->
+            <!-- إعلان سيارة الكيا مورنينج مثبت ومباشر في الـ HTML بالـ 10 صور -->
             <div class="col-12 col-sm-10 col-md-8 col-lg-6 mx-auto ad-item" data-category="cars" data-location="المنوفية" data-keywords="كيا مورنينج بيكانتو 2007 اوتو امان عماد سليط المنوفية">
                 <div class="abt-product-card shadow-sm" style="border: 2px solid var(--pharaonic-gold);">
                     <div class="abt-card-img" onclick="openPhotoModalDirect('images/kia-front.jpg')">
@@ -835,11 +836,11 @@
         <div class="bottom-banner-abt">
             <div class="row align-items-center text-center text-md-start">
                 <div class="col-md-8">
-                    <h4 class="fw-bold mb-1" style="font-size:1.2rem;" data-i18n="bannerTitle">جاهز تبيع أو تقدم خدمة واستشارة؟ ⚡</h4>
+                    <h4 class="fw-bold mb-1" style="font-size:1.15rem;" data-i18n="bannerTitle">جاهز تبيع أو تقدم خدمة واستشارة؟ ⚡</h4>
                     <p class="text-white-50 small m-0" data-i18n="bannerDesc">أضف إعلانك الآن على منصة «لقطة» وانشره فوراً لكل الناس بدون أي عمولات.</p>
                 </div>
                 <div class="col-md-4 text-center text-md-end mt-3 mt-md-0">
-                    <button class="btn btn-primary fw-bold py-2 px-4" style="background:var(--primary-accent); border-radius:10px; border:none; font-size:0.9rem;" data-bs-toggle="modal" data-bs-target="#addAdModal">
+                    <button class="btn btn-primary fw-bold py-2 px-4" style="background:var(--primary-accent); border-radius:10px; border:none; font-size:0.88rem;" data-bs-toggle="modal" data-bs-target="#addAdModal">
                         <i class="fa-solid fa-plus me-1"></i> <span data-i18n="btnAddAdNow">أضف إعلانك فوراً</span>
                     </button>
                 </div>
@@ -865,7 +866,7 @@
         </div>
     </footer>
 
-    <!-- MODAL 1: Add Ad Modal -->
+    <!-- MODAL 1: Add Ad Modal (Sends to Pending Queue for Admin Approval) -->
     <div class="modal fade" id="addAdModal" tabindex="-1" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content border-0 shadow">
@@ -929,7 +930,7 @@
                             <textarea id="adDescInput" class="form-control form-control-sm" rows="3" placeholder="اكتب وصف كامل للحالة أو نوع الخدمة والاستشارة..." required></textarea>
                         </div>
                         <button type="submit" id="submitAdBtn" class="btn btn-primary w-100 fw-bold py-2" style="background:var(--pharaonic-blue); border:none;">
-                            <i class="fa-solid fa-bolt me-1"></i> <span data-i18n="btnPublishNow">انشر الإعلان الآن لكل الناس</span>
+                            <i class="fa-solid fa-bolt me-1"></i> <span data-i18n="btnPublishNow">إرسال الإعلان للمراجعة والنشر</span>
                         </button>
                     </form>
                 </div>
@@ -1034,14 +1035,14 @@
                 heroDesc: "تصفح بمرونة وسهولة آلاف الصفقات والاستشارات والعروض المتميزة في جميع الأقسام والمدن.",
                 searchPlaceholder: "🔍 بتدور على إيه النهاردة؟",
                 whyTitle: "لماذا منصة لقطة؟",
-                why1Title: "إضافة ونشر فوري وسحابي",
-                why1Desc: "إعلانك يظهر لجميع المستخدمين فوراً",
+                why1Title: "إعلانات مفحوصة ومراجعة",
+                why1Desc: "مراجعة كاملة قبل النشر لضمان الجودة",
                 why2Title: "استشارات مهنية متخصصة",
                 why2Desc: "طبية | هندسية | قانونية مباشرة",
                 why3Title: "تواصل مباشر مع المعلن",
                 why3Desc: "اتصال أو واتساب بدون أي وسيط",
-                why4Title: "إعلانات موثوقة ومجانية",
-                why4Desc: "صفقات مباشرة وبدون أي عمولات",
+                why4Title: "صفقات مجانية 100%",
+                why4Desc: "بيع وشراء بدون أي عمولات",
                 latestDealsTitle: "أحدث صفقات وعروض «لقطة»",
                 chip_all: "الكل",
                 emptyTitle: "لا توجد إعلانات مطابقة حالياً",
@@ -1062,7 +1063,7 @@
                 lblAdSeller: "اسم المعلن / المكتب / المعرض",
                 lblAdImg: "صورة الإعلان (اختياري)",
                 lblAdDesc: "تفاصيل ومواصفات الإعلان",
-                btnPublishNow: "انشر الإعلان الآن لكل الناس",
+                btnPublishNow: "إرسال الإعلان للمراجعة والنشر",
                 modalLoginTitle: "تسجيل الدخول",
                 lblAuthInput: "رقم الهاتف أو البريد",
                 lblAuthPass: "كلمة المرور",
@@ -1113,14 +1114,14 @@
                 heroDesc: "Easily explore thousands of direct deals, professional consultations, and verified offers.",
                 searchPlaceholder: "🔍 What are you looking for today?",
                 whyTitle: "Why Choose Loqta?",
-                why1Title: "Instant Cloud Publishing",
-                why1Desc: "Your ad appears to everyone immediately",
+                why1Title: "Reviewed & Verified Ads",
+                why1Desc: "Full review before publishing for top quality",
                 why2Title: "Professional Consultations",
                 why2Desc: "Medical | Engineering | Legal direct services",
                 why3Title: "Direct Communication",
                 why3Desc: "Call or WhatsApp with zero middleman",
-                why4Title: "Trusted & 100% Free",
-                why4Desc: "Direct transactions with zero commission",
+                why4Title: "100% Free Transactions",
+                why4Desc: "Direct deals with zero commission",
                 latestDealsTitle: "Latest Deals & Offers",
                 chip_all: "All",
                 emptyTitle: "No Matching Ads Found",
@@ -1141,7 +1142,7 @@
                 lblAdSeller: "Seller / Office / Agency Name",
                 lblAdImg: "Ad Photo (Optional)",
                 lblAdDesc: "Ad Details & Specifications",
-                btnPublishNow: "Publish Ad Now to Everyone",
+                btnPublishNow: "Submit Ad for Review & Publishing",
                 modalLoginTitle: "User Login",
                 lblAuthInput: "Phone or Email",
                 lblAuthPass: "Password",
@@ -1214,28 +1215,30 @@
             applyLanguage(currentLang === 'ar' ? 'en' : 'ar');
         }
 
-        // Firebase Cloud Listener
+        // Firebase Cloud Realtime Connection
         const firebaseConfig = { databaseURL: "https://alshohada-app-default-rtdb.firebaseio.com" };
         if (!firebase.apps.length) firebase.initializeApp(firebaseConfig);
         const db = firebase.database();
-        const adsRef = db.ref('loqta_public_ads');
+        const publicAdsRef = db.ref('loqta_public_ads');
+        const pendingAdsRef = db.ref('pending_ads');
 
         let favorites = JSON.parse(localStorage.getItem('loqta_favs') || '[]');
 
         document.addEventListener('DOMContentLoaded', () => {
             applyLanguage(currentLang);
-            listenToCloudAds();
+            listenToApprovedAds();
             updateFavoritesUI();
             checkAuthUser();
         });
 
-        function listenToCloudAds() {
-            adsRef.on('value', (snapshot) => {
+        // الاستماع للإعلانات المعتمدة فقط من الأدمن
+        function listenToApprovedAds() {
+            publicAdsRef.on('value', (snapshot) => {
                 const data = snapshot.val();
                 const container = document.getElementById('adsContainer');
                 
-                // Clear extra cloud items only, keeping Kia ad
-                document.querySelectorAll('.cloud-ad-item').forEach(e => e.remove());
+                // تنظيف الإعلانات السابقة مع الإبقاء على إعلان الكيا الثابت
+                document.querySelectorAll('.cloud-approved-ad').forEach(e => e.remove());
 
                 if (data) {
                     const keys = Object.keys(data).reverse();
@@ -1246,10 +1249,10 @@
                         const isFav = favorites.includes(key);
 
                         const cardHtml = `
-                            <div class="col-12 col-sm-6 col-lg-4 ad-item cloud-ad-item" data-category="${ad.category || ''}" data-location="${ad.locationText || ''}" data-keywords="${(ad.title || '') + ' ' + (ad.desc || '')}">
+                            <div class="col-12 col-sm-6 col-lg-4 ad-item cloud-approved-ad" data-category="${ad.category || ''}" data-location="${ad.locationText || ''}" data-keywords="${(ad.title || '') + ' ' + (ad.desc || '')}">
                                 <div class="abt-product-card shadow-sm" style="border: 1px solid var(--card-border);">
                                     <div class="abt-card-img" onclick="openPhotoModalDirect('${ad.mainImage}')">
-                                        <span class="badge-status new">${ad.badge || 'إعلان مباشر ⚡'}</span>
+                                        <span class="badge-status new">${ad.badge || 'معتمد ⚡'}</span>
                                         <button class="fav-heart-btn ${isFav ? 'is-favorite' : ''}" onclick="event.stopPropagation(); toggleFavorite('${key}', this)" title="المفضلة">
                                             <i class="fa-regular fa-heart"></i>
                                         </button>
@@ -1297,11 +1300,12 @@
             new bootstrap.Toast(toastEl).show();
         }
 
+        // إرسال الإعلان لجدول الانتظار Pending في فايربيس
         function handleAdSubmission(e) {
             e.preventDefault();
             const submitBtn = document.getElementById('submitAdBtn');
             submitBtn.disabled = true;
-            submitBtn.innerHTML = '<span class="spinner-border spinner-border-sm me-1"></span> ...';
+            submitBtn.innerHTML = '<span class="spinner-border spinner-border-sm me-1"></span> جاري الإرسال...';
 
             const title = document.getElementById('adTitleInput').value.trim();
             const category = document.getElementById('adCategoryInput').value;
@@ -1312,8 +1316,8 @@
             const desc = document.getElementById('adDescInput').value.trim();
             const fileInput = document.getElementById('adImageInput');
 
-            const uploadAndPublish = (imgData) => {
-                const newAdObject = {
+            const uploadToPending = (imgData) => {
+                const pendingAdObject = {
                     title: title,
                     category: category,
                     locationText: locationText,
@@ -1321,23 +1325,21 @@
                     phone: phone,
                     seller: seller,
                     desc: desc,
-                    badge: "إعلان مباشر ⚡",
-                    isFlash: false,
                     mainImage: imgData || 'https://images.unsplash.com/photo-1552519507-da3b142c6e3d?auto=format&fit=crop&w=800&q=80',
                     timestamp: Date.now()
                 };
 
-                adsRef.push(newAdObject).then(() => {
+                // إرسال لجدول المعلق
+                pendingAdsRef.push(pendingAdObject).then(() => {
                     submitBtn.disabled = false;
                     submitBtn.innerHTML = `<i class="fa-solid fa-bolt me-1"></i> ${translations[currentLang].btnPublishNow}`;
                     bootstrap.Modal.getInstance(document.getElementById('addAdModal')).hide();
                     e.target.reset();
-                    showNotification(currentLang === 'ar' ? '⚡ تم نشر إعلانك ويظهر الآن لكل الناس!' : '⚡ Published live to everyone!');
-                    document.getElementById('ads').scrollIntoView({ behavior: 'smooth' });
+                    showNotification(currentLang === 'ar' ? 'تم استلام إعلانك بنجاح وسيظهر للجميع فور موافقة الإدارة ⚡' : 'Submitted successfully! It will go live once reviewed.');
                 }).catch(() => {
                     submitBtn.disabled = false;
                     submitBtn.innerHTML = `<i class="fa-solid fa-bolt me-1"></i> ${translations[currentLang].btnPublishNow}`;
-                    showNotification('Error');
+                    showNotification('حدث خطأ أثناء الإرسال');
                 });
             };
 
@@ -1356,13 +1358,13 @@
                         }
                         canvas.width = w; canvas.height = h;
                         ctx.drawImage(img, 0, 0, w, h);
-                        uploadAndPublish(canvas.toDataURL('image/jpeg', 0.7));
+                        uploadToPending(canvas.toDataURL('image/jpeg', 0.7));
                     };
                     img.src = evt.target.result;
                 };
                 reader.readAsDataURL(fileInput.files[0]);
             } else {
-                uploadAndPublish('');
+                uploadToPending('');
             }
         }
 
