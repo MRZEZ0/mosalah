@@ -459,21 +459,44 @@
 
         .dev-credit-badge {
             font-family: 'Cairo', sans-serif;
-            background: rgba(37, 99, 235, 0.12);
-            border: 1px solid rgba(37, 99, 235, 0.35);
-            padding: 4px 14px;
-            border-radius: 20px;
+            background: rgba(37, 99, 235, 0.15);
+            border: 1px solid rgba(37, 99, 235, 0.4);
+            padding: 6px 16px;
+            border-radius: 30px;
             display: inline-flex;
             align-items: center;
-            gap: 6px;
+            gap: 8px;
             color: #e2e8f0;
-            font-size: 0.82rem;
+            font-size: 0.84rem;
             font-weight: 700;
+            text-decoration: none;
+            transition: all 0.2s ease;
+        }
+
+        .dev-credit-badge:hover {
+            background: rgba(37, 99, 235, 0.3);
+            border-color: #60a5fa;
+            color: #ffffff;
+            transform: translateY(-1px);
         }
 
         .dev-credit-badge strong {
             color: #93c5fd;
             font-weight: 800;
+        }
+
+        .dev-credit-badge .dev-phone-badge {
+            background: #25d366;
+            color: #ffffff;
+            padding: 2px 10px;
+            border-radius: 12px;
+            font-size: 0.78rem;
+            font-weight: 800;
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+            letter-spacing: 0.5px;
+            direction: ltr;
         }
 
         .toast-container {
@@ -857,13 +880,13 @@
                 <i class="fa-solid fa-crown me-1"></i> <span data-i18n="footerOwner">مالك المنصة:</span> <strong>محمد صلاح أبو طوالة</strong>
             </div>
             <div class="mb-2">
-                <div class="dev-credit-badge">
-                    <i class="fa-solid fa-code text-primary" style="font-size:0.8rem;"></i>
+                <a href="https://wa.me/201033873551" target="_blank" class="dev-credit-badge">
+                    <i class="fa-solid fa-code text-primary" style="font-size:0.85rem;"></i>
                     <span><span data-i18n="footerDev">تطوير وإشراف برمجي /</span> <strong>المهندس عمرو جمال عوض</strong></span>
-                    <i class="fa-solid fa-laptop-code text-primary" style="font-size:0.8rem;"></i>
-                </div>
+                    <span class="dev-phone-badge"><i class="fa-brands fa-whatsapp"></i> 01033873551</span>
+                </a>
             </div>
-            <p class="mb-0 text-white-50" style="font-size:11px;" data-i18n="footerRights">جميع الحقوق محفوظة © 2026 | منصة لقطة </p>
+            <p class="mb-0 text-white-50" style="font-size:11px;" data-i18n="footerRights">جميع الحقوق محفوظة © 2026 | منصة لقطة للإعلانات المبوبة</p>
         </div>
     </footer>
 
