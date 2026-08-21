@@ -2,17 +2,17 @@
 <html lang="ar" dir="rtl">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>لوحة الإدارة والتحكم الكاملة | منصة لقطة</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>لوحة الإدارة والتحكم | منصة لقطة</title>
     
     <!-- Bootstrap 5 RTL & FontAwesome & Cairo Font -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.rtl.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@500;600;700;800;900&display=swap" rel="stylesheet">
 
-    <!-- Firebase SDKs -->
-    <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-database-compat.js"></script>
+    <!-- Firebase SDKs (v8 Stable) -->
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-database.js"></script>
 
     <style>
         :root {
@@ -20,15 +20,31 @@
             --pharaonic-blue: #0f2b48;
             --pharaonic-dark: #071320;
             --primary-accent: #2563eb;
-            --bg-light: #f1f5f9;
+            --bg-light: #f8fafc;
+            --card-border: #cbd5e1;
+            --text-dark: #0f172a;
+        }
+
+        * {
+            box-sizing: border-box;
+            transition: all 0.2s ease-in-out;
         }
 
         body {
             font-family: 'Cairo', sans-serif !important;
             background-color: var(--bg-light);
-            color: #1e293b;
+            color: var(--text-dark);
+            font-size: 14.5px;
+            padding-bottom: 75px; /* مساحة للقائمة السفلية في الموبايل */
         }
 
+        @media (min-width: 768px) {
+            body {
+                padding-bottom: 0;
+            }
+        }
+
+        /* Sidebar for Desktop */
         .admin-sidebar {
             background: var(--pharaonic-dark);
             min-height: 100vh;
@@ -47,45 +63,126 @@
             font-weight: 700;
             margin-bottom: 6px;
             cursor: pointer;
-            transition: all 0.2s ease;
         }
 
         .admin-nav-link:hover, .admin-nav-link.active {
-            background: rgba(212, 175, 55, 0.15);
+            background: rgba(212, 175, 55, 0.18);
             color: var(--pharaonic-gold);
         }
 
+        /* Mobile Bottom Nav Bar */
+        .mobile-bottom-nav {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: #ffffff;
+            border-top: 2px solid var(--pharaonic-gold);
+            display: flex;
+            justify-content: space-around;
+            padding: 8px 4px;
+            z-index: 1050;
+            box-shadow: 0 -4px 15px rgba(0,0,0,0.06);
+        }
+
+        .mobile-nav-btn {
+            background: transparent;
+            border: none;
+            color: #64748b;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            font-size: 0.75rem;
+            font-weight: 800;
+            gap: 3px;
+            cursor: pointer;
+            position: relative;
+            flex: 1;
+        }
+
+        .mobile-nav-btn i {
+            font-size: 1.15rem;
+        }
+
+        .mobile-nav-btn.active {
+            color: var(--pharaonic-blue);
+        }
+
+        .mobile-nav-btn .badge-counter {
+            position: absolute;
+            top: -2px;
+            right: 25%;
+            background: #ef4444;
+            color: #fff;
+            font-size: 10px;
+            padding: 1px 6px;
+            border-radius: 10px;
+            font-weight: 900;
+        }
+
+        /* Mobile Header */
+        .admin-mobile-header {
+            background: #ffffff;
+            border-bottom: 1.5px solid var(--card-border);
+            padding: 12px 16px;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.02);
+        }
+
+        /* Stats Cards */
         .stat-card {
             background: #fff;
             border-radius: 14px;
-            padding: 18px;
-            border: 1px solid #e2e8f0;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.02);
+            padding: 14px 16px;
+            border: 1.5px solid var(--card-border);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.02);
+            height: 100%;
         }
 
         .stat-icon {
-            width: 46px;
-            height: 46px;
+            width: 44px;
+            height: 44px;
             border-radius: 12px;
             display: flex;
             align-items: center;
             justify-content: center;
             font-size: 1.2rem;
+            flex-shrink: 0;
         }
 
-        .table-card {
-            background: #fff;
+        /* Responsive Ad Item Card for Mobile */
+        .admin-ad-card {
+            background: #ffffff;
+            border: 1.5px solid var(--card-border);
             border-radius: 16px;
-            border: 1px solid #e2e8f0;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.02);
-            overflow: hidden;
+            padding: 14px;
+            margin-bottom: 12px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.02);
         }
 
-        .thumb-preview {
-            width: 52px;
-            height: 52px;
+        .admin-ad-thumb {
+            width: 75px;
+            height: 75px;
+            border-radius: 12px;
             object-fit: cover;
-            border-radius: 8px;
+            border: 1px solid var(--card-border);
+            flex-shrink: 0;
+        }
+
+        .admin-placeholder-thumb {
+            width: 75px;
+            height: 75px;
+            border-radius: 12px;
+            background: #f1f5f9;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary-accent);
+            font-size: 1.6rem;
+            flex-shrink: 0;
+            border: 1px solid var(--card-border);
         }
 
         /* Lock Screen */
@@ -100,35 +197,52 @@
             display: flex;
             align-items: center;
             justify-content: center;
+            padding: 16px;
         }
     </style>
 </head>
 <body>
 
-    <!-- Lock Screen for Admin Access -->
+    <!-- Lock Screen -->
     <div id="lockScreen">
-        <div class="card border-0 shadow-lg p-4 text-center" style="max-width: 380px; width: 90%; border-radius: 20px;">
+        <div class="card border-0 shadow-lg p-4 text-center bg-white" style="max-width: 360px; width: 100%; border-radius: 20px;">
             <div class="mb-3">
                 <i class="fa-solid fa-user-shield fa-3x" style="color: var(--pharaonic-gold);"></i>
             </div>
-            <h4 class="fw-bold mb-1" style="color: var(--pharaonic-blue);">لوحة الإدارة والمراجعة</h4>
-            <p class="text-muted small mb-4">أدخل كلمة المرور للوصول إلى لوحة التحكم</p>
+            <h4 class="fw-bold mb-1" style="color: var(--pharaonic-blue); font-size:1.3rem;">لوحة تحكم الإدارة</h4>
+            <p class="text-muted small mb-4">أدخل كلمة المرور السرية للمتابعة</p>
             <form onsubmit="verifyAdmin(event)">
                 <div class="mb-3">
-                    <input type="password" id="adminPassInput" class="form-control text-center fw-bold" placeholder="••••••••" required>
+                    <input type="password" id="adminPassInput" class="form-control form-control-lg text-center fw-bold" placeholder="••••••••" required>
                 </div>
-                <button type="submit" class="btn btn-primary w-100 fw-bold py-2" style="background: var(--pharaonic-blue); border: none;">
-                    دخول
+                <button type="submit" class="btn btn-primary w-100 fw-bold py-2.5" style="background: var(--pharaonic-blue); border: none; font-size:1rem; border-radius:10px;">
+                    دخول اللوحة
                 </button>
             </form>
         </div>
     </div>
 
-    <!-- Main Admin Dashboard -->
-    <div class="container-fluid">
-        <div class="row">
+    <!-- Mobile Header -->
+    <div class="admin-mobile-header d-flex justify-content-between align-items-center d-md-none">
+        <div class="d-flex align-items-center gap-2">
+            <i class="fa-solid fa-ankh text-warning fs-4"></i>
+            <strong class="fs-5" style="color: var(--pharaonic-blue);">لوحة لقطة <span>Admin</span></strong>
+        </div>
+        <div class="d-flex align-items-center gap-2">
+            <a href="index.html" target="_blank" class="btn btn-sm btn-outline-primary fw-bold" style="font-size:0.8rem; border-radius:8px;">
+                <i class="fa-solid fa-globe"></i> الموقع
+            </a>
+            <button class="btn btn-sm btn-outline-danger fw-bold" onclick="logoutAdmin()" style="font-size:0.8rem; border-radius:8px;">
+                <i class="fa-solid fa-right-from-bracket"></i>
+            </button>
+        </div>
+    </div>
+
+    <!-- Main Container -->
+    <div class="container-fluid p-0">
+        <div class="row g-0">
             
-            <!-- Sidebar -->
+            <!-- Desktop Sidebar -->
             <div class="col-md-3 col-lg-2 d-none d-md-block admin-sidebar p-3">
                 <div class="d-flex align-items-center gap-2 mb-4 px-2">
                     <i class="fa-solid fa-ankh text-warning fs-3"></i>
@@ -136,7 +250,7 @@
                 </div>
                 
                 <a class="admin-nav-link active" onclick="switchSection('pending', this)">
-                    <i class="fa-solid fa-hourglass-half"></i> طلبات الانتظار (<span id="pendingBadge">0</span>)
+                    <i class="fa-solid fa-hourglass-half"></i> طلبات الانتظار (<span class="pendingBadge">0</span>)
                 </a>
                 <a class="admin-nav-link" onclick="switchSection('published', this)">
                     <i class="fa-solid fa-circle-check"></i> الإعلانات المنشورة
@@ -156,25 +270,25 @@
             <!-- Content Area -->
             <div class="col-md-9 col-lg-10 p-3 p-md-4">
                 
-                <!-- Header -->
-                <div class="d-flex justify-content-between align-items-center mb-4 bg-white p-3 rounded-4 border">
+                <!-- Desktop Top Bar -->
+                <div class="d-none d-md-flex justify-content-between align-items-center mb-4 bg-white p-3 rounded-4 border">
                     <div>
-                        <h5 class="fw-bold m-0" style="color: var(--pharaonic-blue);">نظام مراجعة وقبول الإعلانات</h5>
-                        <small class="text-muted">التحكم الفوري في قاعدة بيانات منصة لقطة السحابية</small>
+                        <h5 class="fw-bold m-0" style="color: var(--pharaonic-blue);">لوحة الإدارة وقبول الإعلانات</h5>
+                        <small class="text-muted fw-bold">التحكم الفوري في قاعدة بيانات منصة لقطة السحابية</small>
                     </div>
                     <div>
-                        <span class="badge bg-success-subtle text-success border px-3 py-2 fw-bold">
-                            <i class="fa-solid fa-circle text-success me-1 fa-fade"></i> السيرفر السحابي متصل
+                        <span class="badge bg-success-subtle text-success border px-3 py-2 fw-bold" style="font-size:0.85rem;">
+                            <i class="fa-solid fa-circle text-success me-1 fa-fade"></i> السيرفر السحابي متصل ⚡
                         </span>
                     </div>
                 </div>
 
                 <!-- Stats Overview -->
-                <div class="row g-3 mb-4">
+                <div class="row g-2 g-md-3 mb-3 mb-md-4">
                     <div class="col-6 col-lg-3">
                         <div class="stat-card d-flex align-items-center justify-content-between">
                             <div>
-                                <span class="text-muted small fw-bold">طلبات معلقة</span>
+                                <span class="text-muted small fw-bold d-block" style="font-size:0.8rem;">طلبات معلقة</span>
                                 <h3 class="fw-bold m-0 mt-1 text-danger" id="statPendingCount">0</h3>
                             </div>
                             <div class="stat-icon bg-danger-subtle text-danger">
@@ -185,7 +299,7 @@
                     <div class="col-6 col-lg-3">
                         <div class="stat-card d-flex align-items-center justify-content-between">
                             <div>
-                                <span class="text-muted small fw-bold">إعلانات منشورة</span>
+                                <span class="text-muted small fw-bold d-block" style="font-size:0.8rem;">إعلانات منشورة</span>
                                 <h3 class="fw-bold m-0 mt-1 text-success" id="statPublishedCount">1</h3>
                             </div>
                             <div class="stat-icon bg-success-subtle text-success">
@@ -196,8 +310,8 @@
                     <div class="col-6 col-lg-3">
                         <div class="stat-card d-flex align-items-center justify-content-between">
                             <div>
-                                <span class="text-muted small fw-bold">إعلانات السيارات</span>
-                                <h3 class="fw-bold m-0 mt-1" id="statCarsCount">1</h3>
+                                <span class="text-muted small fw-bold d-block" style="font-size:0.8rem;">قسم السيارات</span>
+                                <h3 class="fw-bold m-0 mt-1 text-warning" id="statCarsCount">1</h3>
                             </div>
                             <div class="stat-icon bg-warning-subtle text-warning">
                                 <i class="fa-solid fa-car"></i>
@@ -207,137 +321,131 @@
                     <div class="col-6 col-lg-3">
                         <div class="stat-card d-flex align-items-center justify-content-between">
                             <div>
-                                <span class="text-muted small fw-bold">حالة الاتصال</span>
-                                <h5 class="fw-bold m-0 mt-2 text-primary">مباشر ⚡</h5>
+                                <span class="text-muted small fw-bold d-block" style="font-size:0.8rem;">المزامنة</span>
+                                <h5 class="fw-bold m-0 mt-2 text-primary">فورية ⚡</h5>
                             </div>
                             <div class="stat-icon bg-primary-subtle text-primary">
-                                <i class="fa-solid fa-network-wired"></i>
+                                <i class="fa-solid fa-bolt"></i>
                             </div>
                         </div>
                     </div>
                 </div>
 
-                <!-- SECTION 1: Pending Ads (Needs Admin Approval) -->
-                <div id="secPending" class="table-card p-3 mb-4">
+                <!-- SECTION 1: Pending Approvals (Mobile Cards + Responsive View) -->
+                <div id="secPending">
                     <div class="d-flex justify-content-between align-items-center mb-3">
-                        <h6 class="fw-bold m-0 text-danger"><i class="fa-solid fa-hourglass-half me-1"></i> طلبات في انتظار قرارك (قبول / رفض):</h6>
-                        <button class="btn btn-sm btn-outline-secondary" onclick="listenToData()"><i class="fa-solid fa-rotate me-1"></i> تحديث</button>
+                        <h6 class="fw-bold m-0 text-danger fs-6"><i class="fa-solid fa-hourglass-half me-1"></i> طلبات في انتظار قرارك (قبول / رفض):</h6>
+                        <button class="btn btn-sm btn-outline-secondary fw-bold" onclick="listenToData()" style="font-size:0.8rem; border-radius:8px;">
+                            <i class="fa-solid fa-rotate me-1"></i> تحديث
+                        </button>
                     </div>
-                    <div class="table-responsive">
-                        <table class="table table-hover align-middle">
-                            <thead class="table-light">
-                                <tr>
-                                    <th>الصورة</th>
-                                    <th>العنوان</th>
-                                    <th>القسم</th>
-                                    <th>السعر</th>
-                                    <th>الهاتف / المعلن</th>
-                                    <th>الموقع</th>
-                                    <th>الوصف</th>
-                                    <th>القرار</th>
-                                </tr>
-                            </thead>
-                            <tbody id="pendingTbody">
-                                <tr><td colspan="8" class="text-center text-muted py-4">لا توجد طلبات معلقة حالياً</td></tr>
-                            </tbody>
-                        </table>
+
+                    <div id="pendingListContainer">
+                        <div class="text-center text-muted py-5 bg-white rounded-4 border">
+                            <i class="fa-solid fa-check-circle fa-2x text-success mb-2"></i>
+                            <div class="fw-bold">لا توجد طلبات معلقة حالياً</div>
+                        </div>
                     </div>
                 </div>
 
-                <!-- SECTION 2: Published Ads (Live on Platform) -->
-                <div id="secPublished" class="table-card p-3 mb-4 d-none">
+                <!-- SECTION 2: Published Ads -->
+                <div id="secPublished" class="d-none">
                     <div class="d-flex justify-content-between align-items-center mb-3">
-                        <h6 class="fw-bold m-0 text-success"><i class="fa-solid fa-circle-check me-1"></i> الإعلانات المنشورة حالياً على الموقع:</h6>
+                        <h6 class="fw-bold m-0 text-success fs-6"><i class="fa-solid fa-circle-check me-1"></i> الإعلانات المنشورة والمعروضة للجميع:</h6>
                     </div>
-                    <div class="table-responsive">
-                        <table class="table table-hover align-middle">
-                            <thead class="table-light">
-                                <tr>
-                                    <th>الصورة</th>
-                                    <th>العنوان</th>
-                                    <th>القسم</th>
-                                    <th>السعر</th>
-                                    <th>الهاتف / المعلن</th>
-                                    <th>الموقع</th>
-                                    <th>حذف من الموقع</th>
-                                </tr>
-                            </thead>
-                            <tbody id="publishedTbody">
-                                <tr class="table-warning-subtle">
-                                    <td><img src="images/kia-front.jpg" class="thumb-preview" onerror="this.src='https://images.unsplash.com/photo-1552519507-da3b142c6e3d?auto=format&fit=crop&w=150&q=80'"></td>
-                                    <td><strong>كيا مورنينج 2007</strong> <span class="badge bg-danger">مثبت</span></td>
-                                    <td><span class="badge bg-secondary">عربيات وقطع غيار</span></td>
-                                    <td>تواصل للسعر</td>
-                                    <td>01006950904<br><small class="text-muted">أوتو أمان</small></td>
-                                    <td>المنوفية - منشأة سلطان</td>
-                                    <td><span class="badge bg-light text-dark border">إعلان رئيسي</span></td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
 
-                <!-- SECTION 3: Admin Instant Publish Form -->
-                <div id="secPublishNew" class="card border-0 shadow-sm p-4 rounded-4 bg-white d-none">
-                    <h5 class="fw-bold mb-3" style="color: var(--pharaonic-blue);"><i class="fa-solid fa-cloud-arrow-up text-primary me-2"></i> نشر إعلان مباشر بصلاحيات الإدارة (بدون انتظار)</h5>
-                    <form onsubmit="handleAdminDirectPublish(event)">
-                        <div class="row g-3">
-                            <div class="col-md-6">
-                                <label class="form-label small fw-bold">عنوان الإعلان / الخدمة</label>
-                                <input type="text" id="admTitle" class="form-control" placeholder="مثال: شقة للبيع في المعادي..." required>
-                            </div>
-                            <div class="col-md-6">
-                                <label class="form-label small fw-bold">القسم</label>
-                                <select id="admCategory" class="form-select" required>
-                                    <option value="cars">عربيات وقطع غيار</option>
-                                    <option value="realestate">عقارات</option>
-                                    <option value="mobiles">موبايلات و تابلت</option>
-                                    <option value="electronics">أجهزة إلكترونية</option>
-                                    <option value="fashion">الموضة والجمال</option>
-                                    <option value="pets">حيوانات أليفة - طيور - أسماك الزينة</option>
-                                    <option value="furniture">أثاث المنزل والمكتب - ديكور</option>
-                                    <option value="kids">مستلزمات أطفال</option>
-                                    <option value="industry">تجارة و صناعة</option>
-                                    <option value="services">خدمات</option>
-                                    <option value="consult_medical">استشارات طبيه</option>
-                                    <option value="consult_engineering">استشارات هندسية</option>
-                                    <option value="consult_legal">استشارات قانونية</option>
-                                    <option value="hobbies">هوايات</option>
-                                    <option value="jobs">وظائف</option>
-                                    <option value="news">اخبار</option>
-                                </select>
-                            </div>
-                            <div class="col-md-4">
-                                <label class="form-label small fw-bold">الموقع / المدينة</label>
-                                <input type="text" id="admLocation" class="form-control" placeholder="مثال: المنوفية - شبين الكوم" required>
-                            </div>
-                            <div class="col-md-4">
-                                <label class="form-label small fw-bold">السعر المطلوب (ج.م)</label>
-                                <input type="text" id="admPrice" class="form-control" placeholder="مثال: 500,000 ج.م" required>
-                            </div>
-                            <div class="col-md-4">
-                                <label class="form-label small fw-bold">رقم الهاتف للتواصل</label>
-                                <input type="tel" id="admPhone" class="form-control" placeholder="010XXXXXXXX" required>
-                            </div>
-                            <div class="col-md-6">
-                                <label class="form-label small fw-bold">اسم المعلن / المكتب</label>
-                                <input type="text" id="admSeller" class="form-control" placeholder="مثال: الإدارة العامة" required>
-                            </div>
-                            <div class="col-md-6">
-                                <label class="form-label small fw-bold">صورة الإعلان</label>
-                                <input type="file" id="admFile" class="form-control" accept="image/*">
-                            </div>
-                            <div class="col-12">
-                                <label class="form-label small fw-bold">التفاصيل والوصف</label>
-                                <textarea id="admDesc" class="form-control" rows="3" placeholder="تفاصيل المعروض والمواصفات..." required></textarea>
-                            </div>
-                            <div class="col-12 text-end">
-                                <button type="submit" id="admSubmitBtn" class="btn btn-primary fw-bold px-4 py-2" style="background: var(--pharaonic-blue); border: none;">
-                                    <i class="fa-solid fa-bolt me-1"></i> نشر مباشر على الموقع
-                                </button>
+                    <div id="publishedListContainer">
+                        <!-- Static Kia Car Card -->
+                        <div class="admin-ad-card">
+                            <div class="d-flex gap-3 align-items-center">
+                                <img src="images/kia-front.jpg" class="admin-ad-thumb" onerror="this.src='https://images.unsplash.com/photo-1552519507-da3b142c6e3d?auto=format&fit=crop&w=150&q=80'">
+                                <div class="flex-grow-1 overflow-hidden">
+                                    <div class="d-flex justify-content-between align-items-center mb-1">
+                                        <strong class="text-truncate d-block fs-6">كيا مورنينج (بيكانتو) 2007</strong>
+                                        <span class="badge bg-danger">مثبت</span>
+                                    </div>
+                                    <div class="text-success fw-bold small">تواصل للسعر</div>
+                                    <div class="text-muted small"><i class="fa-solid fa-location-dot me-1"></i> المنوفية - نازلة منشأة سلطان</div>
+                                    <div class="text-muted small"><i class="fa-solid fa-phone me-1"></i> 01006950904 (أوتو أمان)</div>
+                                </div>
                             </div>
                         </div>
-                    </form>
+                    </div>
+                </div>
+
+                <!-- SECTION 3: Admin Instant Direct Publish -->
+                <div id="secPublishNew" class="d-none">
+                    <div class="card border-0 shadow-sm p-3 p-md-4 rounded-4 bg-white">
+                        <h5 class="fw-bold mb-3" style="color: var(--pharaonic-blue); font-size:1.15rem;">
+                            <i class="fa-solid fa-cloud-arrow-up text-primary me-2"></i> نشر إعلان مباشر بصلاحيات الإدارة
+                        </h5>
+                        <form onsubmit="handleAdminDirectPublish(event)">
+                            <div class="row g-2 g-md-3">
+                                <div class="col-md-6">
+                                    <label class="form-label small fw-bold">عنوان الإعلان / الخدمة</label>
+                                    <input type="text" id="admTitle" class="form-control" placeholder="مثال: شقة للبيع في المعادي..." required>
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label small fw-bold">القسم</label>
+                                    <select id="admCategory" class="form-select" required>
+                                        <option value="cars">عربيات وقطع غيار</option>
+                                        <option value="realestate">عقارات</option>
+                                        <option value="mobiles">موبايلات و تابلت</option>
+                                        <option value="electronics">أجهزة إلكترونية</option>
+                                        <option value="fashion">الموضة والجمال</option>
+                                        <option value="pets">حيوانات أليفة - طيور - أسماك الزينة</option>
+                                        <option value="furniture">أثاث المنزل والمكتب - ديكور</option>
+                                        <option value="kids">مستلزمات أطفال</option>
+                                        <option value="industry">تجارة و صناعة</option>
+                                        <option value="services">خدمات</option>
+                                        <option value="consult_medical">استشارات طبيه</option>
+                                        <option value="consult_engineering">استشارات هندسية</option>
+                                        <option value="consult_legal">استشارات قانونية</option>
+                                        <option value="hobbies">هوايات</option>
+                                        <option value="jobs">وظائف</option>
+                                        <option value="news">اخبار</option>
+                                    </select>
+                                </div>
+                                <div class="col-6 col-md-4">
+                                    <label class="form-label small fw-bold">المحافظة / المدينة</label>
+                                    <select id="admLocation" class="form-select" required>
+                                        <option value="المنوفية">المنوفية</option>
+                                        <option value="القاهرة">القاهرة</option>
+                                        <option value="الجيزة">الجيزة</option>
+                                        <option value="الإسكندرية">الإسكندرية</option>
+                                        <option value="البحيرة">البحيرة</option>
+                                        <option value="الشرقية">الشرقية</option>
+                                        <option value="السويس">السويس</option>
+                                    </select>
+                                </div>
+                                <div class="col-6 col-md-4">
+                                    <label class="form-label small fw-bold">السعر المطلوب</label>
+                                    <input type="text" id="admPrice" class="form-control" placeholder="مثال: 500,000 ج.م" required>
+                                </div>
+                                <div class="col-12 col-md-4">
+                                    <label class="form-label small fw-bold">رقم الهاتف للتواصل</label>
+                                    <input type="tel" id="admPhone" class="form-control" placeholder="010XXXXXXXX" required>
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label small fw-bold">اسم المعلن / المكتب</label>
+                                    <input type="text" id="admSeller" class="form-control" placeholder="مثال: إدارة المنصة" required>
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label small fw-bold">صورة الإعلان (اختياري)</label>
+                                    <input type="file" id="admFile" class="form-control" accept="image/*">
+                                </div>
+                                <div class="col-12">
+                                    <label class="form-label small fw-bold">التفاصيل والوصف</label>
+                                    <textarea id="admDesc" class="form-control" rows="3" placeholder="تفاصيل المعروض والمواصفات..." required></textarea>
+                                </div>
+                                <div class="col-12 text-end mt-3">
+                                    <button type="submit" id="admSubmitBtn" class="btn btn-primary w-100 w-md-auto fw-bold px-4 py-2.5" style="background: var(--pharaonic-blue); border: none; border-radius:10px;">
+                                        <i class="fa-solid fa-bolt me-1"></i> نشر مباشر على المنصة
+                                    </button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
                 </div>
 
             </div>
@@ -345,13 +453,29 @@
         </div>
     </div>
 
+    <!-- Mobile Bottom App Bar -->
+    <div class="mobile-bottom-nav d-md-none">
+        <button class="mobile-nav-btn active" onclick="switchSection('pending', this)">
+            <i class="fa-solid fa-hourglass-half"></i>
+            <span>المعلق</span>
+            <span class="badge-counter pendingBadge d-none">0</span>
+        </button>
+        <button class="mobile-nav-btn" onclick="switchSection('published', this)">
+            <i class="fa-solid fa-circle-check"></i>
+            <span>المنشور</span>
+        </button>
+        <button class="mobile-nav-btn" onclick="switchSection('publishNew', this)">
+            <i class="fa-solid fa-plus-circle"></i>
+            <span>إضافة</span>
+        </button>
+    </div>
+
     <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 
     <!-- Admin Engine Script -->
     <script>
-        // Password for Admin Access (عدل الرمز من هنا إذا أردت)
-        const ADMIN_SECRET = "amramr";
+        const ADMIN_SECRET = "123456";
 
         // Firebase Configuration
         const firebaseConfig = { databaseURL: "https://loqta-b58f9-default-rtdb.firebaseio.com" };
@@ -384,7 +508,11 @@
         });
 
         function switchSection(sec, btn) {
+            // Desktop Links Active State
             document.querySelectorAll('.admin-nav-link').forEach(l => l.classList.remove('active'));
+            // Mobile Nav Active State
+            document.querySelectorAll('.mobile-nav-btn').forEach(b => b.classList.remove('active'));
+            
             if (btn) btn.classList.add('active');
 
             document.getElementById('secPending').classList.add('d-none');
@@ -398,63 +526,120 @@
             } else if (sec === 'publishNew') {
                 document.getElementById('secPublishNew').classList.remove('d-none');
             }
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        function getCategoryIcon(cat) {
+            const icons = {
+                cars: 'fa-car',
+                realestate: 'fa-building',
+                mobiles: 'fa-mobile-screen-button',
+                electronics: 'fa-laptop',
+                fashion: 'fa-shirt',
+                pets: 'fa-paw',
+                furniture: 'fa-couch',
+                kids: 'fa-baby',
+                industry: 'fa-industry',
+                services: 'fa-screwdriver-wrench',
+                consult_medical: 'fa-user-doctor',
+                consult_engineering: 'fa-compass-drafting',
+                consult_legal: 'fa-scale-balanced',
+                hobbies: 'fa-palette',
+                jobs: 'fa-briefcase',
+                news: 'fa-newspaper'
+            };
+            return icons[cat] || 'fa-tag';
         }
 
         function listenToData() {
-            // 1. مراقبة طلبات الانتظار Pending
+            // 1. مراقبة طلبات الانتظار (Pending)
             pendingRef.on('value', (snap) => {
                 const data = snap.val();
-                const tbody = document.getElementById('pendingTbody');
-                tbody.innerHTML = '';
+                const container = document.getElementById('pendingListContainer');
+                container.innerHTML = '';
 
                 if (data) {
                     const keys = Object.keys(data);
-                    document.getElementById('pendingBadge').innerText = keys.length;
-                    document.getElementById('statPendingCount').innerText = keys.length;
+                    const count = keys.length;
+
+                    document.querySelectorAll('.pendingBadge').forEach(el => {
+                        el.innerText = count;
+                        el.classList.remove('d-none');
+                    });
+                    document.getElementById('statPendingCount').innerText = count;
 
                     keys.forEach(k => {
                         const ad = data[k];
-                        tbody.insertAdjacentHTML('beforeend', `
-                            <tr>
-                                <td><img src="${ad.mainImage}" class="thumb-preview" onerror="this.src='https://images.unsplash.com/photo-1552519507-da3b142c6e3d?auto=format&fit=crop&w=150&q=80'"></td>
-                                <td><strong>${ad.title}</strong></td>
-                                <td><span class="badge bg-secondary">${ad.category}</span></td>
-                                <td class="text-success fw-bold">${ad.price}</td>
-                                <td>${ad.phone}<br><small class="text-muted">${ad.seller}</small></td>
-                                <td>${ad.locationText}</td>
-                                <td><small class="text-muted d-block text-truncate" style="max-width:140px;">${ad.desc}</small></td>
-                                <td>
-                                    <div class="d-flex gap-1">
-                                        <button class="btn btn-sm btn-success fw-bold" onclick="approveAd('${k}')"><i class="fa-solid fa-check"></i> قبول</button>
-                                        <button class="btn btn-sm btn-danger fw-bold" onclick="rejectAd('${k}')"><i class="fa-solid fa-xmark"></i> رفض</button>
+                        const hasImg = ad.mainImage && ad.mainImage.trim() !== '' && !ad.mainImage.includes('unsplash');
+                        const catIcon = getCategoryIcon(ad.category);
+
+                        const thumbHtml = hasImg 
+                            ? `<img src="${ad.mainImage}" class="admin-ad-thumb" onerror="this.src='https://via.placeholder.com/80'">`
+                            : `<div class="admin-placeholder-thumb"><i class="fa-solid ${catIcon}"></i></div>`;
+
+                        const cardHtml = `
+                            <div class="admin-ad-card">
+                                <div class="d-flex gap-3 align-items-start">
+                                    ${thumbHtml}
+                                    <div class="flex-grow-1 overflow-hidden">
+                                        <div class="d-flex justify-content-between align-items-center mb-1">
+                                            <strong class="text-truncate d-block fs-6" style="color:var(--pharaonic-blue);">${ad.title}</strong>
+                                            <span class="badge bg-secondary" style="font-size:10.5px;">${ad.category}</span>
+                                        </div>
+                                        <div class="text-success fw-bold small">${ad.price}</div>
+                                        <div class="text-muted small"><i class="fa-solid fa-location-dot text-danger me-1"></i> ${ad.locationText}</div>
+                                        <div class="text-muted small"><i class="fa-solid fa-user text-primary me-1"></i> ${ad.seller} - ${ad.phone}</div>
+                                        <div class="bg-light p-2 rounded-3 my-2 small text-secondary" style="font-size:0.8rem; line-height:1.5;">${ad.desc}</div>
+                                        <div class="d-flex gap-2 mt-2">
+                                            <button class="btn btn-success btn-sm flex-fill fw-bold py-2" onclick="approveAd('${k}')" style="border-radius:8px;">
+                                                <i class="fa-solid fa-check me-1"></i> قبول ونشر
+                                            </button>
+                                            <button class="btn btn-danger btn-sm flex-fill fw-bold py-2" onclick="rejectAd('${k}')" style="border-radius:8px;">
+                                                <i class="fa-solid fa-xmark me-1"></i> رفض وحذف
+                                            </button>
+                                        </div>
                                     </div>
-                                </td>
-                            </tr>
-                        `);
+                                </div>
+                            </div>
+                        `;
+                        container.insertAdjacentHTML('beforeend', cardHtml);
                     });
                 } else {
-                    document.getElementById('pendingBadge').innerText = '0';
+                    document.querySelectorAll('.pendingBadge').forEach(el => {
+                        el.innerText = '0';
+                        el.classList.add('d-none');
+                    });
                     document.getElementById('statPendingCount').innerText = '0';
-                    tbody.innerHTML = `<tr><td colspan="8" class="text-center text-muted py-4">لا توجد طلبات معلقة حالياً</td></tr>`;
+                    container.innerHTML = `
+                        <div class="text-center text-muted py-5 bg-white rounded-4 border">
+                            <i class="fa-solid fa-check-circle fa-2x text-success mb-2"></i>
+                            <div class="fw-bold">لا توجد طلبات معلقة حالياً</div>
+                        </div>
+                    `;
                 }
             });
 
-            // 2. مراقبة الإعلانات المنشورة Public
+            // 2. مراقبة الإعلانات المنشورة (Public)
             publicRef.on('value', (snap) => {
                 const data = snap.val();
-                const tbody = document.getElementById('publishedTbody');
+                const container = document.getElementById('publishedListContainer');
                 
-                // إبقاء إعلان الكيا الثابت كأول صف
-                tbody.innerHTML = `
-                    <tr class="table-warning-subtle">
-                        <td><img src="images/kia-front.jpg" class="thumb-preview" onerror="this.src='https://images.unsplash.com/photo-1552519507-da3b142c6e3d?auto=format&fit=crop&w=150&q=80'"></td>
-                        <td><strong>كيا مورنينج 2007</strong> <span class="badge bg-danger">مثبت</span></td>
-                        <td><span class="badge bg-secondary">عربيات وقطع غيار</span></td>
-                        <td>تواصل للسعر</td>
-                        <td>01006950904<br><small class="text-muted">معرض أوتو أمان</small></td>
-                        <td>المنوفية - منشأة سلطان</td>
-                        <td><span class="badge bg-light text-dark border">إعلان رئيسي</span></td>
-                    </tr>
+                // إبقاء كارت سيارة الكيا الثابت
+                container.innerHTML = `
+                    <div class="admin-ad-card">
+                        <div class="d-flex gap-3 align-items-center">
+                            <img src="images/kia-front.jpg" class="admin-ad-thumb" onerror="this.src='https://images.unsplash.com/photo-1552519507-da3b142c6e3d?auto=format&fit=crop&w=150&q=80'">
+                            <div class="flex-grow-1 overflow-hidden">
+                                <div class="d-flex justify-content-between align-items-center mb-1">
+                                    <strong class="text-truncate d-block fs-6">كيا مورنينج (بيكانتو) 2007</strong>
+                                    <span class="badge bg-danger">مثبت</span>
+                                </div>
+                                <div class="text-success fw-bold small">تواصل للسعر</div>
+                                <div class="text-muted small"><i class="fa-solid fa-location-dot me-1"></i> المنوفية - نازلة منشأة سلطان</div>
+                                <div class="text-muted small"><i class="fa-solid fa-phone me-1"></i> 01006950904 (معرض أوتو أمان)</div>
+                            </div>
+                        </div>
+                    </div>
                 `;
 
                 let totalPub = 1;
@@ -467,19 +652,35 @@
                     keys.forEach(k => {
                         const ad = data[k];
                         if (ad.category === 'cars') carsCount++;
-                        tbody.insertAdjacentHTML('beforeend', `
-                            <tr>
-                                <td><img src="${ad.mainImage}" class="thumb-preview" onerror="this.src='https://images.unsplash.com/photo-1552519507-da3b142c6e3d?auto=format&fit=crop&w=150&q=80'"></td>
-                                <td><strong>${ad.title}</strong></td>
-                                <td><span class="badge bg-light text-dark border">${ad.category}</span></td>
-                                <td class="text-success fw-bold">${ad.price}</td>
-                                <td>${ad.phone}<br><small class="text-muted">${ad.seller}</small></td>
-                                <td>${ad.locationText}</td>
-                                <td>
-                                    <button class="btn btn-sm btn-outline-danger" onclick="deletePublishedAd('${k}')"><i class="fa-solid fa-trash"></i></button>
-                                </td>
-                            </tr>
-                        `);
+                        const hasImg = ad.mainImage && ad.mainImage.trim() !== '' && !ad.mainImage.includes('unsplash');
+                        const catIcon = getCategoryIcon(ad.category);
+
+                        const thumbHtml = hasImg 
+                            ? `<img src="${ad.mainImage}" class="admin-ad-thumb" onerror="this.src='https://via.placeholder.com/80'">`
+                            : `<div class="admin-placeholder-thumb"><i class="fa-solid ${catIcon}"></i></div>`;
+
+                        const cardHtml = `
+                            <div class="admin-ad-card">
+                                <div class="d-flex gap-3 align-items-start">
+                                    ${thumbHtml}
+                                    <div class="flex-grow-1 overflow-hidden">
+                                        <div class="d-flex justify-content-between align-items-center mb-1">
+                                            <strong class="text-truncate d-block fs-6" style="color:var(--pharaonic-blue);">${ad.title}</strong>
+                                            <span class="badge bg-light text-dark border" style="font-size:10.5px;">${ad.category}</span>
+                                        </div>
+                                        <div class="text-success fw-bold small">${ad.price}</div>
+                                        <div class="text-muted small"><i class="fa-solid fa-location-dot text-danger me-1"></i> ${ad.locationText}</div>
+                                        <div class="text-muted small"><i class="fa-solid fa-user text-primary me-1"></i> ${ad.seller} - ${ad.phone}</div>
+                                        <div class="text-end mt-2">
+                                            <button class="btn btn-outline-danger btn-sm fw-bold px-3 py-1.5" onclick="deletePublishedAd('${k}')" style="border-radius:8px; font-size:0.8rem;">
+                                                <i class="fa-solid fa-trash me-1"></i> حذف من الموقع
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        `;
+                        container.insertAdjacentHTML('beforeend', cardHtml);
                     });
                 }
                 document.getElementById('statPublishedCount').innerText = totalPub;
@@ -487,20 +688,20 @@
             });
         }
 
-        // دالة القبول (نقل الإعلان من المعلق إلى المنشور للعامة)
+        // قبول ونقل الإعلان للموقع المباشر
         function approveAd(key) {
             pendingRef.child(key).once('value', (snap) => {
                 const adData = snap.val();
                 if (adData) {
                     publicRef.push(adData).then(() => {
                         pendingRef.child(key).remove();
-                        alert('تم قبول الإعلان ونشره على الموقع مباشرة لكل الناس!');
+                        alert('تم قبول الإعلان ونشره على الموقع مباشرة لكل الناس! ⚡');
                     });
                 }
             });
         }
 
-        // دالة الرفض (حذف الطلب نهائياً)
+        // رفض وحذف الطلب
         function rejectAd(key) {
             if (confirm('هل أنت متأكد من رفض وحذف هذا الطلب نهائياً؟')) {
                 pendingRef.child(key).remove().then(() => {
@@ -509,7 +710,7 @@
             }
         }
 
-        // دالة حذف إعلان منشور حالياً
+        // حذف إعلان معروض حالياً
         function deletePublishedAd(key) {
             if (confirm('هل تريد حذف هذا الإعلان من الموقع نهائياً؟')) {
                 publicRef.child(key).remove().then(() => {
@@ -523,10 +724,11 @@
             e.preventDefault();
             const btn = document.getElementById('admSubmitBtn');
             btn.disabled = true;
+            btn.innerHTML = '<span class="spinner-border spinner-border-sm me-1"></span> جاري النشر...';
 
             const title = document.getElementById('admTitle').value.trim();
             const category = document.getElementById('admCategory').value;
-            const locationText = document.getElementById('admLocation').value.trim();
+            const locationText = document.getElementById('admLocation').value;
             const price = document.getElementById('admPrice').value.trim();
             const phone = document.getElementById('admPhone').value.trim();
             const seller = document.getElementById('admSeller').value.trim();
@@ -542,19 +744,36 @@
                     phone: phone,
                     seller: seller,
                     desc: desc,
-                    mainImage: imgData || 'https://images.unsplash.com/photo-1552519507-da3b142c6e3d?auto=format&fit=crop&w=800&q=80',
+                    mainImage: imgData || '',
                     timestamp: Date.now()
                 }).then(() => {
                     btn.disabled = false;
-                    alert('تم نشر الإعلان مباشرة على المنصة لكل الزوار!');
+                    btn.innerHTML = '<i class="fa-solid fa-bolt me-1"></i> نشر مباشر على المنصة';
+                    alert('تم نشر الإعلان مباشرة على المنصة لكل الزوار! ⚡');
                     e.target.reset();
-                    switchSection('published', document.querySelectorAll('.admin-nav-link')[1]);
+                    switchSection('published');
                 });
             };
 
             if (file) {
                 const reader = new FileReader();
-                reader.onload = (evt) => sendDirect(evt.target.result);
+                reader.onload = function(evt) {
+                    const img = new Image();
+                    img.onload = function() {
+                        const canvas = document.createElement('canvas');
+                        const ctx = canvas.getContext('2d');
+                        const maxDim = 800;
+                        let w = img.width, h = img.height;
+                        if (w > maxDim || h > maxDim) {
+                            if (w > h) { h = Math.round((h * maxDim) / w); w = maxDim; }
+                            else { w = Math.round((w * maxDim) / h); h = maxDim; }
+                        }
+                        canvas.width = w; canvas.height = h;
+                        ctx.drawImage(img, 0, 0, w, h);
+                        sendDirect(canvas.toDataURL('image/jpeg', 0.7));
+                    };
+                    img.src = evt.target.result;
+                };
                 reader.readAsDataURL(file);
             } else {
                 sendDirect('');
