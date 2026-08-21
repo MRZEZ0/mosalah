@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&display=swap" rel="stylesheet">
 
-    <!-- Firebase SDKs (v8 Stable Standalone) -->
+    <!-- Firebase SDKs (v8 Stable) -->
     <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-database.js"></script>
 
@@ -22,7 +22,7 @@
             --pharaonic-blue: #0f2b48;
             --pharaonic-dark: #071320;
             --primary-accent: #2563eb;
-            --bg-light: #f4f6f9;
+            --bg-light: #f8fafc;
             --card-border: #e2e8f0;
             --text-dark: #1e293b;
             --text-muted: #64748b;
@@ -44,8 +44,8 @@
         .top-navbar {
             background: #ffffff;
             border-bottom: 2px solid var(--pharaonic-gold);
-            padding: 10px 0;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.04);
+            padding: 8px 0;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.03);
             position: sticky;
             top: 0;
             z-index: 1000;
@@ -53,16 +53,16 @@
 
         .brand-logo-loqta {
             font-weight: 900;
-            font-size: 1.6rem;
+            font-size: 1.5rem;
             color: var(--pharaonic-blue);
             text-decoration: none;
             display: inline-flex;
             align-items: center;
-            gap: 6px;
+            gap: 5px;
         }
 
         @media (min-width: 768px) {
-            .brand-logo-loqta { font-size: 2.2rem; }
+            .brand-logo-loqta { font-size: 2rem; }
         }
 
         .brand-logo-loqta span { color: var(--pharaonic-gold); }
@@ -70,9 +70,9 @@
         .nav-link-custom {
             color: var(--text-dark);
             font-weight: 700;
-            font-size: 0.9rem;
+            font-size: 0.85rem;
             text-decoration: none;
-            padding: 6px 12px;
+            padding: 6px 10px;
             border-radius: 8px;
             cursor: pointer;
         }
@@ -86,19 +86,19 @@
             background: linear-gradient(135deg, #2563eb, #1d4ed8);
             color: #ffffff !important;
             font-weight: 700;
-            border-radius: 10px;
-            padding: 7px 12px;
+            border-radius: 8px;
+            padding: 6px 12px;
             font-size: 0.78rem;
             text-decoration: none;
-            box-shadow: 0 4px 14px rgba(37, 99, 235, 0.3);
+            box-shadow: 0 3px 10px rgba(37, 99, 235, 0.25);
             white-space: nowrap;
             border: none;
         }
 
         @media (min-width: 576px) {
             .btn-add-free-ad {
-                padding: 9px 20px;
-                font-size: 0.88rem;
+                padding: 8px 18px;
+                font-size: 0.85rem;
             }
         }
 
@@ -107,84 +107,82 @@
             border: 1px solid var(--card-border);
             color: var(--text-dark);
             font-weight: 700;
-            font-size: 0.78rem;
+            font-size: 0.76rem;
             border-radius: 8px;
-            padding: 6px 10px;
+            padding: 5px 10px;
             cursor: pointer;
         }
 
-        /* Hero Section */
+        /* Hero */
         .hero-card-box {
             background: #ffffff;
-            border-radius: 20px;
-            padding: 18px;
+            border-radius: 16px;
+            padding: 16px;
             border: 1px solid var(--card-border);
-            box-shadow: 0 6px 25px rgba(0,0,0,0.03);
-            position: relative;
-            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.02);
         }
 
         @media (min-width: 768px) {
-            .hero-card-box { padding: 30px; }
+            .hero-card-box { padding: 24px; }
         }
 
         .hero-headline {
             font-weight: 900;
-            font-size: 1.6rem;
+            font-size: 1.45rem;
             color: var(--pharaonic-blue);
-            line-height: 1.3;
+            line-height: 1.35;
         }
 
         @media (min-width: 768px) {
-            .hero-headline { font-size: 2.3rem; }
+            .hero-headline { font-size: 2.1rem; }
         }
 
         .hero-headline span { color: var(--primary-accent); }
 
         .why-us-card {
             background: #ffffff;
-            border-radius: 20px;
-            padding: 18px;
+            border-radius: 16px;
+            padding: 16px;
             border: 1px solid var(--card-border);
             height: 100%;
-            border-top: 4px solid var(--pharaonic-gold);
-            box-shadow: 0 6px 25px rgba(0,0,0,0.02);
+            border-top: 3px solid var(--pharaonic-gold);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.02);
         }
 
         .why-us-item {
             display: flex;
             align-items: center;
             justify-content: space-between;
-            margin-bottom: 12px;
+            margin-bottom: 10px;
         }
 
         .why-us-item:last-child { margin-bottom: 0; }
 
         .why-icon-box {
-            width: 34px;
-            height: 34px;
-            border-radius: 10px;
+            width: 32px;
+            height: 32px;
+            border-radius: 8px;
             background: rgba(212, 175, 55, 0.12);
             color: var(--pharaonic-gold);
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 0.95rem;
+            font-size: 0.88rem;
             flex-shrink: 0;
         }
 
-        /* Search Bar */
+        /* Search */
         .abt-search-wrapper {
             background: #ffffff;
             border: 1px solid var(--card-border);
-            border-radius: 14px;
-            padding: 8px;
-            box-shadow: 0 8px 24px rgba(0,0,0,0.05);
-            margin-top: 14px;
+            border-radius: 12px;
+            padding: 6px;
+            box-shadow: 0 6px 18px rgba(0,0,0,0.03);
+            margin-top: 12px;
         }
 
         .search-field-abt {
-            padding: 6px 8px;
+            padding: 4px 6px;
             border-bottom: 1px solid #e2e8f0;
         }
 
@@ -192,7 +190,7 @@
             .search-field-abt {
                 border-bottom: none;
                 border-left: 1px solid #e2e8f0;
-                padding: 4px 10px;
+                padding: 2px 8px;
             }
             body[dir="ltr"] .search-field-abt {
                 border-left: none;
@@ -208,49 +206,48 @@
             border: none;
             outline: none;
             width: 100%;
-            font-size: 0.85rem;
+            font-size: 0.82rem;
             font-weight: 700;
             background: transparent;
             color: var(--text-dark);
         }
 
-        /* 16 Categories Grid */
+        /* Unified 16 Categories Grid */
         .category-item-abt {
             background: #ffffff;
             border: 1px solid var(--card-border);
-            border-radius: 14px;
-            padding: 10px 4px;
+            border-radius: 12px;
+            padding: 8px 4px;
             text-align: center;
             text-decoration: none;
             color: var(--text-dark);
             display: block;
-            box-shadow: 0 3px 8px rgba(0,0,0,0.02);
+            box-shadow: 0 2px 6px rgba(0,0,0,0.02);
             height: 100%;
             cursor: pointer;
         }
 
         .category-item-abt:hover, .category-item-abt.active {
             border-color: var(--pharaonic-gold);
-            transform: translateY(-3px);
+            transform: translateY(-2px);
             color: var(--pharaonic-blue);
             background: #fdfaf0;
         }
 
         .category-icon-circle {
-            width: 36px;
-            height: 36px;
+            width: 34px;
+            height: 34px;
             border-radius: 50%;
             background: #f8fafc;
             color: var(--primary-accent);
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            font-size: 0.95rem;
-            margin-bottom: 4px;
+            font-size: 0.9rem;
+            margin-bottom: 3px;
             border: 1px solid #e2e8f0;
         }
 
-        /* Filter Chips */
         .filter-chips-wrapper {
             display: flex;
             gap: 6px;
@@ -266,9 +263,9 @@
             background: #fff;
             color: var(--text-dark);
             font-weight: 700;
-            font-size: 0.78rem;
-            padding: 5px 12px;
-            border-radius: 30px;
+            font-size: 0.76rem;
+            padding: 4px 10px;
+            border-radius: 20px;
             cursor: pointer;
             white-space: nowrap;
         }
@@ -283,7 +280,7 @@
         .abt-product-card {
             background: #ffffff;
             border: 1px solid var(--card-border);
-            border-radius: 16px;
+            border-radius: 14px;
             overflow: hidden;
             height: 100%;
             display: flex;
@@ -293,14 +290,14 @@
 
         .abt-card-img {
             position: relative;
-            height: 190px;
+            height: 180px;
             background: #f1f5f9;
             overflow: hidden;
             cursor: pointer;
         }
 
         @media (min-width: 576px) {
-            .abt-card-img { height: 230px; }
+            .abt-card-img { height: 210px; }
         }
 
         .abt-card-img img {
@@ -311,10 +308,10 @@
 
         .fav-heart-btn {
             position: absolute;
-            top: 8px;
-            right: 8px;
-            width: 32px;
-            height: 32px;
+            top: 6px;
+            right: 6px;
+            width: 30px;
+            height: 30px;
             border-radius: 50%;
             background: rgba(255, 255, 255, 0.95);
             border: none;
@@ -322,28 +319,26 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 0.9rem;
+            font-size: 0.85rem;
             cursor: pointer;
             z-index: 2;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            box-shadow: 0 2px 6px rgba(0,0,0,0.1);
         }
 
         body[dir="ltr"] .fav-heart-btn {
             right: auto;
-            left: 8px;
+            left: 6px;
         }
 
-        .fav-heart-btn.is-favorite {
-            color: #ef4444;
-        }
+        .fav-heart-btn.is-favorite { color: #ef4444; }
 
         .badge-status {
             position: absolute;
-            top: 8px;
-            left: 8px;
-            font-size: 9.5px;
+            top: 6px;
+            left: 6px;
+            font-size: 9px;
             font-weight: 800;
-            padding: 3px 8px;
+            padding: 2px 7px;
             border-radius: 6px;
             color: #fff;
             z-index: 2;
@@ -351,14 +346,14 @@
 
         body[dir="ltr"] .badge-status {
             left: auto;
-            right: 8px;
+            right: 6px;
         }
 
         .badge-status.flash { background: linear-gradient(135deg, #f59e0b, #d97706); }
         .badge-status.new { background: var(--primary-accent); }
 
         .abt-card-body {
-            padding: 14px;
+            padding: 12px;
             flex-grow: 1;
             display: flex;
             flex-direction: column;
@@ -366,7 +361,7 @@
         }
 
         .abt-card-title {
-            font-size: 1rem;
+            font-size: 0.95rem;
             font-weight: 800;
             color: var(--text-dark);
             margin-bottom: 4px;
@@ -375,7 +370,7 @@
         .abt-card-price {
             color: #10b981;
             font-weight: 900;
-            font-size: 0.92rem;
+            font-size: 0.9rem;
         }
 
         .action-btns-group {
@@ -385,9 +380,9 @@
 
         .btn-call-quick, .btn-whatsapp-quick {
             border: none;
-            border-radius: 8px;
-            padding: 5px 10px;
-            font-size: 0.8rem;
+            border-radius: 6px;
+            padding: 4px 8px;
+            font-size: 0.78rem;
             font-weight: 700;
             color: #fff;
             display: inline-flex;
@@ -402,7 +397,7 @@
 
         .gallery-thumbs-row {
             display: flex;
-            gap: 6px;
+            gap: 4px;
             padding: 6px;
             overflow-x: auto;
             background: #f8fafc;
@@ -417,8 +412,8 @@
         }
 
         .thumb-btn-img {
-            width: 40px;
-            height: 40px;
+            width: 38px;
+            height: 38px;
             border-radius: 6px;
             object-fit: cover;
             border: 2px solid transparent;
@@ -434,42 +429,42 @@
             background: linear-gradient(135deg, var(--pharaonic-dark) 0%, var(--pharaonic-blue) 100%);
             border-top: 3px solid var(--pharaonic-gold);
             color: #ffffff;
-            border-radius: 18px;
-            padding: 20px;
-            margin-top: 30px;
+            border-radius: 16px;
+            padding: 18px;
+            margin-top: 25px;
             margin-bottom: 20px;
         }
 
         footer {
             background: var(--pharaonic-dark);
             color: #ffffff;
-            padding: 24px 0 16px;
+            padding: 20px 0 14px;
             border-top: 2px solid rgba(212, 175, 55, 0.4);
-            font-size: 0.82rem;
+            font-size: 0.8rem;
         }
 
         .pharaonic-owner-tag {
             background: rgba(212, 175, 55, 0.12);
             border: 1px solid var(--pharaonic-gold);
             color: var(--pharaonic-gold-light);
-            padding: 5px 18px;
+            padding: 4px 16px;
             border-radius: 30px;
             display: inline-block;
             font-weight: 700;
-            font-size: 0.82rem;
+            font-size: 0.8rem;
         }
 
         .dev-credit-badge {
             font-family: 'Cairo', sans-serif;
             background: rgba(37, 99, 235, 0.1);
             border: 1px solid rgba(37, 99, 235, 0.3);
-            padding: 4px 12px;
+            padding: 3px 10px;
             border-radius: 20px;
             display: inline-flex;
             align-items: center;
-            gap: 6px;
+            gap: 5px;
             color: #cbd5e1;
-            font-size: 0.74rem;
+            font-size: 0.72rem;
             font-weight: 600;
         }
 
@@ -499,11 +494,11 @@
 
             <div class="d-none d-lg-flex align-items-center gap-1">
                 <a href="#home" class="nav-link-custom active" onclick="navigateSection('all')" data-i18n="navHome">الرئيسية</a>
-                <a href="#ads" class="nav-link-custom" onclick="navigateSection('cars')" data-i18n="navCars">عربيات وقطع غيار</a>
-                <a href="#ads" class="nav-link-custom" onclick="navigateSection('realestate')" data-i18n="navRealestate">عقارات</a>
-                <a href="#ads" class="nav-link-custom" onclick="navigateSection('services')" data-i18n="navServices">خدمات واستشارات</a>
-                <a href="#ads" class="nav-link-custom" onclick="navigateSection('jobs')" data-i18n="navJobs">وظائف</a>
-                <a href="#ads" class="nav-link-custom" onclick="navigateSection('news')" data-i18n="navNews">أخبار</a>
+                <a href="#ads" class="nav-link-custom" onclick="navigateSection('cars')" data-i18n="cat_cars">عربيات وقطع غيار</a>
+                <a href="#ads" class="nav-link-custom" onclick="navigateSection('realestate')" data-i18n="cat_realestate">عقارات</a>
+                <a href="#ads" class="nav-link-custom" onclick="navigateSection('services')" data-i18n="cat_services">خدمات واستشارات</a>
+                <a href="#ads" class="nav-link-custom" onclick="navigateSection('jobs')" data-i18n="cat_jobs">وظائف</a>
+                <a href="#ads" class="nav-link-custom" onclick="navigateSection('news')" data-i18n="cat_news">أخبار</a>
                 <a href="#contact" class="nav-link-custom" data-bs-toggle="modal" data-bs-target="#contactModal" data-i18n="navContact">اتصل بنا</a>
             </div>
 
@@ -535,12 +530,12 @@
                 <div class="hero-card-box h-100 d-flex flex-column justify-content-between">
                     <div class="row align-items-center">
                         <div class="col-md-7">
-                            <span class="badge mb-2 px-3 py-1.5" style="background: rgba(212, 175, 55, 0.15); color: var(--pharaonic-gold); font-size:9.5px; border:1px solid var(--pharaonic-gold);" data-i18n="heroBadge">⚡ منصة الصفقات والخدمات المباشرة</span>
+                            <span class="badge mb-2 px-2 py-1" style="background: rgba(212, 175, 55, 0.15); color: var(--pharaonic-gold); font-size:9.5px; border:1px solid var(--pharaonic-gold);" data-i18n="heroBadge">⚡ منصة الصفقات والخدمات المباشرة</span>
                             <h1 class="hero-headline mb-2" data-i18n="heroTitle">كل اللي محتاجه... <br><span>في مكان واحد</span></h1>
-                            <p class="text-muted small mb-3" data-i18n="heroDesc">تصفح بمرونة وسهولة آلاف الصفقات والاستشارات والعروض المتميزة في جميع الأقسام والمدن.</p>
+                            <p class="text-muted small mb-2" style="font-size:0.82rem;" data-i18n="heroDesc">تصفح بمرونة وسهولة آلاف الصفقات والاستشارات والعروض المتميزة في جميع الأقسام والمدن.</p>
                         </div>
                         <div class="col-md-5 text-center d-none d-md-block">
-                            <img src="https://cdni.iconscout.com/illustration/premium/thumb/online-shopping-app-illustration-download-in-svg-png-gif-file-formats--mobile-store-e-commerce-pack-network-communication-illustrations-4712030.png" alt="لقطة" style="max-width: 100%; max-height:160px;">
+                            <img src="https://cdni.iconscout.com/illustration/premium/thumb/online-shopping-app-illustration-download-in-svg-png-gif-file-formats--mobile-store-e-commerce-pack-network-communication-illustrations-4712030.png" alt="لقطة" style="max-width: 100%; max-height:150px;">
                         </div>
                     </div>
 
@@ -588,7 +583,7 @@
                                     </div>
                                 </div>
                                 <div class="col-12 col-md-1">
-                                    <button type="submit" class="btn btn-primary w-100 py-2 fw-bold" style="background: var(--primary-accent); border:none; border-radius:8px;">
+                                    <button type="submit" class="btn btn-primary w-100 py-1.5 fw-bold" style="background: var(--primary-accent); border:none; border-radius:6px;">
                                         <i class="fa-solid fa-magnifying-glass"></i>
                                     </button>
                                 </div>
@@ -601,14 +596,14 @@
 
             <div class="col-lg-4">
                 <div class="why-us-card">
-                    <h5 class="fw-bold mb-3" style="color:var(--pharaonic-blue); font-size:1.05rem;"><i class="fa-solid fa-crown text-warning me-1"></i> <span data-i18n="whyTitle">لماذا منصة لقطة؟</span></h5>
+                    <h5 class="fw-bold mb-3" style="color:var(--pharaonic-blue); font-size:1rem;"><i class="fa-solid fa-crown text-warning me-1"></i> <span data-i18n="whyTitle">لماذا منصة لقطة؟</span></h5>
                     
                     <div class="why-us-item">
                         <div class="d-flex align-items-center gap-2">
                             <div class="why-icon-box"><i class="fa-solid fa-shield-halved"></i></div>
                             <div>
-                                <strong class="d-block small" style="font-size:10.5px;" data-i18n="why1Title">إعلانات مفحوصة ومراجعة</strong>
-                                <span class="text-muted" style="font-size:8.5px;" data-i18n="why1Desc">مراجعة كاملة قبل النشر لضمان الجودة</span>
+                                <strong class="d-block small" style="font-size:10px;" data-i18n="why1Title">إعلانات مفحوصة ومراجعة</strong>
+                                <span class="text-muted" style="font-size:8px;" data-i18n="why1Desc">مراجعة كاملة قبل النشر لضمان الجودة</span>
                             </div>
                         </div>
                     </div>
@@ -617,8 +612,8 @@
                         <div class="d-flex align-items-center gap-2">
                             <div class="why-icon-box"><i class="fa-solid fa-user-doctor"></i></div>
                             <div>
-                                <strong class="d-block small" style="font-size:10.5px;" data-i18n="why2Title">استشارات مهنية متخصصة</strong>
-                                <span class="text-muted" style="font-size:8.5px;" data-i18n="why2Desc">طبية | هندسية | قانونية مباشرة</span>
+                                <strong class="d-block small" style="font-size:10px;" data-i18n="why2Title">استشارات مهنية متخصصة</strong>
+                                <span class="text-muted" style="font-size:8px;" data-i18n="why2Desc">طبية | هندسية | قانونية مباشرة</span>
                             </div>
                         </div>
                     </div>
@@ -627,8 +622,8 @@
                         <div class="d-flex align-items-center gap-2">
                             <div class="why-icon-box"><i class="fa-solid fa-comments"></i></div>
                             <div>
-                                <strong class="d-block small" style="font-size:10.5px;" data-i18n="why3Title">تواصل مباشر مع المعلن</strong>
-                                <span class="text-muted" style="font-size:8.5px;" data-i18n="why3Desc">اتصال أو واتساب بدون أي وسيط</span>
+                                <strong class="d-block small" style="font-size:10px;" data-i18n="why3Title">تواصل مباشر مع المعلن</strong>
+                                <span class="text-muted" style="font-size:8px;" data-i18n="why3Desc">اتصال أو واتساب بدون أي وسيط</span>
                             </div>
                         </div>
                     </div>
@@ -637,8 +632,8 @@
                         <div class="d-flex align-items-center gap-2">
                             <div class="why-icon-box"><i class="fa-solid fa-bolt"></i></div>
                             <div>
-                                <strong class="d-block small" style="font-size:10.5px;" data-i18n="why4Title">صفقات مجانية 100%</strong>
-                                <span class="text-muted" style="font-size:8.5px;" data-i18n="why4Desc">بيع وشراء بدون أي عمولات</span>
+                                <strong class="d-block small" style="font-size:10px;" data-i18n="why4Title">صفقات مجانية 100%</strong>
+                                <span class="text-muted" style="font-size:8px;" data-i18n="why4Desc">بيع وشراء بدون أي عمولات</span>
                             </div>
                         </div>
                     </div>
@@ -648,102 +643,102 @@
 
         </div>
 
-        <!-- Categories Icons Grid (Full 16 Categories) -->
+        <!-- Unified 16 Categories Grid (No Duplicates) -->
         <div class="row g-2 my-2 my-md-3">
             <div class="col-4 col-sm-3 col-md-2 col-lg-1-5">
                 <div class="category-item-abt active" onclick="filterByCategory('cars', this)">
                     <div class="category-icon-circle"><i class="fa-solid fa-car"></i></div>
-                    <strong class="d-block text-truncate" style="font-size:9px;" data-i18n="cat_cars">عربيات وقطع غيار</strong>
+                    <strong class="d-block text-truncate" style="font-size:8.5px;" data-i18n="cat_cars">عربيات وقطع غيار</strong>
                 </div>
             </div>
             <div class="col-4 col-sm-3 col-md-2 col-lg-1-5">
                 <div class="category-item-abt" onclick="filterByCategory('realestate', this)">
                     <div class="category-icon-circle"><i class="fa-solid fa-building"></i></div>
-                    <strong class="d-block text-truncate" style="font-size:9px;" data-i18n="cat_realestate">عقارات</strong>
+                    <strong class="d-block text-truncate" style="font-size:8.5px;" data-i18n="cat_realestate">عقارات</strong>
                 </div>
             </div>
             <div class="col-4 col-sm-3 col-md-2 col-lg-1-5">
                 <div class="category-item-abt" onclick="filterByCategory('mobiles', this)">
                     <div class="category-icon-circle"><i class="fa-solid fa-mobile-screen-button"></i></div>
-                    <strong class="d-block text-truncate" style="font-size:9px;" data-i18n="cat_mobiles">موبايلات و تابلت</strong>
+                    <strong class="d-block text-truncate" style="font-size:8.5px;" data-i18n="cat_mobiles">موبايلات و تابلت</strong>
                 </div>
             </div>
             <div class="col-4 col-sm-3 col-md-2 col-lg-1-5">
                 <div class="category-item-abt" onclick="filterByCategory('electronics', this)">
                     <div class="category-icon-circle"><i class="fa-solid fa-laptop"></i></div>
-                    <strong class="d-block text-truncate" style="font-size:9px;" data-i18n="cat_electronics">أجهزة إلكترونية</strong>
+                    <strong class="d-block text-truncate" style="font-size:8.5px;" data-i18n="cat_electronics">أجهزة إلكترونية</strong>
                 </div>
             </div>
             <div class="col-4 col-sm-3 col-md-2 col-lg-1-5">
                 <div class="category-item-abt" onclick="filterByCategory('fashion', this)">
                     <div class="category-icon-circle"><i class="fa-solid fa-shirt"></i></div>
-                    <strong class="d-block text-truncate" style="font-size:9px;" data-i18n="cat_fashion">الموضة والجمال</strong>
+                    <strong class="d-block text-truncate" style="font-size:8.5px;" data-i18n="cat_fashion">الموضة والجمال</strong>
                 </div>
             </div>
             <div class="col-4 col-sm-3 col-md-2 col-lg-1-5">
                 <div class="category-item-abt" onclick="filterByCategory('pets', this)">
                     <div class="category-icon-circle"><i class="fa-solid fa-paw"></i></div>
-                    <strong class="d-block text-truncate" style="font-size:9px;" data-i18n="cat_pets">حيوانات وطيور وأسماك</strong>
+                    <strong class="d-block text-truncate" style="font-size:8.5px;" data-i18n="cat_pets">حيوانات وطيور وأسماك</strong>
                 </div>
             </div>
             <div class="col-4 col-sm-3 col-md-2 col-lg-1-5">
                 <div class="category-item-abt" onclick="filterByCategory('furniture', this)">
                     <div class="category-icon-circle"><i class="fa-solid fa-couch"></i></div>
-                    <strong class="d-block text-truncate" style="font-size:9px;" data-i18n="cat_furniture">أثاث وديكور</strong>
+                    <strong class="d-block text-truncate" style="font-size:8.5px;" data-i18n="cat_furniture">أثاث وديكور</strong>
                 </div>
             </div>
             <div class="col-4 col-sm-3 col-md-2 col-lg-1-5">
                 <div class="category-item-abt" onclick="filterByCategory('kids', this)">
                     <div class="category-icon-circle"><i class="fa-solid fa-baby"></i></div>
-                    <strong class="d-block text-truncate" style="font-size:9px;" data-i18n="cat_kids">مستلزمات أطفال</strong>
+                    <strong class="d-block text-truncate" style="font-size:8.5px;" data-i18n="cat_kids">مستلزمات أطفال</strong>
                 </div>
             </div>
             <div class="col-4 col-sm-3 col-md-2 col-lg-1-5">
                 <div class="category-item-abt" onclick="filterByCategory('industry', this)">
                     <div class="category-icon-circle"><i class="fa-solid fa-industry"></i></div>
-                    <strong class="d-block text-truncate" style="font-size:9px;" data-i18n="cat_industry">تجارة و صناعة</strong>
+                    <strong class="d-block text-truncate" style="font-size:8.5px;" data-i18n="cat_industry">تجارة و صناعة</strong>
                 </div>
             </div>
             <div class="col-4 col-sm-3 col-md-2 col-lg-1-5">
                 <div class="category-item-abt" onclick="filterByCategory('services', this)">
                     <div class="category-icon-circle"><i class="fa-solid fa-screwdriver-wrench"></i></div>
-                    <strong class="d-block text-truncate" style="font-size:9px;" data-i18n="cat_services">خدمات عامة</strong>
+                    <strong class="d-block text-truncate" style="font-size:8.5px;" data-i18n="cat_services">خدمات</strong>
                 </div>
             </div>
             <div class="col-4 col-sm-3 col-md-2 col-lg-1-5">
                 <div class="category-item-abt" onclick="filterByCategory('consult_medical', this)">
                     <div class="category-icon-circle text-danger"><i class="fa-solid fa-user-doctor"></i></div>
-                    <strong class="d-block text-truncate" style="font-size:9px;" data-i18n="cat_consult_medical">استشارات طبيه</strong>
+                    <strong class="d-block text-truncate" style="font-size:8.5px;" data-i18n="cat_consult_medical">استشارات طبيه</strong>
                 </div>
             </div>
             <div class="col-4 col-sm-3 col-md-2 col-lg-1-5">
                 <div class="category-item-abt" onclick="filterByCategory('consult_engineering', this)">
                     <div class="category-icon-circle text-warning"><i class="fa-solid fa-compass-drafting"></i></div>
-                    <strong class="d-block text-truncate" style="font-size:9px;" data-i18n="cat_consult_engineering">استشارات هندسية</strong>
+                    <strong class="d-block text-truncate" style="font-size:8.5px;" data-i18n="cat_consult_engineering">استشارات هندسية</strong>
                 </div>
             </div>
             <div class="col-4 col-sm-3 col-md-2 col-lg-1-5">
                 <div class="category-item-abt" onclick="filterByCategory('consult_legal', this)">
                     <div class="category-icon-circle text-primary"><i class="fa-solid fa-scale-balanced"></i></div>
-                    <strong class="d-block text-truncate" style="font-size:9px;" data-i18n="cat_consult_legal">استشارات قانونية</strong>
+                    <strong class="d-block text-truncate" style="font-size:8.5px;" data-i18n="cat_consult_legal">استشارات قانونية</strong>
                 </div>
             </div>
             <div class="col-4 col-sm-3 col-md-2 col-lg-1-5">
                 <div class="category-item-abt" onclick="filterByCategory('hobbies', this)">
                     <div class="category-icon-circle"><i class="fa-solid fa-palette"></i></div>
-                    <strong class="d-block text-truncate" style="font-size:9px;" data-i18n="cat_hobbies">هوايات</strong>
+                    <strong class="d-block text-truncate" style="font-size:8.5px;" data-i18n="cat_hobbies">هوايات</strong>
                 </div>
             </div>
             <div class="col-4 col-sm-3 col-md-2 col-lg-1-5">
                 <div class="category-item-abt" onclick="filterByCategory('jobs', this)">
                     <div class="category-icon-circle"><i class="fa-solid fa-briefcase"></i></div>
-                    <strong class="d-block text-truncate" style="font-size:9px;" data-i18n="cat_jobs">وظائف</strong>
+                    <strong class="d-block text-truncate" style="font-size:8.5px;" data-i18n="cat_jobs">وظائف</strong>
                 </div>
             </div>
             <div class="col-4 col-sm-3 col-md-2 col-lg-1-5">
                 <div class="category-item-abt" onclick="filterByCategory('news', this)">
                     <div class="category-icon-circle text-info"><i class="fa-solid fa-newspaper"></i></div>
-                    <strong class="d-block text-truncate" style="font-size:9px;" data-i18n="cat_news">اخبار</strong>
+                    <strong class="d-block text-truncate" style="font-size:8.5px;" data-i18n="cat_news">اخبار</strong>
                 </div>
             </div>
         </div>
@@ -751,7 +746,7 @@
         <!-- Section Header -->
         <div class="d-flex flex-wrap justify-content-between align-items-center mb-3 gap-2" id="ads">
             <div>
-                <h5 class="fw-bold m-0" style="color:var(--pharaonic-blue); font-size:1.1rem;"><i class="fa-solid fa-fire text-danger me-1"></i> <span data-i18n="latestDealsTitle">أحدث صفقات وعروض «لقطة»</span></h5>
+                <h5 class="fw-bold m-0" style="color:var(--pharaonic-blue); font-size:1.05rem;"><i class="fa-solid fa-fire text-danger me-1"></i> <span data-i18n="latestDealsTitle">أحدث صفقات وعروض «لقطة»</span></h5>
             </div>
             <div class="filter-chips-wrapper">
                 <button class="filter-chip-btn active" onclick="filterByChip('all', this)" data-i18n="chip_all">الكل</button>
@@ -767,8 +762,8 @@
         <!-- Ads Grid Container -->
         <div class="row g-2 g-md-3" id="adsContainer">
             
-            <!-- إعلان سيارة الكيا مورنينج مثبت ومباشر في الـ HTML بالـ 10 صور -->
-            <div class="col-12 col-sm-10 col-md-8 col-lg-6 mx-auto ad-item" data-category="cars" data-location="المنوفية" data-keywords="كيا مورنينج بيكانتو 2007 اوتو امان عماد سليط المنوفية">
+            <!-- Static Kia Ad (10 Images) -->
+            <div class="col-12 col-sm-6 col-lg-4 ad-item" data-category="cars" data-location="المنوفية" data-keywords="كيا مورنينج بيكانتو 2007 اوتو امان عماد سليط المنوفية">
                 <div class="abt-product-card shadow-sm" style="border: 2px solid var(--pharaonic-gold);">
                     <div class="abt-card-img" onclick="openPhotoModalDirect('images/kia-front.jpg')">
                         <span class="badge-status flash">لقطة مميزة ⚡</span>
@@ -778,7 +773,6 @@
                         <img id="img_ad_kia_2007" src="images/kia-front.jpg" alt="كيا مورنينج 2007" onerror="this.src='https://images.unsplash.com/photo-1552519507-da3b142c6e3d?auto=format&fit=crop&w=800&q=80'">
                     </div>
                     
-                    <!-- الـ 10 صور للسيارة -->
                     <div class="gallery-thumbs-row">
                         <img src="images/kia-front.jpg" class="thumb-btn-img active" onclick="switchAdThumb('ad_kia_2007', 'images/kia-front.jpg', this)" onerror="this.src='https://images.unsplash.com/photo-1552519507-da3b142c6e3d?auto=format&fit=crop&w=150&q=80'">
                         <img src="images/kia-back.jpg" class="thumb-btn-img" onclick="switchAdThumb('ad_kia_2007', 'images/kia-back.jpg', this)" onerror="this.src='https://images.unsplash.com/photo-1552519507-da3b142c6e3d?auto=format&fit=crop&w=150&q=80'">
@@ -794,11 +788,11 @@
 
                     <div class="abt-card-body">
                         <div>
-                            <div class="d-flex justify-content-between align-items-center mb-2">
+                            <div class="d-flex justify-content-between align-items-center mb-1">
                                 <h5 class="abt-card-title m-0 text-truncate">كيا مورنينج (بيكانتو) 2007</h5>
                                 <span class="badge bg-danger px-2 py-1">مباشر</span>
                             </div>
-                            <div class="bg-light p-2 rounded-3 mb-2 small" style="line-height: 1.8;">
+                            <div class="bg-light p-2 rounded-3 mb-2 small" style="line-height: 1.7; font-size:0.78rem;">
                                 <div><i class="fa-solid fa-align-right text-primary me-1"></i> فبريكا بالكامل | أعلى فئة | عداد 155,000 كم | رخصة سنتين</div>
                                 <div><i class="fa-solid fa-location-dot text-danger me-1"></i> المنوفية - نازلة منشأة سلطان</div>
                                 <div><i class="fa-solid fa-user-tag text-success me-1"></i> معرض أوتو أمان | إدارة: أ. عماد سليط</div>
@@ -836,11 +830,11 @@
         <div class="bottom-banner-abt">
             <div class="row align-items-center text-center text-md-start">
                 <div class="col-md-8">
-                    <h4 class="fw-bold mb-1" style="font-size:1.15rem;" data-i18n="bannerTitle">جاهز تبيع أو تقدم خدمة واستشارة؟ ⚡</h4>
-                    <p class="text-white-50 small m-0" data-i18n="bannerDesc">أضف إعلانك الآن على منصة «لقطة» وانشره فوراً لكل الناس بدون أي عمولات.</p>
+                    <h4 class="fw-bold mb-1" style="font-size:1.1rem;" data-i18n="bannerTitle">جاهز تبيع أو تقدم خدمة واستشارة؟ ⚡</h4>
+                    <p class="text-white-50 small m-0" style="font-size:0.8rem;" data-i18n="bannerDesc">أضف إعلانك الآن على منصة «لقطة» وانشره فوراً لكل الناس بدون أي عمولات.</p>
                 </div>
                 <div class="col-md-4 text-center text-md-end mt-3 mt-md-0">
-                    <button class="btn btn-primary fw-bold py-2 px-4" style="background:var(--primary-accent); border-radius:10px; border:none; font-size:0.88rem;" data-bs-toggle="modal" data-bs-target="#addAdModal">
+                    <button class="btn btn-primary fw-bold py-2 px-3" style="background:var(--primary-accent); border-radius:8px; border:none; font-size:0.85rem;" data-bs-toggle="modal" data-bs-target="#addAdModal">
                         <i class="fa-solid fa-plus me-1"></i> <span data-i18n="btnAddAdNow">أضف إعلانك فوراً</span>
                     </button>
                 </div>
@@ -862,25 +856,25 @@
                     <i class="fa-solid fa-laptop-code text-primary" style="font-size:0.7rem;"></i>
                 </div>
             </div>
-            <p class="mb-0 text-white-50" style="font-size:10.5px;" data-i18n="footerRights">جميع الحقوق محفوظة © 2026 | منصة لقطة للإعلانات المبوبة</p>
+            <p class="mb-0 text-white-50" style="font-size:10px;" data-i18n="footerRights">جميع الحقوق محفوظة © 2026 | منصة لقطة للإعلانات المبوبة</p>
         </div>
     </footer>
 
-    <!-- MODAL 1: Add Ad Modal -->
+    <!-- MODAL 1: Add Ad Modal (Sends to Pending Queue) -->
     <div class="modal fade" id="addAdModal" tabindex="-1" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content border-0 shadow">
                 <div class="modal-header bg-light">
-                    <h5 class="modal-title fw-bold" style="color:var(--pharaonic-blue)"><i class="fa-solid fa-plus-circle text-primary me-2"></i> <span data-i18n="modalAddTitle">إضافة إعلان أو استشارة للجميع</span></h5>
+                    <h5 class="modal-title fw-bold" style="color:var(--pharaonic-blue); font-size:1rem;"><i class="fa-solid fa-plus-circle text-primary me-2"></i> <span data-i18n="modalAddTitle">إضافة إعلان أو استشارة للجميع</span></h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
-                <div class="modal-body p-4">
+                <div class="modal-body p-3 p-md-4">
                     <form id="newAdForm" onsubmit="handleAdSubmission(event)">
-                        <div class="mb-3">
+                        <div class="mb-2">
                             <label class="form-label small fw-bold" data-i18n="lblAdTitle">عنوان الإعلان / الخدمة</label>
                             <input type="text" id="adTitleInput" class="form-control form-control-sm" placeholder="مثال: تويوتا كورولا 2022 / استشارة هندسية..." required>
                         </div>
-                        <div class="row g-2 mb-3">
+                        <div class="row g-2 mb-2">
                             <div class="col-6">
                                 <label class="form-label small fw-bold" data-i18n="lblAdCat">القسم</label>
                                 <select id="adCategoryInput" class="form-select form-select-sm" required>
@@ -907,7 +901,7 @@
                                 <input type="text" id="adLocationInput" class="form-control form-control-sm" placeholder="مثال: المنوفية - شبين الكوم" required>
                             </div>
                         </div>
-                        <div class="row g-2 mb-3">
+                        <div class="row g-2 mb-2">
                             <div class="col-6">
                                 <label class="form-label small fw-bold" data-i18n="lblAdPrice">السعر المطلوب / الأتعاب</label>
                                 <input type="text" id="adPriceInput" class="form-control form-control-sm" placeholder="مثال: 450,000 أو تواصل" required>
@@ -917,11 +911,11 @@
                                 <input type="tel" id="adPhoneInput" class="form-control form-control-sm" placeholder="010XXXXXXXX" required>
                             </div>
                         </div>
-                        <div class="mb-3">
+                        <div class="mb-2">
                             <label class="form-label small fw-bold" data-i18n="lblAdSeller">اسم المعلن / المكتب / المعرض</label>
                             <input type="text" id="adSellerInput" class="form-control form-control-sm" placeholder="مثال: م. أحمد / مكتب الأمانة" required>
                         </div>
-                        <div class="mb-3">
+                        <div class="mb-2">
                             <label class="form-label small fw-bold" data-i18n="lblAdImg">صورة الإعلان (اختياري)</label>
                             <input type="file" id="adImageInput" class="form-control form-control-sm" accept="image/*">
                         </div>
@@ -943,12 +937,12 @@
         <div class="modal-dialog modal-dialog-centered modal-sm">
             <div class="modal-content border-0 shadow">
                 <div class="modal-header bg-light">
-                    <h5 class="modal-title fw-bold" style="color:var(--pharaonic-blue)"><i class="fa-solid fa-user me-2"></i> <span data-i18n="modalLoginTitle">تسجيل الدخول</span></h5>
+                    <h5 class="modal-title fw-bold" style="color:var(--pharaonic-blue); font-size:1rem;"><i class="fa-solid fa-user me-2"></i> <span data-i18n="modalLoginTitle">تسجيل الدخول</span></h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
-                <div class="modal-body p-4">
+                <div class="modal-body p-3">
                     <form id="authForm" onsubmit="handleAuth(event)">
-                        <div class="mb-3">
+                        <div class="mb-2">
                             <label class="form-label small fw-bold" data-i18n="lblAuthInput">رقم الهاتف أو البريد</label>
                             <input type="text" id="authInput" class="form-control form-control-sm" placeholder="010XXXXXXXX" required>
                         </div>
@@ -970,12 +964,12 @@
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content border-0 shadow">
                 <div class="modal-header bg-light">
-                    <h5 class="modal-title fw-bold" style="color:var(--pharaonic-blue)"><i class="fa-solid fa-headset text-primary me-2"></i> <span data-i18n="modalContactTitle">اتصل بإدارة المنصة</span></h5>
+                    <h5 class="modal-title fw-bold" style="color:var(--pharaonic-blue); font-size:1rem;"><i class="fa-solid fa-headset text-primary me-2"></i> <span data-i18n="modalContactTitle">اتصل بإدارة المنصة</span></h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
-                <div class="modal-body p-4">
+                <div class="modal-body p-3">
                     <p class="text-muted small" data-i18n="contactText">للإعلان المميز أو الاستفسارات، تواصل معنا مباشرة:</p>
-                    <div class="d-flex flex-column gap-2 mb-3">
+                    <div class="d-flex flex-column gap-2">
                         <a href="https://wa.me/201006950904" target="_blank" class="btn btn-outline-success text-start fw-bold">
                             <i class="fa-brands fa-whatsapp me-2"></i> <span data-i18n="btnContactWa">تواصل عبر الواتساب</span>
                         </a>
@@ -1021,11 +1015,6 @@
             ar: {
                 logoName: "لقطة",
                 navHome: "الرئيسية",
-                navCars: "عربيات وقطع غيار",
-                navRealestate: "عقارات",
-                navServices: "خدمات واستشارات",
-                navJobs: "وظائف",
-                navNews: "أخبار",
                 navContact: "اتصل بنا",
                 favText: "المفضلة",
                 userLogin: "دخول",
@@ -1100,11 +1089,6 @@
             en: {
                 logoName: "Loqta",
                 navHome: "Home",
-                navCars: "Cars & Auto Parts",
-                navRealestate: "Real Estate",
-                navServices: "Services & Consultations",
-                navJobs: "Jobs",
-                navNews: "News",
                 navContact: "Contact Us",
                 favText: "Favorites",
                 userLogin: "Login",
@@ -1215,7 +1199,7 @@
             applyLanguage(currentLang === 'ar' ? 'en' : 'ar');
         }
 
-        // Firebase Cloud Realtime Connection
+        // Firebase Setup
         const firebaseConfig = { databaseURL: "https://loqta-b58f9-default-rtdb.firebaseio.com" };
         if (!firebase.apps.length) firebase.initializeApp(firebaseConfig);
         const db = firebase.database();
@@ -1224,6 +1208,11 @@
 
         let favorites = JSON.parse(localStorage.getItem('loqta_favs') || '[]');
 
+        // Fixed Active Filters State
+        let activeCatFilter = 'all';
+        let activeLocFilter = 'all';
+        let activeSearchQuery = '';
+
         document.addEventListener('DOMContentLoaded', () => {
             applyLanguage(currentLang);
             listenToApprovedAds();
@@ -1231,13 +1220,13 @@
             checkAuthUser();
         });
 
-        // الاستماع للإعلانات المعتمدة فقط من الأدمن
+        // مزامنة وعرض الإعلانات المعتمدة من الأدمن
         function listenToApprovedAds() {
             publicAdsRef.on('value', (snapshot) => {
                 const data = snapshot.val();
                 const container = document.getElementById('adsContainer');
                 
-                // تنظيف الإعلانات السابقة مع الإبقاء على إعلان الكيا الثابت
+                // تنظيف الإعلانات المجلوبة سابقاً وإبقاء الكارت الثابت
                 document.querySelectorAll('.cloud-approved-ad').forEach(e => e.remove());
 
                 if (data) {
@@ -1249,7 +1238,7 @@
                         const isFav = favorites.includes(key);
 
                         const cardHtml = `
-                            <div class="col-12 col-sm-6 col-lg-4 ad-item cloud-approved-ad" data-category="${ad.category || ''}" data-location="${ad.locationText || ''}" data-keywords="${(ad.title || '') + ' ' + (ad.desc || '')}">
+                            <div class="col-12 col-sm-6 col-lg-4 ad-item cloud-approved-ad" data-category="${ad.category || ''}" data-location="${ad.locationText || ''}" data-keywords="${(ad.title || '') + ' ' + (ad.desc || '') + ' ' + (ad.seller || '')}">
                                 <div class="abt-product-card shadow-sm" style="border: 1px solid var(--card-border);">
                                     <div class="abt-card-img" onclick="openPhotoModalDirect('${ad.mainImage}')">
                                         <span class="badge-status new">${ad.badge || 'معتمد ⚡'}</span>
@@ -1260,11 +1249,11 @@
                                     </div>
                                     <div class="abt-card-body">
                                         <div>
-                                            <div class="d-flex justify-content-between align-items-center mb-2">
+                                            <div class="d-flex justify-content-between align-items-center mb-1">
                                                 <h5 class="abt-card-title m-0 text-truncate">${ad.title}</h5>
                                                 <span class="badge bg-danger px-2 py-1">مباشر</span>
                                             </div>
-                                            <div class="bg-light p-2 rounded-3 mb-2 small" style="line-height: 1.8;">
+                                            <div class="bg-light p-2 rounded-3 mb-2 small" style="line-height: 1.7; font-size:0.78rem;">
                                                 <div><i class="fa-solid fa-align-right text-primary me-1"></i> ${ad.desc}</div>
                                                 <div><i class="fa-solid fa-location-dot text-danger me-1"></i> ${ad.locationText}</div>
                                                 <div><i class="fa-solid fa-user-tag text-success me-1"></i> ${ad.seller}</div>
@@ -1291,6 +1280,9 @@
                         container.insertAdjacentHTML('beforeend', cardHtml);
                     });
                 }
+                
+                // إعادة تطبيق الفلترة الحالية بعد وصول الإعلانات
+                applyClientFilters(activeCatFilter, activeLocFilter, activeSearchQuery);
             });
         }
 
@@ -1300,7 +1292,7 @@
             new bootstrap.Toast(toastEl).show();
         }
 
-        // إرسال الإعلان لجدول الانتظار Pending في فايربيس
+        // إرسال الإعلان لجدول الانتظار Pending
         function handleAdSubmission(e) {
             e.preventDefault();
             const submitBtn = document.getElementById('submitAdBtn');
@@ -1416,6 +1408,10 @@
         }
 
         function applyClientFilters(category, location, text) {
+            activeCatFilter = category || 'all';
+            activeLocFilter = location || 'all';
+            activeSearchQuery = text || '';
+
             const items = document.querySelectorAll('.ad-item');
             let count = 0;
 
@@ -1424,9 +1420,9 @@
                 const itemLoc = item.getAttribute('data-location') || '';
                 const itemKw = item.getAttribute('data-keywords') || '';
 
-                const matchCat = (category === 'all' || itemCat === category);
-                const matchLoc = (location === 'all' || itemLoc.includes(location));
-                const matchText = (text === '' || itemKw.toLowerCase().includes(text.toLowerCase()));
+                const matchCat = (activeCatFilter === 'all' || itemCat === activeCatFilter);
+                const matchLoc = (activeLocFilter === 'all' || itemLoc.includes(activeLocFilter));
+                const matchText = (activeSearchQuery === '' || itemKw.toLowerCase().includes(activeSearchQuery.toLowerCase()));
 
                 if (matchCat && matchLoc && matchText) {
                     item.classList.remove('d-none');
