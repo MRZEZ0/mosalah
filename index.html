@@ -4,12 +4,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>منصة لقطة | سوق الصفقات والعروض المباشرة الأول</title>
-    <meta name="description" content="منصة لقطة - أسرع وأسهل سوق رقمي للبيع والشراء المباشر بدون وسيط أو عمولات.">
+    <meta name="description" content="منصة لقطة - أسرع وأسهل سوق رقمي للبيع والشراء المباشر والخدمات والاستشارات بدون وسيط أو عمولات.">
     
     <!-- Bootstrap 5 RTL & FontAwesome & Google Fonts -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.rtl.min.css">
+    <link rel="stylesheet" id="bootstrapRtl" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.rtl.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+
+    <!-- Firebase SDKs -->
+    <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-database-compat.js"></script>
 
     <style>
         :root {
@@ -97,6 +101,22 @@
             }
         }
 
+        .btn-lang-switch {
+            background: #f1f5f9;
+            border: 1px solid var(--card-border);
+            color: var(--text-dark);
+            font-weight: 700;
+            font-size: 0.8rem;
+            border-radius: 8px;
+            padding: 6px 12px;
+            cursor: pointer;
+        }
+
+        .btn-lang-switch:hover {
+            background: var(--pharaonic-blue);
+            color: #fff;
+        }
+
         .hero-card-box {
             background: #ffffff;
             border-radius: 20px;
@@ -176,7 +196,14 @@
                 border-left: 1px solid #e2e8f0;
                 padding: 4px 12px;
             }
-            .search-field-abt:last-child { border-left: none; }
+            body[dir="ltr"] .search-field-abt {
+                border-left: none;
+                border-right: 1px solid #e2e8f0;
+            }
+            .search-field-abt:last-child { 
+                border-left: none; 
+                border-right: none;
+            }
         }
 
         .search-field-abt input, .search-field-abt select {
@@ -192,13 +219,13 @@
         .category-item-abt {
             background: #ffffff;
             border: 1px solid var(--card-border);
-            border-radius: 16px;
-            padding: 12px 6px;
+            border-radius: 14px;
+            padding: 10px 4px;
             text-align: center;
             text-decoration: none;
             color: var(--text-dark);
             display: block;
-            box-shadow: 0 3px 10px rgba(0,0,0,0.02);
+            box-shadow: 0 3px 8px rgba(0,0,0,0.02);
             height: 100%;
             cursor: pointer;
         }
@@ -211,16 +238,16 @@
         }
 
         .category-icon-circle {
-            width: 42px;
-            height: 42px;
+            width: 38px;
+            height: 38px;
             border-radius: 50%;
             background: #f8fafc;
             color: var(--primary-accent);
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            font-size: 1.1rem;
-            margin-bottom: 6px;
+            font-size: 1rem;
+            margin-bottom: 4px;
             border: 1px solid #e2e8f0;
         }
 
@@ -265,14 +292,14 @@
 
         .abt-card-img {
             position: relative;
-            height: 220px;
+            height: 200px;
             background: #f1f5f9;
             overflow: hidden;
             cursor: pointer;
         }
 
         @media (min-width: 576px) {
-            .abt-card-img { height: 250px; }
+            .abt-card-img { height: 230px; }
         }
 
         .abt-card-img img {
@@ -300,6 +327,11 @@
             box-shadow: 0 2px 8px rgba(0,0,0,0.1);
         }
 
+        body[dir="ltr"] .fav-heart-btn {
+            right: auto;
+            left: 10px;
+        }
+
         .fav-heart-btn.is-favorite {
             color: #ef4444;
         }
@@ -316,6 +348,11 @@
             z-index: 2;
         }
 
+        body[dir="ltr"] .badge-status {
+            left: auto;
+            right: 10px;
+        }
+
         .badge-status.flash { background: linear-gradient(135deg, #f59e0b, #d97706); }
         .badge-status.new { background: var(--primary-accent); }
 
@@ -328,7 +365,7 @@
         }
 
         .abt-card-title {
-            font-size: 1.1rem;
+            font-size: 1.05rem;
             font-weight: 800;
             color: var(--text-dark);
             margin-bottom: 6px;
@@ -337,7 +374,7 @@
         .abt-card-price {
             color: #10b981;
             font-weight: 900;
-            font-size: 1rem;
+            font-size: 0.95rem;
         }
 
         .action-btns-group {
@@ -348,8 +385,8 @@
         .btn-call-quick, .btn-whatsapp-quick {
             border: none;
             border-radius: 8px;
-            padding: 6px 14px;
-            font-size: 0.85rem;
+            padding: 6px 12px;
+            font-size: 0.82rem;
             font-weight: 700;
             color: #fff;
             display: inline-flex;
@@ -372,17 +409,15 @@
             -webkit-overflow-scrolling: touch;
         }
 
-        .gallery-thumbs-row::-webkit-scrollbar {
-            height: 4px;
-        }
+        .gallery-thumbs-row::-webkit-scrollbar { height: 4px; }
         .gallery-thumbs-row::-webkit-scrollbar-thumb {
             background: #cbd5e1;
             border-radius: 4px;
         }
 
         .thumb-btn-img {
-            width: 48px;
-            height: 48px;
+            width: 44px;
+            height: 44px;
             border-radius: 6px;
             object-fit: cover;
             border: 2px solid transparent;
@@ -458,27 +493,31 @@
             
             <a href="index.html" class="brand-logo-loqta">
                 <i class="fa-solid fa-ankh text-warning"></i>
-                لقطة<span>.</span>
+                <span data-i18n="logoName">لقطة</span><span>.</span>
             </a>
 
             <div class="d-none d-lg-flex align-items-center gap-1">
-                <a href="#home" class="nav-link-custom active" onclick="navigateSection('all')">الرئيسية</a>
-                <a href="#ads" class="nav-link-custom" onclick="navigateSection('cars')">الإعلانات</a>
-                <a href="#stores" class="nav-link-custom" onclick="openStoresModal()">المتاجر</a>
-                <a href="#services" class="nav-link-custom" onclick="navigateSection('services')">الخدمات</a>
-                <a href="#jobs" class="nav-link-custom" onclick="navigateSection('jobs')">الوظائف</a>
-                <a href="#contact" class="nav-link-custom" data-bs-toggle="modal" data-bs-target="#contactModal">اتصل بنا</a>
+                <a href="#home" class="nav-link-custom active" onclick="navigateSection('all')" data-i18n="navHome">الرئيسية</a>
+                <a href="#ads" class="nav-link-custom" onclick="navigateSection('cars')" data-i18n="navCars">عربيات وقطع غيار</a>
+                <a href="#ads" class="nav-link-custom" onclick="navigateSection('realestate')" data-i18n="navRealestate">عقارات</a>
+                <a href="#ads" class="nav-link-custom" onclick="navigateSection('services')" data-i18n="navServices">خدمات واستشارات</a>
+                <a href="#ads" class="nav-link-custom" onclick="navigateSection('jobs')" data-i18n="navJobs">وظائف</a>
+                <a href="#ads" class="nav-link-custom" onclick="navigateSection('news')" data-i18n="navNews">أخبار</a>
+                <a href="#contact" class="nav-link-custom" data-bs-toggle="modal" data-bs-target="#contactModal" data-i18n="navContact">اتصل بنا</a>
             </div>
 
-            <div class="d-flex align-items-center gap-2 gap-sm-3">
+            <div class="d-flex align-items-center gap-2">
+                <button class="btn-lang-switch" onclick="toggleLanguage()">
+                    <i class="fa-solid fa-globe me-1"></i> <span id="langBtnLabel">English</span>
+                </button>
                 <button class="btn btn-link text-dark text-decoration-none fw-bold small p-0 d-none d-sm-inline" onclick="showFavoritesModal()">
-                    <i class="fa-regular fa-heart me-1 text-danger"></i> المفضلة (<span id="favCount">0</span>)
+                    <i class="fa-regular fa-heart me-1 text-danger"></i> <span data-i18n="favText">المفضلة</span> (<span id="favCount">0</span>)
                 </button>
                 <button class="btn btn-link text-dark text-decoration-none fw-bold small p-0" data-bs-toggle="modal" data-bs-target="#loginModal">
-                    <i class="fa-regular fa-user me-1"></i> <span id="userBtnText">دخول</span>
+                    <i class="fa-regular fa-user me-1"></i> <span id="userBtnText" data-i18n="userLogin">دخول</span>
                 </button>
                 <button class="btn-add-free-ad" data-bs-toggle="modal" data-bs-target="#addAdModal">
-                    <i class="fa-solid fa-plus me-1"></i> أضف إعلانك
+                    <i class="fa-solid fa-plus me-1"></i> <span data-i18n="btnAddAd">أضف إعلانك</span>
                 </button>
             </div>
 
@@ -495,9 +534,9 @@
                 <div class="hero-card-box h-100 d-flex flex-column justify-content-between">
                     <div class="row align-items-center">
                         <div class="col-md-7">
-                            <span class="badge mb-2 px-3 py-1.5" style="background: rgba(212, 175, 55, 0.15); color: var(--pharaonic-gold); font-size:10px; border:1px solid var(--pharaonic-gold);">⚡ نشر سريع ومباشر</span>
-                            <h1 class="hero-headline mb-2">كل اللي محتاجه... <br><span>في مكان واحد</span></h1>
-                            <p class="text-muted small mb-3">تصفح بمرونة وسهولة آلاف الصفقات والعروض المتميزة في جميع الأقسام والمدن.</p>
+                            <span class="badge mb-2 px-3 py-1.5" style="background: rgba(212, 175, 55, 0.15); color: var(--pharaonic-gold); font-size:10px; border:1px solid var(--pharaonic-gold);" data-i18n="heroBadge">⚡ منصة الصفقات والخدمات المباشرة</span>
+                            <h1 class="hero-headline mb-2" data-i18n="heroTitle">كل اللي محتاجه... <br><span>في مكان واحد</span></h1>
+                            <p class="text-muted small mb-3" data-i18n="heroDesc">تصفح بمرونة وسهولة آلاف الصفقات والاستشارات والعروض المتميزة في جميع الأقسام والمدن.</p>
                         </div>
                         <div class="col-md-5 text-center d-none d-md-block">
                             <img src="https://cdni.iconscout.com/illustration/premium/thumb/online-shopping-app-illustration-download-in-svg-png-gif-file-formats--mobile-store-e-commerce-pack-network-communication-illustrations-4712030.png" alt="لقطة" style="max-width: 100%; max-height:170px;">
@@ -510,29 +549,40 @@
                             <div class="row g-2 align-items-center">
                                 <div class="col-12 col-md-5">
                                     <div class="search-field-abt">
-                                        <input type="text" id="searchInput" placeholder="🔍 بتدور على إيه النهاردة؟ (مثال: كيا، 2007)">
+                                        <input type="text" id="searchInput" placeholder="🔍 بتدور على إيه النهاردة؟" data-i18n-placeholder="searchPlaceholder">
                                     </div>
                                 </div>
                                 <div class="col-6 col-md-3">
                                     <div class="search-field-abt">
                                         <select id="searchCategory">
-                                            <option value="all">جميع الأقسام</option>
-                                            <option value="cars">سيارات ومركبات</option>
-                                            <option value="realestate">عقارات وأراضي</option>
-                                            <option value="mobiles">موبايلات وإلكترونيات</option>
-                                            <option value="jobs">وظائف</option>
-                                            <option value="services">خدمات</option>
+                                            <option value="all" data-i18n="cat_all">جميع الأقسام</option>
+                                            <option value="cars" data-i18n="cat_cars">عربيات وقطع غيار</option>
+                                            <option value="realestate" data-i18n="cat_realestate">عقارات</option>
+                                            <option value="mobiles" data-i18n="cat_mobiles">موبايلات و تابلت</option>
+                                            <option value="electronics" data-i18n="cat_electronics">أجهزة إلكترونية</option>
+                                            <option value="fashion" data-i18n="cat_fashion">الموضة والجمال</option>
+                                            <option value="pets" data-i18n="cat_pets">حيوانات أليفة - طيور - أسماك الزينة</option>
+                                            <option value="furniture" data-i18n="cat_furniture">أثاث المنزل والمكتب - ديكور</option>
+                                            <option value="kids" data-i18n="cat_kids">مستلزمات أطفال</option>
+                                            <option value="industry" data-i18n="cat_industry">تجارة و صناعة</option>
+                                            <option value="services" data-i18n="cat_services">خدمات</option>
+                                            <option value="consult_medical" data-i18n="cat_consult_medical">استشارات طبيه</option>
+                                            <option value="consult_engineering" data-i18n="cat_consult_engineering">استشارات هندسية</option>
+                                            <option value="consult_legal" data-i18n="cat_consult_legal">استشارات قانونية</option>
+                                            <option value="hobbies" data-i18n="cat_hobbies">هوايات</option>
+                                            <option value="jobs" data-i18n="cat_jobs">وظائف</option>
+                                            <option value="news" data-i18n="cat_news">اخبار</option>
                                         </select>
                                     </div>
                                 </div>
                                 <div class="col-6 col-md-3">
                                     <div class="search-field-abt">
                                         <select id="searchLocation">
-                                            <option value="all">كل المناطق</option>
-                                            <option value="المنوفية">المنوفية</option>
-                                            <option value="القاهرة">القاهرة</option>
-                                            <option value="الجيزة">الجيزة</option>
-                                            <option value="الإسكندرية">الإسكندرية</option>
+                                            <option value="all" data-i18n="loc_all">كل المناطق</option>
+                                            <option value="المنوفية" data-i18n="loc_menofia">المنوفية</option>
+                                            <option value="القاهرة" data-i18n="loc_cairo">القاهرة</option>
+                                            <option value="الجيزة" data-i18n="loc_giza">الجيزة</option>
+                                            <option value="الإسكندرية" data-i18n="loc_alex">الإسكندرية</option>
                                         </select>
                                     </div>
                                 </div>
@@ -550,24 +600,24 @@
 
             <div class="col-lg-4">
                 <div class="why-us-card">
-                    <h5 class="fw-bold mb-3" style="color:var(--pharaonic-blue); font-size:1.1rem;"><i class="fa-solid fa-crown text-warning me-1"></i> لماذا منصة لقطة؟</h5>
+                    <h5 class="fw-bold mb-3" style="color:var(--pharaonic-blue); font-size:1.1rem;"><i class="fa-solid fa-crown text-warning me-1"></i> <span data-i18n="whyTitle">لماذا منصة لقطة؟</span></h5>
                     
                     <div class="why-us-item">
                         <div class="d-flex align-items-center gap-2">
                             <div class="why-icon-box"><i class="fa-solid fa-bolt"></i></div>
                             <div>
-                                <strong class="d-block small" style="font-size:11px;">إضافة ونشر فوري</strong>
-                                <span class="text-muted" style="font-size:9px;">إعلانك ينزل في صدارة العروض مباشرة</span>
+                                <strong class="d-block small" style="font-size:11px;" data-i18n="why1Title">إضافة ونشر فوري وسحابي</strong>
+                                <span class="text-muted" style="font-size:9px;" data-i18n="why1Desc">إعلانك يظهر لجميع المستخدمين فوراً</span>
                             </div>
                         </div>
                     </div>
 
                     <div class="why-us-item">
                         <div class="d-flex align-items-center gap-2">
-                            <div class="why-icon-box"><i class="fa-solid fa-magnifying-glass"></i></div>
+                            <div class="why-icon-box"><i class="fa-solid fa-user-doctor"></i></div>
                             <div>
-                                <strong class="d-block small" style="font-size:11px;">سهولة وسرعة البحث</strong>
-                                <span class="text-muted" style="font-size:9px;">وصول مباشر للصفقة بدون تعقيد</span>
+                                <strong class="d-block small" style="font-size:11px;" data-i18n="why2Title">استشارات مهنية متخصصة</strong>
+                                <span class="text-muted" style="font-size:9px;" data-i18n="why2Desc">طبية | هندسية | قانونية مباشرة</span>
                             </div>
                         </div>
                     </div>
@@ -576,8 +626,8 @@
                         <div class="d-flex align-items-center gap-2">
                             <div class="why-icon-box"><i class="fa-solid fa-comments"></i></div>
                             <div>
-                                <strong class="d-block small" style="font-size:11px;">تواصل مباشر مع البائع</strong>
-                                <span class="text-muted" style="font-size:9px;">اتصال أو واتساب بدون أي وسيط</span>
+                                <strong class="d-block small" style="font-size:11px;" data-i18n="why3Title">تواصل مباشر مع المعلن</strong>
+                                <span class="text-muted" style="font-size:9px;" data-i18n="why3Desc">اتصال أو واتساب بدون أي وسيط</span>
                             </div>
                         </div>
                     </div>
@@ -586,8 +636,8 @@
                         <div class="d-flex align-items-center gap-2">
                             <div class="why-icon-box"><i class="fa-solid fa-shield-halved"></i></div>
                             <div>
-                                <strong class="d-block small" style="font-size:11px;">إعلانات موثوقة ومجانية</strong>
-                                <span class="text-muted" style="font-size:9px;">صفقات مباشرة وبدون عمولات</span>
+                                <strong class="d-block small" style="font-size:11px;" data-i18n="why4Title">إعلانات موثوقة ومجانية</strong>
+                                <span class="text-muted" style="font-size:9px;" data-i18n="why4Desc">صفقات مباشرة وبدون أي عمولات</span>
                             </div>
                         </div>
                     </div>
@@ -597,62 +647,102 @@
 
         </div>
 
-        <!-- Categories Icons Grid -->
+        <!-- Categories Icons Grid (Full 16 Categories) -->
         <div class="row g-2 my-3 my-md-4">
-            <div class="col-3 col-sm-3 col-md-2 col-lg-1-5">
+            <div class="col-4 col-sm-3 col-md-2 col-lg-1-5">
                 <div class="category-item-abt active" onclick="filterByCategory('cars', this)">
                     <div class="category-icon-circle"><i class="fa-solid fa-car"></i></div>
-                    <strong class="d-block text-truncate" style="font-size:10px;">سيارات</strong>
-                    <span class="text-muted d-none d-sm-block" style="font-size:8px;">إعلانات متاحة</span>
+                    <strong class="d-block text-truncate" style="font-size:9.5px;" data-i18n="cat_cars">عربيات وقطع غيار</strong>
                 </div>
             </div>
-            <div class="col-3 col-sm-3 col-md-2 col-lg-1-5">
+            <div class="col-4 col-sm-3 col-md-2 col-lg-1-5">
                 <div class="category-item-abt" onclick="filterByCategory('realestate', this)">
                     <div class="category-icon-circle"><i class="fa-solid fa-building"></i></div>
-                    <strong class="d-block text-truncate" style="font-size:10px;">عقارات</strong>
-                    <span class="text-muted d-none d-sm-block" style="font-size:8px;">عروض مباشرة</span>
+                    <strong class="d-block text-truncate" style="font-size:9.5px;" data-i18n="cat_realestate">عقارات</strong>
                 </div>
             </div>
-            <div class="col-3 col-sm-3 col-md-2 col-lg-1-5">
-                <div class="category-item-abt" onclick="filterByCategory('lands', this)">
-                    <div class="category-icon-circle"><i class="fa-solid fa-tree"></i></div>
-                    <strong class="d-block text-truncate" style="font-size:10px;">أراضي</strong>
-                    <span class="text-muted d-none d-sm-block" style="font-size:8px;">عروض مميزة</span>
-                </div>
-            </div>
-            <div class="col-3 col-sm-3 col-md-2 col-lg-1-5">
+            <div class="col-4 col-sm-3 col-md-2 col-lg-1-5">
                 <div class="category-item-abt" onclick="filterByCategory('mobiles', this)">
                     <div class="category-icon-circle"><i class="fa-solid fa-mobile-screen-button"></i></div>
-                    <strong class="d-block text-truncate" style="font-size:10px;">موبايلات</strong>
-                    <span class="text-muted d-none d-sm-block" style="font-size:8px;">أحدث الأجهزة</span>
+                    <strong class="d-block text-truncate" style="font-size:9.5px;" data-i18n="cat_mobiles">موبايلات و تابلت</strong>
                 </div>
             </div>
-            <div class="col-3 col-sm-3 col-md-2 col-lg-1-5">
+            <div class="col-4 col-sm-3 col-md-2 col-lg-1-5">
                 <div class="category-item-abt" onclick="filterByCategory('electronics', this)">
                     <div class="category-icon-circle"><i class="fa-solid fa-laptop"></i></div>
-                    <strong class="d-block text-truncate" style="font-size:10px;">إلكترونيات</strong>
-                    <span class="text-muted d-none d-sm-block" style="font-size:8px;">عروض فورية</span>
+                    <strong class="d-block text-truncate" style="font-size:9.5px;" data-i18n="cat_electronics">أجهزة إلكترونية</strong>
                 </div>
             </div>
-            <div class="col-3 col-sm-3 col-md-2 col-lg-1-5">
-                <div class="category-item-abt" onclick="filterByCategory('jobs', this)">
-                    <div class="category-icon-circle"><i class="fa-solid fa-briefcase"></i></div>
-                    <strong class="d-block text-truncate" style="font-size:10px;">وظائف</strong>
-                    <span class="text-muted d-none d-sm-block" style="font-size:8px;">فرص عمل</span>
+            <div class="col-4 col-sm-3 col-md-2 col-lg-1-5">
+                <div class="category-item-abt" onclick="filterByCategory('fashion', this)">
+                    <div class="category-icon-circle"><i class="fa-solid fa-shirt"></i></div>
+                    <strong class="d-block text-truncate" style="font-size:9.5px;" data-i18n="cat_fashion">الموضة والجمال</strong>
                 </div>
             </div>
-            <div class="col-3 col-sm-3 col-md-2 col-lg-1-5">
+            <div class="col-4 col-sm-3 col-md-2 col-lg-1-5">
+                <div class="category-item-abt" onclick="filterByCategory('pets', this)">
+                    <div class="category-icon-circle"><i class="fa-solid fa-paw"></i></div>
+                    <strong class="d-block text-truncate" style="font-size:9.5px;" data-i18n="cat_pets">حيوانات وطيور وأسماك</strong>
+                </div>
+            </div>
+            <div class="col-4 col-sm-3 col-md-2 col-lg-1-5">
+                <div class="category-item-abt" onclick="filterByCategory('furniture', this)">
+                    <div class="category-icon-circle"><i class="fa-solid fa-couch"></i></div>
+                    <strong class="d-block text-truncate" style="font-size:9.5px;" data-i18n="cat_furniture">أثاث وديكور</strong>
+                </div>
+            </div>
+            <div class="col-4 col-sm-3 col-md-2 col-lg-1-5">
+                <div class="category-item-abt" onclick="filterByCategory('kids', this)">
+                    <div class="category-icon-circle"><i class="fa-solid fa-baby"></i></div>
+                    <strong class="d-block text-truncate" style="font-size:9.5px;" data-i18n="cat_kids">مستلزمات أطفال</strong>
+                </div>
+            </div>
+            <div class="col-4 col-sm-3 col-md-2 col-lg-1-5">
+                <div class="category-item-abt" onclick="filterByCategory('industry', this)">
+                    <div class="category-icon-circle"><i class="fa-solid fa-industry"></i></div>
+                    <strong class="d-block text-truncate" style="font-size:9.5px;" data-i18n="cat_industry">تجارة و صناعة</strong>
+                </div>
+            </div>
+            <div class="col-4 col-sm-3 col-md-2 col-lg-1-5">
                 <div class="category-item-abt" onclick="filterByCategory('services', this)">
                     <div class="category-icon-circle"><i class="fa-solid fa-screwdriver-wrench"></i></div>
-                    <strong class="d-block text-truncate" style="font-size:10px;">خدمات</strong>
-                    <span class="text-muted d-none d-sm-block" style="font-size:8px;">خدمات مهنية</span>
+                    <strong class="d-block text-truncate" style="font-size:9.5px;" data-i18n="cat_services">خدمات عامة</strong>
                 </div>
             </div>
-            <div class="col-3 col-sm-3 col-md-2 col-lg-1-5">
-                <div class="category-item-abt" onclick="filterByCategory('all', this)">
-                    <div class="category-icon-circle"><i class="fa-solid fa-ellipsis"></i></div>
-                    <strong class="d-block text-truncate" style="font-size:10px;">الكل</strong>
-                    <span class="text-muted d-none d-sm-block" style="font-size:8px;">عرض الكل</span>
+            <div class="col-4 col-sm-3 col-md-2 col-lg-1-5">
+                <div class="category-item-abt" onclick="filterByCategory('consult_medical', this)">
+                    <div class="category-icon-circle text-danger"><i class="fa-solid fa-user-doctor"></i></div>
+                    <strong class="d-block text-truncate" style="font-size:9.5px;" data-i18n="cat_consult_medical">استشارات طبيه</strong>
+                </div>
+            </div>
+            <div class="col-4 col-sm-3 col-md-2 col-lg-1-5">
+                <div class="category-item-abt" onclick="filterByCategory('consult_engineering', this)">
+                    <div class="category-icon-circle text-warning"><i class="fa-solid fa-compass-drafting"></i></div>
+                    <strong class="d-block text-truncate" style="font-size:9.5px;" data-i18n="cat_consult_engineering">استشارات هندسية</strong>
+                </div>
+            </div>
+            <div class="col-4 col-sm-3 col-md-2 col-lg-1-5">
+                <div class="category-item-abt" onclick="filterByCategory('consult_legal', this)">
+                    <div class="category-icon-circle text-primary"><i class="fa-solid fa-scale-balanced"></i></div>
+                    <strong class="d-block text-truncate" style="font-size:9.5px;" data-i18n="cat_consult_legal">استشارات قانونية</strong>
+                </div>
+            </div>
+            <div class="col-4 col-sm-3 col-md-2 col-lg-1-5">
+                <div class="category-item-abt" onclick="filterByCategory('hobbies', this)">
+                    <div class="category-icon-circle"><i class="fa-solid fa-palette"></i></div>
+                    <strong class="d-block text-truncate" style="font-size:9.5px;" data-i18n="cat_hobbies">هوايات</strong>
+                </div>
+            </div>
+            <div class="col-4 col-sm-3 col-md-2 col-lg-1-5">
+                <div class="category-item-abt" onclick="filterByCategory('jobs', this)">
+                    <div class="category-icon-circle"><i class="fa-solid fa-briefcase"></i></div>
+                    <strong class="d-block text-truncate" style="font-size:9.5px;" data-i18n="cat_jobs">وظائف</strong>
+                </div>
+            </div>
+            <div class="col-4 col-sm-3 col-md-2 col-lg-1-5">
+                <div class="category-item-abt" onclick="filterByCategory('news', this)">
+                    <div class="category-icon-circle text-info"><i class="fa-solid fa-newspaper"></i></div>
+                    <strong class="d-block text-truncate" style="font-size:9.5px;" data-i18n="cat_news">اخبار</strong>
                 </div>
             </div>
         </div>
@@ -660,38 +750,45 @@
         <!-- Section Header -->
         <div class="d-flex flex-wrap justify-content-between align-items-center mb-3 gap-2" id="ads">
             <div>
-                <h5 class="fw-bold m-0" style="color:var(--pharaonic-blue); font-size:1.1rem;"><i class="fa-solid fa-fire text-danger me-1"></i> أحدث صفقات «لقطة»</h5>
+                <h5 class="fw-bold m-0" style="color:var(--pharaonic-blue); font-size:1.1rem;"><i class="fa-solid fa-fire text-danger me-1"></i> <span data-i18n="latestDealsTitle">أحدث صفقات وعروض «لقطة»</span></h5>
             </div>
             <div class="filter-chips-wrapper">
-                <button class="filter-chip-btn active" onclick="filterByChip('all', this)">الكل</button>
-                <button class="filter-chip-btn" onclick="filterByChip('cars', this)">سيارات</button>
-                <button class="filter-chip-btn" onclick="filterByChip('realestate', this)">عقارات</button>
-                <button class="filter-chip-btn" onclick="filterByChip('mobiles', this)">موبايلات</button>
-                <button class="filter-chip-btn" onclick="filterByChip('electronics', this)">إلكترونيات</button>
+                <button class="filter-chip-btn active" onclick="filterByChip('all', this)" data-i18n="chip_all">الكل</button>
+                <button class="filter-chip-btn" onclick="filterByChip('cars', this)" data-i18n="cat_cars">عربيات وقطع غيار</button>
+                <button class="filter-chip-btn" onclick="filterByChip('realestate', this)" data-i18n="cat_realestate">عقارات</button>
+                <button class="filter-chip-btn" onclick="filterByChip('consult_engineering', this)" data-i18n="cat_consult_engineering">استشارات هندسية</button>
+                <button class="filter-chip-btn" onclick="filterByChip('consult_medical', this)" data-i18n="cat_consult_medical">استشارات طبيه</button>
+                <button class="filter-chip-btn" onclick="filterByChip('consult_legal', this)" data-i18n="cat_consult_legal">استشارات قانونية</button>
+                <button class="filter-chip-btn" onclick="filterByChip('news', this)" data-i18n="cat_news">اخبار</button>
             </div>
         </div>
 
         <!-- Ads Container -->
-        <div class="row g-3" id="adsContainer"></div>
+        <div class="row g-3" id="adsContainer">
+            <div class="col-12 text-center py-4">
+                <div class="spinner-border text-primary" role="status"></div>
+                <div class="text-muted small mt-2" data-i18n="loadingText">جاري مزامنة الإعلانات السحابية...</div>
+            </div>
+        </div>
 
         <!-- Empty State -->
         <div class="col-12 text-center py-5 d-none" id="emptyState">
             <i class="fa-solid fa-box-open fa-3x text-muted mb-3"></i>
-            <h6 class="fw-bold">لا توجد إعلانات مطابقة حالياً</h6>
-            <p class="text-muted small">جرب تغيير كلمات البحث أو استعرض جميع الأقسام</p>
-            <button class="btn btn-sm btn-outline-primary" onclick="resetFilters()">عرض كل الإعلانات</button>
+            <h6 class="fw-bold" data-i18n="emptyTitle">لا توجد إعلانات مطابقة حالياً</h6>
+            <p class="text-muted small" data-i18n="emptyDesc">جرب تغيير كلمات البحث أو استعرض جميع الأقسام</p>
+            <button class="btn btn-sm btn-outline-primary" onclick="resetFilters()" data-i18n="btnShowAll">عرض كل الإعلانات</button>
         </div>
 
         <!-- Bottom Banner -->
         <div class="bottom-banner-abt">
             <div class="row align-items-center text-center text-md-start">
                 <div class="col-md-8">
-                    <h4 class="fw-bold mb-1" style="font-size:1.2rem;">جاهز تبيع أو تشتري؟ ⚡</h4>
-                    <p class="text-white-50 small m-0">أضف إعلانك الآن على منصة «لقطة» وانشره فوراً وبدون أي عمولات.</p>
+                    <h4 class="fw-bold mb-1" style="font-size:1.2rem;" data-i18n="bannerTitle">جاهز تبيع أو تقدم خدمة واستشارة؟ ⚡</h4>
+                    <p class="text-white-50 small m-0" data-i18n="bannerDesc">أضف إعلانك الآن على منصة «لقطة» وانشره فوراً لكل الناس بدون أي عمولات.</p>
                 </div>
                 <div class="col-md-4 text-center text-md-end mt-3 mt-md-0">
                     <button class="btn btn-primary fw-bold py-2 px-4" style="background:var(--primary-accent); border-radius:10px; border:none; font-size:0.9rem;" data-bs-toggle="modal" data-bs-target="#addAdModal">
-                        <i class="fa-solid fa-plus me-1"></i> أضف إعلانك فوراً
+                        <i class="fa-solid fa-plus me-1"></i> <span data-i18n="btnAddAdNow">أضف إعلانك فوراً</span>
                     </button>
                 </div>
             </div>
@@ -703,16 +800,16 @@
     <footer class="text-center">
         <div class="container">
             <div class="pharaonic-owner-tag mb-2">
-                <i class="fa-solid fa-crown me-1"></i> مالك المنصة: <strong>محمد صلاح أبو طوالة</strong>
+                <i class="fa-solid fa-crown me-1"></i> <span data-i18n="footerOwner">مالك المنصة:</span> <strong>محمد صلاح أبو طوالة</strong>
             </div>
             <div class="mb-2">
                 <div class="dev-credit-badge">
                     <i class="fa-solid fa-code text-primary" style="font-size:0.7rem;"></i>
-                    <span>تطوير وإشراف برمجي / <strong>المهندس عمرو جمال عوض</strong></span>
+                    <span><span data-i18n="footerDev">تطوير وإشراف برمجي /</span> <strong>المهندس عمرو جمال عوض</strong></span>
                     <i class="fa-solid fa-laptop-code text-primary" style="font-size:0.7rem;"></i>
                 </div>
             </div>
-            <p class="mb-0 text-white-50" style="font-size:10.5px;">جميع الحقوق محفوظة © 2026 | منصة لقطة للإعلانات المبوبة</p>
+            <p class="mb-0 text-white-50" style="font-size:10.5px;" data-i18n="footerRights">جميع الحقوق محفوظة © 2026 | منصة لقطة للإعلانات المبوبة</p>
         </div>
     </footer>
 
@@ -721,57 +818,66 @@
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content border-0 shadow">
                 <div class="modal-header bg-light">
-                    <h5 class="modal-title fw-bold" style="color:var(--pharaonic-blue)"><i class="fa-solid fa-plus-circle text-primary me-2"></i> إضافة إعلان مباشر</h5>
+                    <h5 class="modal-title fw-bold" style="color:var(--pharaonic-blue)"><i class="fa-solid fa-plus-circle text-primary me-2"></i> <span data-i18n="modalAddTitle">إضافة إعلان أو استشارة للجميع</span></h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body p-4">
                     <form id="newAdForm" onsubmit="handleAdSubmission(event)">
                         <div class="mb-3">
-                            <label class="form-label small fw-bold">عنوان الإعلان</label>
-                            <input type="text" id="adTitleInput" class="form-control form-control-sm" placeholder="مثال: تويوتا كورولا 2022 فبريكا..." required>
+                            <label class="form-label small fw-bold" data-i18n="lblAdTitle">عنوان الإعلان / الخدمة</label>
+                            <input type="text" id="adTitleInput" class="form-control form-control-sm" placeholder="مثال: تويوتا كورولا 2022 / استشارة هندسية..." required>
                         </div>
                         <div class="row g-2 mb-3">
                             <div class="col-6">
-                                <label class="form-label small fw-bold">القسم</label>
+                                <label class="form-label small fw-bold" data-i18n="lblAdCat">القسم</label>
                                 <select id="adCategoryInput" class="form-select form-select-sm" required>
-                                    <option value="cars">سيارات ومركبات</option>
-                                    <option value="realestate">عقارات</option>
-                                    <option value="lands">أراضي</option>
-                                    <option value="mobiles">موبايلات</option>
-                                    <option value="electronics">إلكترونيات</option>
-                                    <option value="jobs">وظائف</option>
-                                    <option value="services">خدمات</option>
+                                    <option value="cars" data-i18n="cat_cars">عربيات وقطع غيار</option>
+                                    <option value="realestate" data-i18n="cat_realestate">عقارات</option>
+                                    <option value="mobiles" data-i18n="cat_mobiles">موبايلات و تابلت</option>
+                                    <option value="electronics" data-i18n="cat_electronics">أجهزة إلكترونية</option>
+                                    <option value="fashion" data-i18n="cat_fashion">الموضة والجمال</option>
+                                    <option value="pets" data-i18n="cat_pets">حيوانات أليفة - طيور - أسماك الزينة</option>
+                                    <option value="furniture" data-i18n="cat_furniture">أثاث المنزل والمكتب - ديكور</option>
+                                    <option value="kids" data-i18n="cat_kids">مستلزمات أطفال</option>
+                                    <option value="industry" data-i18n="cat_industry">تجارة و صناعة</option>
+                                    <option value="services" data-i18n="cat_services">خدمات</option>
+                                    <option value="consult_medical" data-i18n="cat_consult_medical">استشارات طبيه</option>
+                                    <option value="consult_engineering" data-i18n="cat_consult_engineering">استشارات هندسية</option>
+                                    <option value="consult_legal" data-i18n="cat_consult_legal">استشارات قانونية</option>
+                                    <option value="hobbies" data-i18n="cat_hobbies">هوايات</option>
+                                    <option value="jobs" data-i18n="cat_jobs">وظائف</option>
+                                    <option value="news" data-i18n="cat_news">اخبار</option>
                                 </select>
                             </div>
                             <div class="col-6">
-                                <label class="form-label small fw-bold">المحافظة / المدينة</label>
+                                <label class="form-label small fw-bold" data-i18n="lblAdLoc">المحافظة / المدينة</label>
                                 <input type="text" id="adLocationInput" class="form-control form-control-sm" placeholder="مثال: المنوفية - شبين الكوم" required>
                             </div>
                         </div>
                         <div class="row g-2 mb-3">
                             <div class="col-6">
-                                <label class="form-label small fw-bold">السعر المطلوب (ج.م)</label>
+                                <label class="form-label small fw-bold" data-i18n="lblAdPrice">السعر المطلوب / الأتعاب</label>
                                 <input type="text" id="adPriceInput" class="form-control form-control-sm" placeholder="مثال: 450,000 أو تواصل" required>
                             </div>
                             <div class="col-6">
-                                <label class="form-label small fw-bold">رقم الهاتف / واتساب</label>
+                                <label class="form-label small fw-bold" data-i18n="lblAdPhone">رقم الهاتف / واتساب</label>
                                 <input type="tel" id="adPhoneInput" class="form-control form-control-sm" placeholder="010XXXXXXXX" required>
                             </div>
                         </div>
                         <div class="mb-3">
-                            <label class="form-label small fw-bold">اسم المعلن / المعرض</label>
-                            <input type="text" id="adSellerInput" class="form-control form-control-sm" placeholder="مثال: أحمد محمود / أوتو أمان" required>
+                            <label class="form-label small fw-bold" data-i18n="lblAdSeller">اسم المعلن / المكتب / المعرض</label>
+                            <input type="text" id="adSellerInput" class="form-control form-control-sm" placeholder="مثال: م. أحمد / مكتب الأمانة" required>
                         </div>
                         <div class="mb-3">
-                            <label class="form-label small fw-bold">صورة الإعلان (اختياري)</label>
+                            <label class="form-label small fw-bold" data-i18n="lblAdImg">صورة الإعلان (اختياري)</label>
                             <input type="file" id="adImageInput" class="form-control form-control-sm" accept="image/*">
                         </div>
                         <div class="mb-3">
-                            <label class="form-label small fw-bold">تفاصيل ومواصفات الإعلان</label>
-                            <textarea id="adDescInput" class="form-control form-control-sm" rows="3" placeholder="اكتب وصف كامل لحالة المعروض ومواصفاته..." required></textarea>
+                            <label class="form-label small fw-bold" data-i18n="lblAdDesc">تفاصيل ومواصفات الإعلان</label>
+                            <textarea id="adDescInput" class="form-control form-control-sm" rows="3" placeholder="اكتب وصف كامل للحالة أو نوع الخدمة والاستشارة..." required></textarea>
                         </div>
                         <button type="submit" id="submitAdBtn" class="btn btn-primary w-100 fw-bold py-2" style="background:var(--pharaonic-blue); border:none;">
-                            <i class="fa-solid fa-bolt me-1"></i> انشر الإعلان الآن
+                            <i class="fa-solid fa-bolt me-1"></i> <span data-i18n="btnPublishNow">انشر الإعلان الآن لكل الناس</span>
                         </button>
                     </form>
                 </div>
@@ -784,20 +890,20 @@
         <div class="modal-dialog modal-dialog-centered modal-sm">
             <div class="modal-content border-0 shadow">
                 <div class="modal-header bg-light">
-                    <h5 class="modal-title fw-bold" style="color:var(--pharaonic-blue)"><i class="fa-solid fa-user me-2"></i> تسجيل الدخول</h5>
+                    <h5 class="modal-title fw-bold" style="color:var(--pharaonic-blue)"><i class="fa-solid fa-user me-2"></i> <span data-i18n="modalLoginTitle">تسجيل الدخول</span></h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body p-4">
                     <form id="authForm" onsubmit="handleAuth(event)">
                         <div class="mb-3">
-                            <label class="form-label small fw-bold">رقم الهاتف أو البريد</label>
+                            <label class="form-label small fw-bold" data-i18n="lblAuthInput">رقم الهاتف أو البريد</label>
                             <input type="text" id="authInput" class="form-control form-control-sm" placeholder="010XXXXXXXX" required>
                         </div>
                         <div class="mb-3">
-                            <label class="form-label small fw-bold">كلمة المرور</label>
+                            <label class="form-label small fw-bold" data-i18n="lblAuthPass">كلمة المرور</label>
                             <input type="password" class="form-control form-control-sm" placeholder="••••••••" required>
                         </div>
-                        <button type="submit" class="btn btn-primary w-100 fw-bold py-2" style="background:var(--primary-accent); border:none;">
+                        <button type="submit" class="btn btn-primary w-100 fw-bold py-2" style="background:var(--primary-accent); border:none;" data-i18n="userLogin">
                             دخول
                         </button>
                     </form>
@@ -811,17 +917,17 @@
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content border-0 shadow">
                 <div class="modal-header bg-light">
-                    <h5 class="modal-title fw-bold" style="color:var(--pharaonic-blue)"><i class="fa-solid fa-headset text-primary me-2"></i> اتصل بإدارة المنصة</h5>
+                    <h5 class="modal-title fw-bold" style="color:var(--pharaonic-blue)"><i class="fa-solid fa-headset text-primary me-2"></i> <span data-i18n="modalContactTitle">اتصل بإدارة المنصة</span></h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body p-4">
-                    <p class="text-muted small">للإعلان المميز أو الاستفسارات، تواصل معنا مباشرة:</p>
+                    <p class="text-muted small" data-i18n="contactText">للإعلان المميز أو الاستفسارات، تواصل معنا مباشرة:</p>
                     <div class="d-flex flex-column gap-2 mb-3">
                         <a href="https://wa.me/201006950904" target="_blank" class="btn btn-outline-success text-start fw-bold">
-                            <i class="fa-brands fa-whatsapp me-2"></i> تواصل عبر الواتساب
+                            <i class="fa-brands fa-whatsapp me-2"></i> <span data-i18n="btnContactWa">تواصل عبر الواتساب</span>
                         </a>
                         <a href="tel:01006950904" class="btn btn-outline-primary text-start fw-bold">
-                            <i class="fa-solid fa-phone me-2"></i> اتصال هاتفي مباشر
+                            <i class="fa-solid fa-phone me-2"></i> <span data-i18n="btnContactPhone">اتصال هاتفي مباشر</span>
                         </a>
                     </div>
                 </div>
@@ -829,37 +935,7 @@
         </div>
     </div>
 
-    <!-- MODAL 4: Stores Modal -->
-    <div class="modal fade" id="storesModal" tabindex="-1" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered">
-            <div class="modal-content border-0 shadow">
-                <div class="modal-header bg-light">
-                    <h5 class="modal-title fw-bold" style="color:var(--pharaonic-blue)"><i class="fa-solid fa-store text-warning me-2"></i> المتاجر والمعارض المعتمدة</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body p-4">
-                    <div class="card border p-3 rounded-3">
-                        <div class="d-flex align-items-center gap-3">
-                            <div class="why-icon-box" style="width:50px; height:50px; font-size:1.4rem;">
-                                <i class="fa-solid fa-car"></i>
-                            </div>
-                            <div>
-                                <h6 class="fw-bold mb-1">معرض أوتو أمان لتجارة السيارات</h6>
-                                <p class="text-muted small mb-1"><i class="fa-solid fa-location-dot text-danger me-1"></i> المنوفية - نازلة منشأة سلطان</p>
-                                <span class="badge bg-success">إدارة: أ. عماد سليط</span>
-                            </div>
-                        </div>
-                        <div class="d-flex gap-2 mt-3">
-                            <a href="tel:01006950904" class="btn btn-sm btn-primary w-50 fw-bold"><i class="fa-solid fa-phone me-1"></i> اتصال</a>
-                            <a href="https://wa.me/201006950904" target="_blank" class="btn btn-sm btn-success w-50 fw-bold"><i class="fa-brands fa-whatsapp me-1"></i> واتساب</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- MODAL 5: Image Lightbox -->
+    <!-- MODAL 4: Image Lightbox -->
     <div class="modal fade" id="photoLightboxModal" tabindex="-1" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered modal-lg">
             <div class="modal-content bg-transparent border-0">
@@ -886,9 +962,232 @@
     <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 
-    <!-- Interactive Script -->
+    <!-- Cloud Realtime Engine, Multilingual & Dynamic Categories Script -->
     <script>
-        // Core Static Ad with all 10 images
+        // 1. Multilingual Dictionary
+        const translations = {
+            ar: {
+                logoName: "لقطة",
+                navHome: "الرئيسية",
+                navCars: "عربيات وقطع غيار",
+                navRealestate: "عقارات",
+                navServices: "خدمات واستشارات",
+                navJobs: "وظائف",
+                navNews: "أخبار",
+                navContact: "اتصل بنا",
+                favText: "المفضلة",
+                userLogin: "دخول",
+                btnAddAd: "أضف إعلانك",
+                heroBadge: "⚡ منصة الصفقات والخدمات المباشرة",
+                heroTitle: "كل اللي محتاجه... <br><span>في مكان واحد</span>",
+                heroDesc: "تصفح بمرونة وسهولة آلاف الصفقات والاستشارات والعروض المتميزة في جميع الأقسام والمدن.",
+                searchPlaceholder: "🔍 بتدور على إيه النهاردة؟",
+                whyTitle: "لماذا منصة لقطة؟",
+                why1Title: "إضافة ونشر فوري وسحابي",
+                why1Desc: "إعلانك يظهر لجميع المستخدمين فوراً",
+                why2Title: "استشارات مهنية متخصصة",
+                why2Desc: "طبية | هندسية | قانونية مباشرة",
+                why3Title: "تواصل مباشر مع المعلن",
+                why3Desc: "اتصال أو واتساب بدون أي وسيط",
+                why4Title: "إعلانات موثوقة ومجانية",
+                why4Desc: "صفقات مباشرة وبدون أي عمولات",
+                latestDealsTitle: "أحدث صفقات وعروض «لقطة»",
+                chip_all: "الكل",
+                loadingText: "جاري مزامنة الإعلانات السحابية...",
+                emptyTitle: "لا توجد إعلانات مطابقة حالياً",
+                emptyDesc: "جرب تغيير كلمات البحث أو استعرض جميع الأقسام",
+                btnShowAll: "عرض كل الإعلانات",
+                bannerTitle: "جاهز تبيع أو تقدم خدمة واستشارة؟ ⚡",
+                bannerDesc: "أضف إعلانك الآن على منصة «لقطة» وانشره فوراً لكل الناس بدون أي عمولات.",
+                btnAddAdNow: "أضف إعلانك فوراً",
+                footerOwner: "مالك المنصة:",
+                footerDev: "تطوير وإشراف برمجي /",
+                footerRights: "جميع الحقوق محفوظة © 2026 | منصة لقطة للإعلانات المبوبة",
+                modalAddTitle: "إضافة إعلان أو استشارة للجميع",
+                lblAdTitle: "عنوان الإعلان / الخدمة",
+                lblAdCat: "القسم",
+                lblAdLoc: "المحافظة / المدينة",
+                lblAdPrice: "السعر المطلوب / الأتعاب",
+                lblAdPhone: "رقم الهاتف / واتساب",
+                lblAdSeller: "اسم المعلن / المكتب / المعرض",
+                lblAdImg: "صورة الإعلان (اختياري)",
+                lblAdDesc: "تفاصيل ومواصفات الإعلان",
+                btnPublishNow: "انشر الإعلان الآن لكل الناس",
+                modalLoginTitle: "تسجيل الدخول",
+                lblAuthInput: "رقم الهاتف أو البريد",
+                lblAuthPass: "كلمة المرور",
+                modalContactTitle: "اتصل بإدارة المنصة",
+                contactText: "للإعلان المميز أو الاستفسارات، تواصل معنا مباشرة:",
+                btnContactWa: "تواصل عبر الواتساب",
+                btnContactPhone: "اتصال هاتفي مباشر",
+                btnCall: "اتصال",
+                btnWhatsapp: "واتساب",
+                directBadge: "مباشر",
+                // Categories
+                cat_all: "جميع الأقسام",
+                cat_cars: "عربيات وقطع غيار",
+                cat_realestate: "عقارات",
+                cat_mobiles: "موبايلات و تابلت",
+                cat_electronics: "أجهزة إلكترونية",
+                cat_fashion: "الموضة والجمال",
+                cat_pets: "حيوانات وطيور وأسماك",
+                cat_furniture: "أثاث وديكور",
+                cat_kids: "مستلزمات أطفال",
+                cat_industry: "تجارة و صناعة",
+                cat_services: "خدمات",
+                cat_consult_medical: "استشارات طبيه",
+                cat_consult_engineering: "استشارات هندسية",
+                cat_consult_legal: "استشارات قانونية",
+                cat_hobbies: "هوايات",
+                cat_jobs: "وظائف",
+                cat_news: "اخبار",
+                // Locations
+                loc_all: "كل المناطق",
+                loc_menofia: "المنوفية",
+                loc_cairo: "القاهرة",
+                loc_giza: "الجيزة",
+                loc_alex: "الإسكندرية"
+            },
+            en: {
+                logoName: "Loqta",
+                navHome: "Home",
+                navCars: "Cars & Auto Parts",
+                navRealestate: "Real Estate",
+                navServices: "Services & Consultations",
+                navJobs: "Jobs",
+                navNews: "News",
+                navContact: "Contact Us",
+                favText: "Favorites",
+                userLogin: "Login",
+                btnAddAd: "Post Your Ad",
+                heroBadge: "⚡ Direct Deals & Consultations Platform",
+                heroTitle: "Everything You Need... <br><span>In One Place</span>",
+                heroDesc: "Easily explore thousands of direct deals, professional consultations, and verified offers.",
+                searchPlaceholder: "🔍 What are you looking for today?",
+                whyTitle: "Why Choose Loqta?",
+                why1Title: "Instant Cloud Publishing",
+                why1Desc: "Your ad appears to everyone immediately",
+                why2Title: "Professional Consultations",
+                why2Desc: "Medical | Engineering | Legal direct services",
+                why3Title: "Direct Communication",
+                why3Desc: "Call or WhatsApp with zero middleman",
+                why4Title: "Trusted & 100% Free",
+                why4Desc: "Direct transactions with zero commission",
+                latestDealsTitle: "Latest Deals & Offers",
+                chip_all: "All",
+                loadingText: "Syncing live cloud ads...",
+                emptyTitle: "No Matching Ads Found",
+                emptyDesc: "Try adjusting your search criteria or browse all categories",
+                btnShowAll: "Show All Ads",
+                bannerTitle: "Ready to Sell or Offer a Consultation? ⚡",
+                bannerDesc: "Post your ad now on Loqta and reach thousands of buyers instantly without commission.",
+                btnAddAdNow: "Post Your Ad Now",
+                footerOwner: "Platform Owner:",
+                footerDev: "Engineered & Developed by /",
+                footerRights: "All Rights Reserved © 2026 | Loqta Classifieds Platform",
+                modalAddTitle: "Post an Ad or Consultation",
+                lblAdTitle: "Ad Title / Service",
+                lblAdCat: "Category",
+                lblAdLoc: "Location / City",
+                lblAdPrice: "Price / Consultation Fee",
+                lblAdPhone: "Phone / WhatsApp",
+                lblAdSeller: "Seller / Office / Agency Name",
+                lblAdImg: "Ad Photo (Optional)",
+                lblAdDesc: "Ad Details & Specifications",
+                btnPublishNow: "Publish Ad Now to Everyone",
+                modalLoginTitle: "User Login",
+                lblAuthInput: "Phone or Email",
+                lblAuthPass: "Password",
+                modalContactTitle: "Contact Platform Management",
+                contactText: "For featured advertising or general inquiries, reach us directly:",
+                btnContactWa: "Chat on WhatsApp",
+                btnContactPhone: "Direct Phone Call",
+                btnCall: "Call",
+                btnWhatsapp: "WhatsApp",
+                directBadge: "Direct",
+                // Categories
+                cat_all: "All Categories",
+                cat_cars: "Cars & Auto Parts",
+                cat_realestate: "Real Estate",
+                cat_mobiles: "Mobiles & Tablets",
+                cat_electronics: "Electronics",
+                cat_fashion: "Fashion & Beauty",
+                cat_pets: "Pets & Birds & Fish",
+                cat_furniture: "Furniture & Decor",
+                cat_kids: "Baby & Kids",
+                cat_industry: "Business & Industrial",
+                cat_services: "Services",
+                cat_consult_medical: "Medical Consultations",
+                cat_consult_engineering: "Engineering Consultations",
+                cat_consult_legal: "Legal Consultations",
+                cat_hobbies: "Hobbies & Books",
+                cat_jobs: "Jobs",
+                cat_news: "News",
+                // Locations
+                loc_all: "All Locations",
+                loc_menofia: "Menofia",
+                loc_cairo: "Cairo",
+                loc_giza: "Giza",
+                loc_alex: "Alexandria"
+            }
+        };
+
+        let currentLang = localStorage.getItem('loqta_lang') || 'ar';
+
+        function applyLanguage(lang) {
+            currentLang = lang;
+            localStorage.setItem('loqta_lang', lang);
+            
+            const htmlTag = document.documentElement;
+            const bootstrapRtlLink = document.getElementById('bootstrapRtl');
+            const langBtnLabel = document.getElementById('langBtnLabel');
+
+            if (lang === 'en') {
+                htmlTag.setAttribute('lang', 'en');
+                htmlTag.setAttribute('dir', 'ltr');
+                bootstrapRtlLink.href = "https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css";
+                langBtnLabel.innerText = "العربية";
+            } else {
+                htmlTag.setAttribute('lang', 'ar');
+                htmlTag.setAttribute('dir', 'rtl');
+                bootstrapRtlLink.href = "https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.rtl.min.css";
+                langBtnLabel.innerText = "English";
+            }
+
+            // Update Text Nodes
+            document.querySelectorAll('[data-i18n]').forEach(el => {
+                const key = el.getAttribute('data-i18n');
+                if (translations[lang][key]) {
+                    el.innerHTML = translations[lang][key];
+                }
+            });
+
+            // Update Placeholders
+            document.querySelectorAll('[data-i18n-placeholder]').forEach(el => {
+                const key = el.getAttribute('data-i18n-placeholder');
+                if (translations[lang][key]) {
+                    el.placeholder = translations[lang][key];
+                }
+            });
+
+            renderCurrentAds();
+        }
+
+        function toggleLanguage() {
+            applyLanguage(currentLang === 'ar' ? 'en' : 'ar');
+        }
+
+        // 2. Realtime Database Cloud Sync
+        const firebaseConfig = {
+            databaseURL: "https://alshohada-app-default-rtdb.firebaseio.com"
+        };
+        if (!firebase.apps.length) {
+            firebase.initializeApp(firebaseConfig);
+        }
+        const db = firebase.database();
+        const adsRef = db.ref('loqta_public_ads');
+
+        // Static Default Ad (Kia Morning 2007 - 10 Images)
         const staticKiaAd = {
             id: "ad_kia_2007",
             title: "كيا مورنينج (بيكانتو) 2007",
@@ -915,22 +1214,33 @@
             ]
         };
 
-        function getStoredAds() {
-            const data = localStorage.getItem("loqta_ads_list");
-            return data ? JSON.parse(data) : [];
-        }
-
-        function getAllAds() {
-            return [staticKiaAd, ...getStoredAds()];
-        }
-
+        let loadedCloudAds = [];
         let favorites = JSON.parse(localStorage.getItem('loqta_favs') || '[]');
 
         document.addEventListener('DOMContentLoaded', () => {
-            renderCurrentAds();
+            applyLanguage(currentLang);
+            listenToCloudAds();
             updateFavoritesUI();
             checkAuthUser();
         });
+
+        function listenToCloudAds() {
+            adsRef.on('value', (snapshot) => {
+                const data = snapshot.val();
+                let cloudList = [];
+                if (data) {
+                    cloudList = Object.keys(data).map(key => ({
+                        id: key,
+                        ...data[key]
+                    })).reverse();
+                }
+                loadedCloudAds = [staticKiaAd, ...cloudList];
+                renderCurrentAds();
+            }, (error) => {
+                loadedCloudAds = [staticKiaAd];
+                renderCurrentAds();
+            });
+        }
 
         function showNotification(msg) {
             const toastEl = document.getElementById('liveToast');
@@ -948,10 +1258,10 @@
             const emptyState = document.getElementById('emptyState');
             container.innerHTML = '';
 
-            const allAds = getAllAds();
             let count = 0;
+            const t = translations[currentLang];
 
-            allAds.forEach(ad => {
+            loadedCloudAds.forEach(ad => {
                 const matchCat = (currentFilterCat === 'all' || ad.category === currentFilterCat);
                 const matchLoc = (currentFilterLoc === 'all' || (ad.locationText && ad.locationText.includes(currentFilterLoc)));
                 const textSearch = `${ad.title || ''} ${ad.desc || ''} ${ad.seller || ''} ${ad.locationText || ''}`.toLowerCase();
@@ -960,7 +1270,7 @@
                 if (matchCat && matchLoc && matchText) {
                     count++;
                     const isFav = favorites.includes(ad.id);
-                    const colClass = allAds.length === 1 ? 'col-12 col-sm-10 col-md-8 col-lg-6 mx-auto' : 'col-12 col-sm-6 col-lg-4';
+                    const colClass = loadedCloudAds.length === 1 ? 'col-12 col-sm-10 col-md-8 col-lg-6 mx-auto' : 'col-12 col-sm-6 col-lg-4';
                     
                     const thumbsHtml = ad.gallery && ad.gallery.length > 1 ? `
                         <div class="gallery-thumbs-row">
@@ -977,8 +1287,8 @@
                         <div class="${colClass} ad-item">
                             <div class="abt-product-card shadow-sm" style="border: ${ad.isFlash ? '2px solid var(--pharaonic-gold)' : '1px solid var(--card-border)'};">
                                 <div class="abt-card-img" onclick="openPhotoModalDirect('${ad.mainImage}')">
-                                    <span class="badge-status ${ad.isFlash ? 'flash' : 'new'}">${ad.badge || 'إعلان مباشر ⚡'}</span>
-                                    <button class="fav-heart-btn ${isFav ? 'is-favorite' : ''}" onclick="event.stopPropagation(); toggleFavorite('${ad.id}', this)" title="المفضلة">
+                                    <span class="badge-status ${ad.isFlash ? 'flash' : 'new'}">${ad.badge || t.directBadge + ' ⚡'}</span>
+                                    <button class="fav-heart-btn ${isFav ? 'is-favorite' : ''}" onclick="event.stopPropagation(); toggleFavorite('${ad.id}', this)" title="${t.favText}">
                                         <i class="fa-regular fa-heart"></i>
                                     </button>
                                     <img id="img_${ad.id}" src="${ad.mainImage}" alt="${ad.title}" onerror="this.src='https://images.unsplash.com/photo-1552519507-da3b142c6e3d?auto=format&fit=crop&w=800&q=80'">
@@ -988,7 +1298,7 @@
                                     <div>
                                         <div class="d-flex justify-content-between align-items-center mb-2">
                                             <h5 class="abt-card-title m-0 text-truncate">${ad.title}</h5>
-                                            <span class="badge bg-danger px-2 py-1">مباشر</span>
+                                            <span class="badge bg-danger px-2 py-1">${t.directBadge}</span>
                                         </div>
                                         <div class="bg-light p-2 rounded-3 mb-2 small" style="line-height: 1.8;">
                                             <div><i class="fa-solid fa-align-right text-primary me-1"></i> ${ad.desc}</div>
@@ -999,14 +1309,14 @@
                                     <div class="d-flex justify-content-between align-items-center pt-2 border-top">
                                         <div class="abt-card-price">${ad.price}</div>
                                         <div class="action-btns-group">
-                                            <button class="btn btn-outline-secondary btn-sm px-2" onclick="shareAdDirect('${ad.title}')" title="مشاركة">
+                                            <button class="btn btn-outline-secondary btn-sm px-2" onclick="shareAdDirect('${ad.title}')" title="Share">
                                                 <i class="fa-solid fa-share-nodes"></i>
                                             </button>
-                                            <a href="tel:${cleanPhone}" class="btn-call-quick" title="اتصال">
-                                                <i class="fa-solid fa-phone me-1"></i> اتصال
+                                            <a href="tel:${cleanPhone}" class="btn-call-quick" title="${t.btnCall}">
+                                                <i class="fa-solid fa-phone me-1"></i> ${t.btnCall}
                                             </a>
-                                            <a href="https://wa.me/${waPhone}?text=${encodeURIComponent('بخصوص إعلان: ' + ad.title + ' المعروض على منصة لقطة')}" target="_blank" class="btn-whatsapp-quick" title="واتساب">
-                                                <i class="fa-brands fa-whatsapp me-1"></i> واتساب
+                                            <a href="https://wa.me/${waPhone}?text=${encodeURIComponent('Regarding your listing: ' + ad.title + ' on Loqta platform')}" target="_blank" class="btn-whatsapp-quick" title="${t.btnWhatsapp}">
+                                                <i class="fa-brands fa-whatsapp me-1"></i> ${t.btnWhatsapp}
                                             </a>
                                         </div>
                                     </div>
@@ -1027,7 +1337,10 @@
 
         function handleAdSubmission(e) {
             e.preventDefault();
-            
+            const submitBtn = document.getElementById('submitAdBtn');
+            submitBtn.disabled = true;
+            submitBtn.innerHTML = '<span class="spinner-border spinner-border-sm me-1"></span> ...';
+
             const title = document.getElementById('adTitleInput').value.trim();
             const category = document.getElementById('adCategoryInput').value;
             const locationText = document.getElementById('adLocationInput').value.trim();
@@ -1037,31 +1350,33 @@
             const desc = document.getElementById('adDescInput').value.trim();
             const fileInput = document.getElementById('adImageInput');
 
-            const saveAndRender = (imgData) => {
+            const uploadAndPublish = (imgData) => {
                 const newAdObject = {
-                    id: "ad_" + Date.now(),
                     title: title,
                     category: category,
                     locationText: locationText,
-                    price: price.includes('ج.م') || price.includes('سعر') ? price : price + ' ج.م',
+                    price: price.includes('ج.م') || price.includes('EGP') || price.includes('سعر') ? price : price + ' ج.م',
                     phone: phone,
                     seller: seller,
                     desc: desc,
                     badge: "إعلان مباشر ⚡",
                     isFlash: false,
                     mainImage: imgData || 'https://images.unsplash.com/photo-1552519507-da3b142c6e3d?auto=format&fit=crop&w=800&q=80',
-                    gallery: []
+                    timestamp: Date.now()
                 };
 
-                const currentList = getStoredAds();
-                currentList.unshift(newAdObject);
-                localStorage.setItem("loqta_ads_list", JSON.stringify(currentList));
-
-                bootstrap.Modal.getInstance(document.getElementById('addAdModal')).hide();
-                e.target.reset();
-                renderCurrentAds();
-                showNotification('⚡ تم نشر إعلانك على المنصة بنجاح!');
-                document.getElementById('ads').scrollIntoView({ behavior: 'smooth' });
+                adsRef.push(newAdObject).then(() => {
+                    submitBtn.disabled = false;
+                    submitBtn.innerHTML = `<i class="fa-solid fa-bolt me-1"></i> ${translations[currentLang].btnPublishNow}`;
+                    bootstrap.Modal.getInstance(document.getElementById('addAdModal')).hide();
+                    e.target.reset();
+                    showNotification(currentLang === 'ar' ? '⚡ تم نشر إعلانك سحابياً ويظهر الآن لكل الناس!' : '⚡ Published to the live cloud!');
+                    document.getElementById('ads').scrollIntoView({ behavior: 'smooth' });
+                }).catch(() => {
+                    submitBtn.disabled = false;
+                    submitBtn.innerHTML = `<i class="fa-solid fa-bolt me-1"></i> ${translations[currentLang].btnPublishNow}`;
+                    showNotification('Error publishing');
+                });
             };
 
             if (fileInput.files && fileInput.files[0]) {
@@ -1081,13 +1396,13 @@
                         canvas.width = w;
                         canvas.height = h;
                         ctx.drawImage(img, 0, 0, w, h);
-                        saveAndRender(canvas.toDataURL('image/jpeg', 0.7));
+                        uploadAndPublish(canvas.toDataURL('image/jpeg', 0.7));
                     };
                     img.src = evt.target.result;
                 };
                 reader.readAsDataURL(fileInput.files[0]);
             } else {
-                saveAndRender('');
+                uploadAndPublish('');
             }
         }
 
@@ -1107,11 +1422,11 @@
             if (favorites.includes(id)) {
                 favorites = favorites.filter(item => item !== id);
                 btnEl.classList.remove('is-favorite');
-                showNotification('تمت الإزالة من المفضلة');
+                showNotification(currentLang === 'ar' ? 'تمت الإزالة من المفضلة' : 'Removed from favorites');
             } else {
                 favorites.push(id);
                 btnEl.classList.add('is-favorite');
-                showNotification('تمت الإضافة إلى المفضلة ❤️');
+                showNotification(currentLang === 'ar' ? 'تمت الإضافة إلى المفضلة ❤️' : 'Added to favorites ❤️');
             }
             localStorage.setItem('loqta_favs', JSON.stringify(favorites));
             updateFavoritesUI();
@@ -1123,14 +1438,16 @@
 
         function showFavoritesModal() {
             if (favorites.length === 0) {
-                showNotification('قائمة المفضلة فارغة حالياً');
+                showNotification(currentLang === 'ar' ? 'قائمة المفضلة فارغة حالياً' : 'Favorites list is empty');
                 return;
             }
-            currentFilterCat = 'all';
-            currentFilterLoc = 'all';
-            currentSearchQuery = '';
-            renderCurrentAds();
-            showNotification('يتم عرض إعلاناتك');
+            const favAds = loadedCloudAds.filter(ad => favorites.includes(ad.id));
+            if (favAds.length > 0) {
+                currentFilterCat = 'all';
+                currentFilterLoc = 'all';
+                currentSearchQuery = '';
+                renderCurrentAds();
+            }
         }
 
         function executeSearch(e) {
@@ -1145,6 +1462,7 @@
             document.querySelectorAll('.category-item-abt').forEach(c => c.classList.remove('active'));
             if(el) el.classList.add('active');
             currentFilterCat = category;
+            document.getElementById('searchCategory').value = category;
             renderCurrentAds();
         }
 
@@ -1173,17 +1491,13 @@
         function shareAdDirect(title) {
             if (navigator.share) {
                 navigator.share({
-                    title: title + ' - منصة لقطة',
+                    title: title + ' - Loqta',
                     url: window.location.href,
                 }).catch(() => {});
             } else {
                 navigator.clipboard.writeText(window.location.href);
-                showNotification('تم نسخ رابط الإعلان بنجاح!');
+                showNotification(currentLang === 'ar' ? 'تم نسخ رابط الإعلان بنجاح!' : 'Link copied!');
             }
-        }
-
-        function openStoresModal() {
-            new bootstrap.Modal(document.getElementById('storesModal')).show();
         }
 
         function handleAuth(e) {
@@ -1192,13 +1506,13 @@
             localStorage.setItem('loqta_user', val);
             bootstrap.Modal.getInstance(document.getElementById('loginModal')).hide();
             checkAuthUser();
-            showNotification('تم تسجيل الدخول بنجاح!');
+            showNotification(currentLang === 'ar' ? 'تم تسجيل الدخول بنجاح!' : 'Logged in successfully!');
         }
 
         function checkAuthUser() {
             const user = localStorage.getItem('loqta_user');
             if (user) {
-                document.getElementById('userBtnText').innerText = 'حسابي';
+                document.getElementById('userBtnText').innerText = currentLang === 'ar' ? 'حسابي' : 'Account';
             }
         }
     </script>
