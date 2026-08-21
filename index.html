@@ -11,9 +11,9 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&display=swap" rel="stylesheet">
 
-    <!-- Firebase SDKs -->
-    <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-database-compat.js"></script>
+    <!-- Firebase SDKs (v8 Stable Standalone) -->
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-database.js"></script>
 
     <style>
         :root {
@@ -113,7 +113,7 @@
             cursor: pointer;
         }
 
-        /* Hero Responsive */
+        /* Hero Section */
         .hero-card-box {
             background: #ffffff;
             border-radius: 20px;
@@ -866,7 +866,7 @@
         </div>
     </footer>
 
-    <!-- MODAL 1: Add Ad Modal (Sends to Pending Queue for Admin Approval) -->
+    <!-- MODAL 1: Add Ad Modal -->
     <div class="modal fade" id="addAdModal" tabindex="-1" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content border-0 shadow">
@@ -1316,7 +1316,7 @@
             const desc = document.getElementById('adDescInput').value.trim();
             const fileInput = document.getElementById('adImageInput');
 
-            const uploadToPending = (imgData) => {
+            const sendData = (imgData) => {
                 const pendingAdObject = {
                     title: title,
                     category: category,
@@ -1329,18 +1329,21 @@
                     timestamp: Date.now()
                 };
 
-                // إرسال لجدول المعلق
-                pendingAdsRef.push(pendingAdObject).then(() => {
-                    submitBtn.disabled = false;
-                    submitBtn.innerHTML = `<i class="fa-solid fa-bolt me-1"></i> ${translations[currentLang].btnPublishNow}`;
-                    bootstrap.Modal.getInstance(document.getElementById('addAdModal')).hide();
-                    e.target.reset();
-                    showNotification(currentLang === 'ar' ? 'تم استلام إعلانك بنجاح وسيظهر للجميع فور موافقة الإدارة ⚡' : 'Submitted successfully! It will go live once reviewed.');
-                }).catch(() => {
-                    submitBtn.disabled = false;
-                    submitBtn.innerHTML = `<i class="fa-solid fa-bolt me-1"></i> ${translations[currentLang].btnPublishNow}`;
-                    showNotification('حدث خطأ أثناء الإرسال');
-                });
+                pendingAdsRef.push(pendingAdObject)
+                    .then(() => {
+                        submitBtn.disabled = false;
+                        submitBtn.innerHTML = `<i class="fa-solid fa-bolt me-1"></i> ${translations[currentLang].btnPublishNow}`;
+                        const modalEl = document.getElementById('addAdModal');
+                        const modalInstance = bootstrap.Modal.getInstance(modalEl);
+                        if (modalInstance) modalInstance.hide();
+                        e.target.reset();
+                        showNotification(currentLang === 'ar' ? 'تم استلام إعلانك بنجاح وسيظهر للجميع فور موافقة الإدارة ⚡' : 'Submitted successfully! It will go live once reviewed.');
+                    })
+                    .catch((err) => {
+                        submitBtn.disabled = false;
+                        submitBtn.innerHTML = `<i class="fa-solid fa-bolt me-1"></i> ${translations[currentLang].btnPublishNow}`;
+                        alert('خطأ في الاتصال بقاعدة البيانات: ' + err.message);
+                    });
             };
 
             if (fileInput.files && fileInput.files[0]) {
@@ -1358,13 +1361,19 @@
                         }
                         canvas.width = w; canvas.height = h;
                         ctx.drawImage(img, 0, 0, w, h);
-                        uploadToPending(canvas.toDataURL('image/jpeg', 0.7));
+                        sendData(canvas.toDataURL('image/jpeg', 0.7));
+                    };
+                    img.onerror = function() {
+                        sendData(evt.target.result);
                     };
                     img.src = evt.target.result;
                 };
+                reader.onerror = function() {
+                    sendData('');
+                };
                 reader.readAsDataURL(fileInput.files[0]);
             } else {
-                uploadToPending('');
+                sendData('');
             }
         }
 
