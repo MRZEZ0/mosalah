@@ -1241,7 +1241,30 @@
             checkAuthUser();
         });
 
-        // المزامنة اللحظية
+        // دالة مساعدة لتحديد أيقونة القسم عند عدم وجود صورة
+        function getCategoryIcon(cat) {
+            const icons = {
+                cars: 'fa-car',
+                realestate: 'fa-building',
+                mobiles: 'fa-mobile-screen-button',
+                electronics: 'fa-laptop',
+                fashion: 'fa-shirt',
+                pets: 'fa-paw',
+                furniture: 'fa-couch',
+                kids: 'fa-baby',
+                industry: 'fa-industry',
+                services: 'fa-screwdriver-wrench',
+                consult_medical: 'fa-user-doctor',
+                consult_engineering: 'fa-compass-drafting',
+                consult_legal: 'fa-scale-balanced',
+                hobbies: 'fa-palette',
+                jobs: 'fa-briefcase',
+                news: 'fa-newspaper'
+            };
+            return icons[cat] || 'fa-tag';
+        }
+
+        // المزامنة اللحظية مع فايربيس
         function listenToApprovedAds() {
             publicAdsRef.on('value', (snapshot) => {
                 const data = snapshot.val();
@@ -1256,16 +1279,29 @@
                         const cleanPhone = (ad.phone || '').replace(/[^0-9]/g, '');
                         const waPhone = cleanPhone.startsWith('0') ? '2' + cleanPhone : cleanPhone;
                         const isFav = favorites.includes(key);
+                        const hasCustomImg = ad.mainImage && ad.mainImage.trim() !== '' && !ad.mainImage.includes('unsplash');
+                        const catIcon = getCategoryIcon(ad.category);
+
+                        const mediaHtml = hasCustomImg ? `
+                            <img id="img_${key}" src="${ad.mainImage}" alt="${ad.title}" onerror="this.onerror=null; this.parentElement.innerHTML='<div class=\\'d-flex flex-column align-items-center justify-content-center h-100 bg-light text-muted\\'><i class=\\'fa-solid ${catIcon} fa-3x mb-2 text-primary\\'></i><span class=\\'fw-bold small\\'>منصة لقطة</span></div>';">
+                        ` : `
+                            <div class="d-flex flex-column align-items-center justify-content-center h-100" style="background: linear-gradient(135deg, #f1f5f9 0%, #e2e8f0 100%);">
+                                <div style="width: 60px; height: 60px; border-radius: 50%; background: #ffffff; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 12px rgba(0,0,0,0.06);" class="mb-2">
+                                    <i class="fa-solid ${catIcon} fa-2x" style="color: var(--primary-accent);"></i>
+                                </div>
+                                <span class="fw-bold text-secondary" style="font-size: 0.85rem;"><i class="fa-solid fa-ankh text-warning me-1"></i> منصة لقطة</span>
+                            </div>
+                        `;
 
                         const cardHtml = `
                             <div class="col-12 col-sm-6 col-lg-4 ad-item cloud-approved-ad" data-category="${ad.category || ''}" data-location="${ad.locationText || ''}" data-keywords="${(ad.title || '') + ' ' + (ad.desc || '') + ' ' + (ad.seller || '')}">
                                 <div class="abt-product-card shadow-sm" style="border: 1.5px solid var(--card-border);">
-                                    <div class="abt-card-img" onclick="openPhotoModalDirect('${ad.mainImage}')">
+                                    <div class="abt-card-img" onclick="${hasCustomImg ? `openPhotoModalDirect('${ad.mainImage}')` : ''}">
                                         <span class="badge-status new">${ad.badge || 'معتمد ⚡'}</span>
                                         <button class="fav-heart-btn ${isFav ? 'is-favorite' : ''}" onclick="event.stopPropagation(); toggleFavorite('${key}', this)" title="المفضلة">
                                             <i class="fa-regular fa-heart"></i>
                                         </button>
-                                        <img id="img_${key}" src="${ad.mainImage}" alt="${ad.title}" onerror="this.src='https://images.unsplash.com/photo-1552519507-da3b142c6e3d?auto=format&fit=crop&w=800&q=80'">
+                                        ${mediaHtml}
                                     </div>
                                     <div class="abt-card-body">
                                         <div>
@@ -1358,7 +1394,7 @@
                     phone: phone,
                     seller: seller,
                     desc: desc,
-                    mainImage: imgData || 'https://images.unsplash.com/photo-1552519507-da3b142c6e3d?auto=format&fit=crop&w=800&q=80',
+                    mainImage: imgData || '',
                     timestamp: Date.now()
                 };
 
