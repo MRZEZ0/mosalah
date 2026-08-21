@@ -42,12 +42,12 @@
             overflow-x: hidden;
         }
 
-        /* Top Navbar */
+        /* Top Navbar - Clean & Spaced */
         .top-navbar {
             background: #ffffff;
             border-bottom: 2px solid var(--pharaonic-gold);
-            padding: 10px 0;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.04);
+            padding: 8px 0;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.03);
             position: sticky;
             top: 0;
             z-index: 1000;
@@ -55,16 +55,17 @@
 
         .brand-logo-loqta {
             font-weight: 900;
-            font-size: 1.65rem;
+            font-size: 1.5rem;
             color: var(--pharaonic-blue);
             text-decoration: none;
             display: inline-flex;
             align-items: center;
-            gap: 6px;
+            gap: 4px;
+            white-space: nowrap;
         }
 
         @media (min-width: 768px) {
-            .brand-logo-loqta { font-size: 2.15rem; }
+            .brand-logo-loqta { font-size: 2rem; }
         }
 
         .brand-logo-loqta span { color: var(--pharaonic-gold); }
@@ -72,7 +73,7 @@
         .nav-link-custom {
             color: var(--text-dark);
             font-weight: 700;
-            font-size: 0.95rem;
+            font-size: 0.92rem;
             text-decoration: none;
             padding: 6px 12px;
             border-radius: 8px;
@@ -84,35 +85,51 @@
             background: rgba(212, 175, 55, 0.15);
         }
 
+        /* Compact Header Action Buttons */
+        .btn-header-icon {
+            width: 38px;
+            height: 38px;
+            border-radius: 50%;
+            background: #f1f5f9;
+            border: 1px solid var(--card-border);
+            color: var(--pharaonic-blue);
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.95rem;
+            cursor: pointer;
+            text-decoration: none;
+            padding: 0;
+            flex-shrink: 0;
+        }
+
+        .btn-header-icon:hover {
+            background: var(--pharaonic-blue);
+            color: #ffffff;
+            border-color: var(--pharaonic-blue);
+        }
+
         .btn-add-free-ad {
             background: linear-gradient(135deg, #2563eb, #1d4ed8);
             color: #ffffff !important;
             font-weight: 800;
-            border-radius: 8px;
-            padding: 8px 14px;
-            font-size: 0.88rem;
+            border-radius: 20px;
+            padding: 7px 14px;
+            font-size: 0.82rem;
             text-decoration: none;
-            box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
+            box-shadow: 0 3px 10px rgba(37, 99, 235, 0.25);
             white-space: nowrap;
             border: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
         }
 
         @media (min-width: 576px) {
             .btn-add-free-ad {
-                padding: 9px 20px;
-                font-size: 0.92rem;
+                padding: 8px 18px;
+                font-size: 0.9rem;
             }
-        }
-
-        .btn-lang-switch {
-            background: #f1f5f9;
-            border: 1px solid var(--card-border);
-            color: var(--text-dark);
-            font-weight: 800;
-            font-size: 0.85rem;
-            border-radius: 8px;
-            padding: 6px 12px;
-            cursor: pointer;
         }
 
         /* Hero */
@@ -509,7 +526,7 @@
 </head>
 <body>
 
-    <!-- Header Navigation -->
+    <!-- Header Navigation (Clean & Uncluttered) -->
     <header class="top-navbar">
         <div class="container d-flex justify-content-between align-items-center">
             
@@ -518,6 +535,7 @@
                 <span data-i18n="logoName">لقطة</span><span>.</span>
             </a>
 
+            <!-- Desktop Links -->
             <div class="d-none d-lg-flex align-items-center gap-1">
                 <a href="#home" class="nav-link-custom active" onclick="navigateSection('all')" data-i18n="navHome">الرئيسية</a>
                 <a href="#ads" class="nav-link-custom" onclick="navigateSection('cars')" data-i18n="cat_cars">عربيات وقطع غيار</a>
@@ -528,18 +546,19 @@
                 <a href="#contact" class="nav-link-custom" data-bs-toggle="modal" data-bs-target="#contactModal" data-i18n="navContact">اتصل بنا</a>
             </div>
 
+            <!-- Action Controls (Organized & Spaced) -->
             <div class="d-flex align-items-center gap-2">
-                <button class="btn-lang-switch" onclick="toggleLanguage()">
-                    <i class="fa-solid fa-globe me-1"></i> <span id="langBtnLabel">English</span>
+                <button class="btn-header-icon" onclick="toggleLanguage()" title="تغيير اللغة / Switch Language">
+                    <i class="fa-solid fa-globe"></i>
                 </button>
-                <button class="btn btn-link text-dark text-decoration-none fw-bold small p-0 d-none d-sm-inline" onclick="showFavoritesModal()" style="font-size: 0.9rem;">
-                    <i class="fa-regular fa-heart me-1 text-danger"></i> <span data-i18n="favText">المفضلة</span> (<span id="favCount">0</span>)
+                <button class="btn-header-icon" onclick="showFavoritesModal()" title="المفضلة">
+                    <i class="fa-regular fa-heart text-danger"></i>
                 </button>
-                <button class="btn btn-link text-dark text-decoration-none fw-bold small p-0" data-bs-toggle="modal" data-bs-target="#loginModal" style="font-size: 0.9rem;">
-                    <i class="fa-regular fa-user me-1"></i> <span id="userBtnText" data-i18n="userLogin">دخول</span>
+                <button class="btn-header-icon" data-bs-toggle="modal" data-bs-target="#loginModal" title="تسجيل الدخول / حسابي">
+                    <i class="fa-regular fa-user"></i>
                 </button>
                 <button class="btn-add-free-ad" data-bs-toggle="modal" data-bs-target="#addAdModal">
-                    <i class="fa-solid fa-plus me-1"></i> <span data-i18n="btnAddAd">أضف إعلانك</span>
+                    <i class="fa-solid fa-plus"></i> <span data-i18n="btnAddAd">أضف إعلانك</span>
                 </button>
             </div>
 
@@ -1214,18 +1233,15 @@
             
             const htmlTag = document.documentElement;
             const bootstrapRtlLink = document.getElementById('bootstrapRtl');
-            const langBtnLabel = document.getElementById('langBtnLabel');
 
             if (lang === 'en') {
                 htmlTag.setAttribute('lang', 'en');
                 htmlTag.setAttribute('dir', 'ltr');
                 bootstrapRtlLink.href = "https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css";
-                langBtnLabel.innerText = "العربية";
             } else {
                 htmlTag.setAttribute('lang', 'ar');
                 htmlTag.setAttribute('dir', 'rtl');
                 bootstrapRtlLink.href = "https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.rtl.min.css";
-                langBtnLabel.innerText = "English";
             }
 
             document.querySelectorAll('[data-i18n]').forEach(el => {
@@ -1264,7 +1280,6 @@
             checkAuthUser();
         });
 
-        // دالة مساعدة لتحديد أيقونة القسم عند عدم وجود صورة
         function getCategoryIcon(cat) {
             const icons = {
                 cars: 'fa-car',
@@ -1492,7 +1507,7 @@
         }
 
         function updateFavoritesUI() {
-            document.getElementById('favCount').innerText = favorites.length;
+            // Count can be updated here if needed
         }
 
         function showFavoritesModal() {
@@ -1613,10 +1628,7 @@
         }
 
         function checkAuthUser() {
-            const user = localStorage.getItem('loqta_user');
-            if (user) {
-                document.getElementById('userBtnText').innerText = currentLang === 'ar' ? 'حسابي' : 'Account';
-            }
+            // Optional auth state handling
         }
     </script>
 </body>
