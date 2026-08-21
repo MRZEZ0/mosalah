@@ -765,10 +765,62 @@
 
         <!-- Ads Container -->
         <div class="row g-3" id="adsContainer">
-            <div class="col-12 text-center py-4">
-                <div class="spinner-border text-primary" role="status"></div>
-                <div class="text-muted small mt-2" data-i18n="loadingText">جاري مزامنة الإعلانات السحابية...</div>
+            
+            <!-- إعلان سيارة الكيا مورنينج مثبت ومباشر في الـ HTML -->
+            <div class="col-12 col-sm-10 col-md-8 col-lg-6 mx-auto ad-item" data-category="cars" data-location="المنوفية" data-keywords="كيا مورنينج بيكانتو 2007 اوتو امان عماد سليط المنوفية">
+                <div class="abt-product-card shadow-sm" style="border: 2px solid var(--pharaonic-gold);">
+                    <div class="abt-card-img" onclick="openPhotoModalDirect('images/kia-front.jpg')">
+                        <span class="badge-status flash">لقطة مميزة ⚡</span>
+                        <button class="fav-heart-btn" onclick="event.stopPropagation(); toggleFavorite('ad_kia_2007', this)" title="المفضلة">
+                            <i class="fa-regular fa-heart"></i>
+                        </button>
+                        <img id="img_ad_kia_2007" src="images/kia-front.jpg" alt="كيا مورنينج 2007" onerror="this.src='https://images.unsplash.com/photo-1552519507-da3b142c6e3d?auto=format&fit=crop&w=800&q=80'">
+                    </div>
+                    
+                    <!-- الـ 10 صور للسيارة -->
+                    <div class="gallery-thumbs-row">
+                        <img src="images/kia-front.jpg" class="thumb-btn-img active" onclick="switchAdThumb('ad_kia_2007', 'images/kia-front.jpg', this)" onerror="this.src='https://images.unsplash.com/photo-1552519507-da3b142c6e3d?auto=format&fit=crop&w=150&q=80'">
+                        <img src="images/kia-back.jpg" class="thumb-btn-img" onclick="switchAdThumb('ad_kia_2007', 'images/kia-back.jpg', this)" onerror="this.src='https://images.unsplash.com/photo-1552519507-da3b142c6e3d?auto=format&fit=crop&w=150&q=80'">
+                        <img src="images/kia-side-1.jpg" class="thumb-btn-img" onclick="switchAdThumb('ad_kia_2007', 'images/kia-side-1.jpg', this)" onerror="this.src='https://images.unsplash.com/photo-1552519507-da3b142c6e3d?auto=format&fit=crop&w=150&q=80'">
+                        <img src="images/kia-side-2.jpg" class="thumb-btn-img" onclick="switchAdThumb('ad_kia_2007', 'images/kia-side-2.jpg', this)" onerror="this.src='https://images.unsplash.com/photo-1552519507-da3b142c6e3d?auto=format&fit=crop&w=150&q=80'">
+                        <img src="images/kia-interior-front.jpg" class="thumb-btn-img" onclick="switchAdThumb('ad_kia_2007', 'images/kia-interior-front.jpg', this)" onerror="this.src='https://images.unsplash.com/photo-1552519507-da3b142c6e3d?auto=format&fit=crop&w=150&q=80'">
+                        <img src="images/kia-gear.jpg" class="thumb-btn-img" onclick="switchAdThumb('ad_kia_2007', 'images/kia-gear.jpg', this)" onerror="this.src='https://images.unsplash.com/photo-1552519507-da3b142c6e3d?auto=format&fit=crop&w=150&q=80'">
+                        <img src="images/kia-door.jpg" class="thumb-btn-img" onclick="switchAdThumb('ad_kia_2007', 'images/kia-door.jpg', this)" onerror="this.src='https://images.unsplash.com/photo-1552519507-da3b142c6e3d?auto=format&fit=crop&w=150&q=80'">
+                        <img src="images/kia-angle-back.jpg" class="thumb-btn-img" onclick="switchAdThumb('ad_kia_2007', 'images/kia-angle-back.jpg', this)" onerror="this.src='https://images.unsplash.com/photo-1552519507-da3b142c6e3d?auto=format&fit=crop&w=150&q=80'">
+                        <img src="images/kia-full-back.jpg" class="thumb-btn-img" onclick="switchAdThumb('ad_kia_2007', 'images/kia-full-back.jpg', this)" onerror="this.src='https://images.unsplash.com/photo-1552519507-da3b142c6e3d?auto=format&fit=crop&w=150&q=80'">
+                        <img src="images/kia-banner.jpg" class="thumb-btn-img" onclick="switchAdThumb('ad_kia_2007', 'images/kia-banner.jpg', this)" onerror="this.src='https://images.unsplash.com/photo-1552519507-da3b142c6e3d?auto=format&fit=crop&w=150&q=80'">
+                    </div>
+
+                    <div class="abt-card-body">
+                        <div>
+                            <div class="d-flex justify-content-between align-items-center mb-2">
+                                <h5 class="abt-card-title m-0 text-truncate">كيا مورنينج (بيكانتو) 2007</h5>
+                                <span class="badge bg-danger px-2 py-1">مباشر</span>
+                            </div>
+                            <div class="bg-light p-2 rounded-3 mb-2 small" style="line-height: 1.8;">
+                                <div><i class="fa-solid fa-align-right text-primary me-1"></i> فبريكا بالكامل | أعلى فئة | عداد 155,000 كم | رخصة سنتين</div>
+                                <div><i class="fa-solid fa-location-dot text-danger me-1"></i> المنوفية - نازلة منشأة سلطان</div>
+                                <div><i class="fa-solid fa-user-tag text-success me-1"></i> معرض أوتو أمان | إدارة: أ. عماد سليط</div>
+                            </div>
+                        </div>
+                        <div class="d-flex justify-content-between align-items-center pt-2 border-top">
+                            <div class="abt-card-price">تواصل للسعر</div>
+                            <div class="action-btns-group">
+                                <button class="btn btn-outline-secondary btn-sm px-2" onclick="shareAdDirect('كيا مورنينج (بيكانتو) 2007')" title="مشاركة">
+                                    <i class="fa-solid fa-share-nodes"></i>
+                                </button>
+                                <a href="tel:01006950904" class="btn-call-quick" title="اتصال">
+                                    <i class="fa-solid fa-phone me-1"></i> اتصال
+                                </a>
+                                <a href="https://wa.me/201006950904?text=%D8%A8%D8%AE%D8%B5%D9%88%D8%B5%20%D8%A5%D8%B9%D9%84%D8%A7%D9%86%3A%20%D9%83%D9%8A%D8%A7%20%D9%85%D9%88%D8%B1%D9%86%D9%8A%D9%86%D8%AC%202007%20%D8%B9%D9%84%D9%89%20%D9%85%D9%86%D8%B5%D8%A9%20%D9%84%D9%82%D8%B7%D8%A9" target="_blank" class="btn-whatsapp-quick" title="واتساب">
+                                    <i class="fa-brands fa-whatsapp me-1"></i> واتساب
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
+
         </div>
 
         <!-- Empty State -->
@@ -962,9 +1014,8 @@
     <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 
-    <!-- Cloud Realtime Engine, Multilingual & Dynamic Categories Script -->
+    <!-- App Engine Script -->
     <script>
-        // 1. Multilingual Dictionary
         const translations = {
             ar: {
                 logoName: "لقطة",
@@ -993,7 +1044,6 @@
                 why4Desc: "صفقات مباشرة وبدون أي عمولات",
                 latestDealsTitle: "أحدث صفقات وعروض «لقطة»",
                 chip_all: "الكل",
-                loadingText: "جاري مزامنة الإعلانات السحابية...",
                 emptyTitle: "لا توجد إعلانات مطابقة حالياً",
                 emptyDesc: "جرب تغيير كلمات البحث أو استعرض جميع الأقسام",
                 btnShowAll: "عرض كل الإعلانات",
@@ -1023,7 +1073,6 @@
                 btnCall: "اتصال",
                 btnWhatsapp: "واتساب",
                 directBadge: "مباشر",
-                // Categories
                 cat_all: "جميع الأقسام",
                 cat_cars: "عربيات وقطع غيار",
                 cat_realestate: "عقارات",
@@ -1041,7 +1090,6 @@
                 cat_hobbies: "هوايات",
                 cat_jobs: "وظائف",
                 cat_news: "اخبار",
-                // Locations
                 loc_all: "كل المناطق",
                 loc_menofia: "المنوفية",
                 loc_cairo: "القاهرة",
@@ -1075,7 +1123,6 @@
                 why4Desc: "Direct transactions with zero commission",
                 latestDealsTitle: "Latest Deals & Offers",
                 chip_all: "All",
-                loadingText: "Syncing live cloud ads...",
                 emptyTitle: "No Matching Ads Found",
                 emptyDesc: "Try adjusting your search criteria or browse all categories",
                 btnShowAll: "Show All Ads",
@@ -1105,7 +1152,6 @@
                 btnCall: "Call",
                 btnWhatsapp: "WhatsApp",
                 directBadge: "Direct",
-                // Categories
                 cat_all: "All Categories",
                 cat_cars: "Cars & Auto Parts",
                 cat_realestate: "Real Estate",
@@ -1123,7 +1169,6 @@
                 cat_hobbies: "Hobbies & Books",
                 cat_jobs: "Jobs",
                 cat_news: "News",
-                // Locations
                 loc_all: "All Locations",
                 loc_menofia: "Menofia",
                 loc_cairo: "Cairo",
@@ -1154,67 +1199,27 @@
                 langBtnLabel.innerText = "English";
             }
 
-            // Update Text Nodes
             document.querySelectorAll('[data-i18n]').forEach(el => {
                 const key = el.getAttribute('data-i18n');
-                if (translations[lang][key]) {
-                    el.innerHTML = translations[lang][key];
-                }
+                if (translations[lang][key]) el.innerHTML = translations[lang][key];
             });
 
-            // Update Placeholders
             document.querySelectorAll('[data-i18n-placeholder]').forEach(el => {
                 const key = el.getAttribute('data-i18n-placeholder');
-                if (translations[lang][key]) {
-                    el.placeholder = translations[lang][key];
-                }
+                if (translations[lang][key]) el.placeholder = translations[lang][key];
             });
-
-            renderCurrentAds();
         }
 
         function toggleLanguage() {
             applyLanguage(currentLang === 'ar' ? 'en' : 'ar');
         }
 
-        // 2. Realtime Database Cloud Sync
-        const firebaseConfig = {
-            databaseURL: "https://alshohada-app-default-rtdb.firebaseio.com"
-        };
-        if (!firebase.apps.length) {
-            firebase.initializeApp(firebaseConfig);
-        }
+        // Firebase Cloud Listener
+        const firebaseConfig = { databaseURL: "https://alshohada-app-default-rtdb.firebaseio.com" };
+        if (!firebase.apps.length) firebase.initializeApp(firebaseConfig);
         const db = firebase.database();
         const adsRef = db.ref('loqta_public_ads');
 
-        // Static Default Ad (Kia Morning 2007 - 10 Images)
-        const staticKiaAd = {
-            id: "ad_kia_2007",
-            title: "كيا مورنينج (بيكانتو) 2007",
-            category: "cars",
-            locationText: "المنوفية - نازلة منشأة سلطان",
-            price: "تواصل للسعر",
-            phone: "01006950904",
-            seller: "معرض أوتو أمان | إدارة: أ. عماد سليط",
-            desc: "فبريكا بالكامل | أعلى فئة | عداد 155,000 كم | رخصة سنتين",
-            badge: "لقطة مميزة ⚡",
-            isFlash: true,
-            mainImage: "images/kia-front.jpg",
-            gallery: [
-                "images/kia-front.jpg",
-                "images/kia-back.jpg",
-                "images/kia-side-1.jpg",
-                "images/kia-side-2.jpg",
-                "images/kia-interior-front.jpg",
-                "images/kia-gear.jpg",
-                "images/kia-door.jpg",
-                "images/kia-angle-back.jpg",
-                "images/kia-full-back.jpg",
-                "images/kia-banner.jpg"
-            ]
-        };
-
-        let loadedCloudAds = [];
         let favorites = JSON.parse(localStorage.getItem('loqta_favs') || '[]');
 
         document.addEventListener('DOMContentLoaded', () => {
@@ -1227,112 +1232,69 @@
         function listenToCloudAds() {
             adsRef.on('value', (snapshot) => {
                 const data = snapshot.val();
-                let cloudList = [];
+                const container = document.getElementById('adsContainer');
+                
+                // Clear extra cloud items only, keeping Kia ad
+                document.querySelectorAll('.cloud-ad-item').forEach(e => e.remove());
+
                 if (data) {
-                    cloudList = Object.keys(data).map(key => ({
-                        id: key,
-                        ...data[key]
-                    })).reverse();
+                    const keys = Object.keys(data).reverse();
+                    keys.forEach(key => {
+                        const ad = data[key];
+                        const cleanPhone = (ad.phone || '').replace(/[^0-9]/g, '');
+                        const waPhone = cleanPhone.startsWith('0') ? '2' + cleanPhone : cleanPhone;
+                        const isFav = favorites.includes(key);
+
+                        const cardHtml = `
+                            <div class="col-12 col-sm-6 col-lg-4 ad-item cloud-ad-item" data-category="${ad.category || ''}" data-location="${ad.locationText || ''}" data-keywords="${(ad.title || '') + ' ' + (ad.desc || '')}">
+                                <div class="abt-product-card shadow-sm" style="border: 1px solid var(--card-border);">
+                                    <div class="abt-card-img" onclick="openPhotoModalDirect('${ad.mainImage}')">
+                                        <span class="badge-status new">${ad.badge || 'إعلان مباشر ⚡'}</span>
+                                        <button class="fav-heart-btn ${isFav ? 'is-favorite' : ''}" onclick="event.stopPropagation(); toggleFavorite('${key}', this)" title="المفضلة">
+                                            <i class="fa-regular fa-heart"></i>
+                                        </button>
+                                        <img id="img_${key}" src="${ad.mainImage}" alt="${ad.title}" onerror="this.src='https://images.unsplash.com/photo-1552519507-da3b142c6e3d?auto=format&fit=crop&w=800&q=80'">
+                                    </div>
+                                    <div class="abt-card-body">
+                                        <div>
+                                            <div class="d-flex justify-content-between align-items-center mb-2">
+                                                <h5 class="abt-card-title m-0 text-truncate">${ad.title}</h5>
+                                                <span class="badge bg-danger px-2 py-1">مباشر</span>
+                                            </div>
+                                            <div class="bg-light p-2 rounded-3 mb-2 small" style="line-height: 1.8;">
+                                                <div><i class="fa-solid fa-align-right text-primary me-1"></i> ${ad.desc}</div>
+                                                <div><i class="fa-solid fa-location-dot text-danger me-1"></i> ${ad.locationText}</div>
+                                                <div><i class="fa-solid fa-user-tag text-success me-1"></i> ${ad.seller}</div>
+                                            </div>
+                                        </div>
+                                        <div class="d-flex justify-content-between align-items-center pt-2 border-top">
+                                            <div class="abt-card-price">${ad.price}</div>
+                                            <div class="action-btns-group">
+                                                <button class="btn btn-outline-secondary btn-sm px-2" onclick="shareAdDirect('${ad.title}')" title="مشاركة">
+                                                    <i class="fa-solid fa-share-nodes"></i>
+                                                </button>
+                                                <a href="tel:${cleanPhone}" class="btn-call-quick" title="اتصال">
+                                                    <i class="fa-solid fa-phone me-1"></i> اتصال
+                                                </a>
+                                                <a href="https://wa.me/${waPhone}?text=${encodeURIComponent('بخصوص إعلان: ' + ad.title + ' المعروض على منصة لقطة')}" target="_blank" class="btn-whatsapp-quick" title="واتساب">
+                                                    <i class="fa-brands fa-whatsapp me-1"></i> واتساب
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        `;
+                        container.insertAdjacentHTML('beforeend', cardHtml);
+                    });
                 }
-                loadedCloudAds = [staticKiaAd, ...cloudList];
-                renderCurrentAds();
-            }, (error) => {
-                loadedCloudAds = [staticKiaAd];
-                renderCurrentAds();
             });
         }
 
         function showNotification(msg) {
             const toastEl = document.getElementById('liveToast');
             document.getElementById('toastMessage').innerText = msg;
-            const toast = new bootstrap.Toast(toastEl);
-            toast.show();
-        }
-
-        let currentFilterCat = 'all';
-        let currentFilterLoc = 'all';
-        let currentSearchQuery = '';
-
-        function renderCurrentAds() {
-            const container = document.getElementById('adsContainer');
-            const emptyState = document.getElementById('emptyState');
-            container.innerHTML = '';
-
-            let count = 0;
-            const t = translations[currentLang];
-
-            loadedCloudAds.forEach(ad => {
-                const matchCat = (currentFilterCat === 'all' || ad.category === currentFilterCat);
-                const matchLoc = (currentFilterLoc === 'all' || (ad.locationText && ad.locationText.includes(currentFilterLoc)));
-                const textSearch = `${ad.title || ''} ${ad.desc || ''} ${ad.seller || ''} ${ad.locationText || ''}`.toLowerCase();
-                const matchText = (currentSearchQuery === '' || textSearch.includes(currentSearchQuery.toLowerCase()));
-
-                if (matchCat && matchLoc && matchText) {
-                    count++;
-                    const isFav = favorites.includes(ad.id);
-                    const colClass = loadedCloudAds.length === 1 ? 'col-12 col-sm-10 col-md-8 col-lg-6 mx-auto' : 'col-12 col-sm-6 col-lg-4';
-                    
-                    const thumbsHtml = ad.gallery && ad.gallery.length > 1 ? `
-                        <div class="gallery-thumbs-row">
-                            ${ad.gallery.map((img, i) => `
-                                <img src="${img}" class="thumb-btn-img ${i === 0 ? 'active' : ''}" onclick="switchAdThumb('${ad.id}', '${img}', this)" onerror="this.src='https://images.unsplash.com/photo-1552519507-da3b142c6e3d?auto=format&fit=crop&w=150&q=80'">
-                            `).join('')}
-                        </div>
-                    ` : '';
-
-                    const cleanPhone = (ad.phone || '').replace(/[^0-9]/g, '');
-                    const waPhone = cleanPhone.startsWith('0') ? '2' + cleanPhone : cleanPhone;
-
-                    const cardHtml = `
-                        <div class="${colClass} ad-item">
-                            <div class="abt-product-card shadow-sm" style="border: ${ad.isFlash ? '2px solid var(--pharaonic-gold)' : '1px solid var(--card-border)'};">
-                                <div class="abt-card-img" onclick="openPhotoModalDirect('${ad.mainImage}')">
-                                    <span class="badge-status ${ad.isFlash ? 'flash' : 'new'}">${ad.badge || t.directBadge + ' ⚡'}</span>
-                                    <button class="fav-heart-btn ${isFav ? 'is-favorite' : ''}" onclick="event.stopPropagation(); toggleFavorite('${ad.id}', this)" title="${t.favText}">
-                                        <i class="fa-regular fa-heart"></i>
-                                    </button>
-                                    <img id="img_${ad.id}" src="${ad.mainImage}" alt="${ad.title}" onerror="this.src='https://images.unsplash.com/photo-1552519507-da3b142c6e3d?auto=format&fit=crop&w=800&q=80'">
-                                </div>
-                                ${thumbsHtml}
-                                <div class="abt-card-body">
-                                    <div>
-                                        <div class="d-flex justify-content-between align-items-center mb-2">
-                                            <h5 class="abt-card-title m-0 text-truncate">${ad.title}</h5>
-                                            <span class="badge bg-danger px-2 py-1">${t.directBadge}</span>
-                                        </div>
-                                        <div class="bg-light p-2 rounded-3 mb-2 small" style="line-height: 1.8;">
-                                            <div><i class="fa-solid fa-align-right text-primary me-1"></i> ${ad.desc}</div>
-                                            <div><i class="fa-solid fa-location-dot text-danger me-1"></i> ${ad.locationText}</div>
-                                            <div><i class="fa-solid fa-user-tag text-success me-1"></i> ${ad.seller}</div>
-                                        </div>
-                                    </div>
-                                    <div class="d-flex justify-content-between align-items-center pt-2 border-top">
-                                        <div class="abt-card-price">${ad.price}</div>
-                                        <div class="action-btns-group">
-                                            <button class="btn btn-outline-secondary btn-sm px-2" onclick="shareAdDirect('${ad.title}')" title="Share">
-                                                <i class="fa-solid fa-share-nodes"></i>
-                                            </button>
-                                            <a href="tel:${cleanPhone}" class="btn-call-quick" title="${t.btnCall}">
-                                                <i class="fa-solid fa-phone me-1"></i> ${t.btnCall}
-                                            </a>
-                                            <a href="https://wa.me/${waPhone}?text=${encodeURIComponent('Regarding your listing: ' + ad.title + ' on Loqta platform')}" target="_blank" class="btn-whatsapp-quick" title="${t.btnWhatsapp}">
-                                                <i class="fa-brands fa-whatsapp me-1"></i> ${t.btnWhatsapp}
-                                            </a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    `;
-                    container.insertAdjacentHTML('beforeend', cardHtml);
-                }
-            });
-
-            if (count === 0) {
-                emptyState.classList.remove('d-none');
-            } else {
-                emptyState.classList.add('d-none');
-            }
+            new bootstrap.Toast(toastEl).show();
         }
 
         function handleAdSubmission(e) {
@@ -1370,12 +1332,12 @@
                     submitBtn.innerHTML = `<i class="fa-solid fa-bolt me-1"></i> ${translations[currentLang].btnPublishNow}`;
                     bootstrap.Modal.getInstance(document.getElementById('addAdModal')).hide();
                     e.target.reset();
-                    showNotification(currentLang === 'ar' ? '⚡ تم نشر إعلانك سحابياً ويظهر الآن لكل الناس!' : '⚡ Published to the live cloud!');
+                    showNotification(currentLang === 'ar' ? '⚡ تم نشر إعلانك ويظهر الآن لكل الناس!' : '⚡ Published live to everyone!');
                     document.getElementById('ads').scrollIntoView({ behavior: 'smooth' });
                 }).catch(() => {
                     submitBtn.disabled = false;
                     submitBtn.innerHTML = `<i class="fa-solid fa-bolt me-1"></i> ${translations[currentLang].btnPublishNow}`;
-                    showNotification('Error publishing');
+                    showNotification('Error');
                 });
             };
 
@@ -1387,14 +1349,12 @@
                         const canvas = document.createElement('canvas');
                         const ctx = canvas.getContext('2d');
                         const maxDim = 800;
-                        let w = img.width;
-                        let h = img.height;
+                        let w = img.width, h = img.height;
                         if (w > maxDim || h > maxDim) {
                             if (w > h) { h = Math.round((h * maxDim) / w); w = maxDim; }
                             else { w = Math.round((w * maxDim) / h); h = maxDim; }
                         }
-                        canvas.width = w;
-                        canvas.height = h;
+                        canvas.width = w; canvas.height = h;
                         ctx.drawImage(img, 0, 0, w, h);
                         uploadAndPublish(canvas.toDataURL('image/jpeg', 0.7));
                     };
@@ -1441,36 +1401,54 @@
                 showNotification(currentLang === 'ar' ? 'قائمة المفضلة فارغة حالياً' : 'Favorites list is empty');
                 return;
             }
-            const favAds = loadedCloudAds.filter(ad => favorites.includes(ad.id));
-            if (favAds.length > 0) {
-                currentFilterCat = 'all';
-                currentFilterLoc = 'all';
-                currentSearchQuery = '';
-                renderCurrentAds();
-            }
+            filterByChip('cars');
+        }
+
+        function applyClientFilters(category, location, text) {
+            const items = document.querySelectorAll('.ad-item');
+            let count = 0;
+
+            items.forEach(item => {
+                const itemCat = item.getAttribute('data-category') || '';
+                const itemLoc = item.getAttribute('data-location') || '';
+                const itemKw = item.getAttribute('data-keywords') || '';
+
+                const matchCat = (category === 'all' || itemCat === category);
+                const matchLoc = (location === 'all' || itemLoc.includes(location));
+                const matchText = (text === '' || itemKw.toLowerCase().includes(text.toLowerCase()));
+
+                if (matchCat && matchLoc && matchText) {
+                    item.classList.remove('d-none');
+                    count++;
+                } else {
+                    item.classList.add('d-none');
+                }
+            });
+
+            const emptyState = document.getElementById('emptyState');
+            if (count === 0) emptyState.classList.remove('d-none');
+            else emptyState.classList.add('d-none');
         }
 
         function executeSearch(e) {
             if(e) e.preventDefault();
-            currentSearchQuery = document.getElementById('searchInput').value.trim();
-            currentFilterCat = document.getElementById('searchCategory').value;
-            currentFilterLoc = document.getElementById('searchLocation').value;
-            renderCurrentAds();
+            const text = document.getElementById('searchInput').value.trim();
+            const cat = document.getElementById('searchCategory').value;
+            const loc = document.getElementById('searchLocation').value;
+            applyClientFilters(cat, loc, text);
         }
 
         function filterByCategory(category, el) {
             document.querySelectorAll('.category-item-abt').forEach(c => c.classList.remove('active'));
             if(el) el.classList.add('active');
-            currentFilterCat = category;
             document.getElementById('searchCategory').value = category;
-            renderCurrentAds();
+            applyClientFilters(category, 'all', '');
         }
 
         function filterByChip(chipType, el) {
             document.querySelectorAll('.filter-chip-btn').forEach(c => c.classList.remove('active'));
             if(el) el.classList.add('active');
-            currentFilterCat = chipType;
-            renderCurrentAds();
+            applyClientFilters(chipType, 'all', '');
         }
 
         function navigateSection(type) {
@@ -1482,18 +1460,12 @@
             document.getElementById('searchInput').value = '';
             document.getElementById('searchCategory').value = 'all';
             document.getElementById('searchLocation').value = 'all';
-            currentFilterCat = 'all';
-            currentFilterLoc = 'all';
-            currentSearchQuery = '';
-            renderCurrentAds();
+            applyClientFilters('all', 'all', '');
         }
 
         function shareAdDirect(title) {
             if (navigator.share) {
-                navigator.share({
-                    title: title + ' - Loqta',
-                    url: window.location.href,
-                }).catch(() => {});
+                navigator.share({ title: title + ' - Loqta', url: window.location.href }).catch(() => {});
             } else {
                 navigator.clipboard.writeText(window.location.href);
                 showNotification(currentLang === 'ar' ? 'تم نسخ رابط الإعلان بنجاح!' : 'Link copied!');
